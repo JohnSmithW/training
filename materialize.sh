@@ -2,7 +2,7 @@
 trap "exit 1" TERM
 export TOP_PID=$$
 
-materializeVersion="3.0.1"
+materializeVersion="3.0.2"
 
 # Parameters
 artifact=""
@@ -571,6 +571,12 @@ function materialize() {
   local groupId="${2}"
   local realVersion="${3}"
   local destinationDirectory="${4}"
+
+  # Check if destination directory exists.
+  if [ ! -d ${destinationDirectory} ]; then
+    echo -e "Unable to materialize ${groupId}:${artifactId}:${realVersion}. Destination directory '${destinationDirectory}' not found!"
+    return 1
+  fi
 
   echo "${INFO} Materializing ${groupId}:${artifactId}:${realVersion} into ${destinationDirectory}"
 
