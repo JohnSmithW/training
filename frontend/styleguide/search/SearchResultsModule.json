@@ -3,7 +3,11 @@
   "title": {
     "_include": "/_group/RichTextElementsTiny.json"
   },
+  "anchorId": "anchorTest",
   "query": "foo",
+  "searchInputPlaceholder": {
+    "_include": "/_group/RichTextElementsTiny.json"
+  },
   "filters": [
     {
       "_template": "SearchFilter.hbs",

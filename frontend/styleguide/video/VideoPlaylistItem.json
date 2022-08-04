@@ -1,7 +1,11 @@
 {
-  "_template": "/video/PlaylistItem.hbs",
+  "_template": "/video/VideoPlaylistItem.hbs",
   "media": {
     "_include": "/image/Image.json"
+  },
+  "player": {
+    "_include": "/_group/VideoPlayers.json",
+    "_key": 0
   },
   "date": "2019-04-11T08:35:03-0700",
   "duration": "1 min",

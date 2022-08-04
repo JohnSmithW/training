@@ -1,0 +1,18 @@
+{
+  "_template": "/download/promo/DownloadPromo.hbs",
+  "media": {
+    "_template": "/image/Image.hbs"
+  },
+  "title": {
+    "_include": "/_group/RichTextElementsTiny.json"
+  },
+  "description": {
+    "_include": "/_group/RichTextElementsTiny.json"
+  },
+  "fileSize": "2MB",
+  "fileType": "PDF",
+  "ctaText": {
+    "_include": "/_group/RichTextElementsTiny.json"
+  },
+  "url": "#"
+}
