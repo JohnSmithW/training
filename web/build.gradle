@@ -5,6 +5,7 @@ plugins {
 description = 'Brightspot Training: Web'
 
 dependencies {
+    api project(':brightspot-training-frontend')
     api project(':brightspot-training-core')
     api project(':brightspot-training-bundle-default')
 
@@ -58,7 +59,7 @@ test {
              systemProperties.put('theme.' + bundleProject.name + '.buildDir', themeBuildDir)
              systemProperties.put('theme.' + bundleProject.name + '.compatibilityTestMode', 'warn')
              systemProperties.put('theme.' + bundleProject.name + '.compatibilityExcludedPaths', '_files.json')
-             systemProperties.put(themeCdnCssFilesKey, 'styles/style-2/All.min.css,styles/style-1/All.min.css')
+             systemProperties.put(themeCdnCssFilesKey, 'styles/default/All.min.css')
         }
     }
 }
