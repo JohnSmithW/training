@@ -25,16 +25,6 @@ export class BSPForm extends window.HTMLElement {
       true
     )
 
-    // on blur
-    this.form.addEventListener(
-      'blur',
-      evt => {
-        this.setAttribute('invalid-form', 'false')
-        this.validateField(evt.target)
-      },
-      true
-    )
-
     // on submit
     this.formSubmit.addEventListener(
       'click',

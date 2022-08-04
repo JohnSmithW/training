@@ -1,4 +1,4 @@
 {
   "_template": "PageHeaderTextHat.hbs",
-  "text": "Text Hat"
+  "text": "{{words([5,15])}}"
 }

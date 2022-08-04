@@ -9,13 +9,16 @@ module.exports = merge(require('./webpack.common.js'), {
     new MiniCssExtractPlugin({
       filename: pathData => {
         if (
-          pathData.chunk.name === 'styles/amp/Amp.js' ||
-          pathData.chunk.name === 'newsletter/NewsletterInline.js' ||
-          pathData.chunk.name === 'newsletter/NewsletterEmbed.js'
+          pathData.chunk.name === 'newsletter/NewsletterInline.min.js' ||
+          pathData.chunk.name === 'newsletter/NewsletterEmbed.min.js'
         ) {
           return pathData.chunk.name.replace('.js', '') + '.css.hbs'
         } else {
-          return pathData.chunk.name.replace('.js', '') + '.css'
+          if (pathData.chunk.name === 'styles/amp/Amp.min.js') {
+            return pathData.chunk.name.replace('.js', '') + '.css.amp.hbs'
+          } else {
+            return pathData.chunk.name.replace('.js', '') + '.css'
+          }
         }
       }
     })
@@ -24,16 +27,7 @@ module.exports = merge(require('./webpack.common.js'), {
   module: {
     rules: [
       {
-        test: path.resolve(__dirname, './styleguide/styles/style-1/All.less'),
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-          'less-loader'
-        ]
-      },
-      {
-        test: path.resolve(__dirname, './styleguide/styles/style-2/All.less'),
+        test: path.resolve(__dirname, './styleguide/styles/default/All.less'),
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',

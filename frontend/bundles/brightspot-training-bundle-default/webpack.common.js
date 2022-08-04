@@ -4,14 +4,13 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    'styles/style-2/All.min.js': './styleguide/styles/style-2/All.js',
-    'styles/style-1/All.min.js': './styleguide/styles/style-1/All.js',
+    'styles/default/All.min.js': './styleguide/styles/default/All.js',
     'util/IEPolyfills.js': './styleguide/util/IEPolyfills.js',
-    'newsletter/NewsletterInline.js':
+    'newsletter/NewsletterInline.min.js':
       './styleguide/newsletter/NewsletterInline.js',
-    'newsletter/NewsletterEmbed.js':
+    'newsletter/NewsletterEmbed.min.js':
       './styleguide/newsletter/NewsletterEmbed.js',
-    'styles/amp/Amp.js': './styleguide/styles/amp/Amp.js'
+    'styles/amp/Amp.min.js': './styleguide/styles/amp/Amp.js'
   },
 
   output: {
@@ -24,24 +23,6 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        {
-          from: '**/*',
-          context: path.resolve(
-            __dirname,
-            './styleguide/styles/style-1/assets'
-          ),
-          to: './styleguide/styles/style-1/assets/',
-          info: { minimized: true }
-        },
-        {
-          from: '**/*',
-          context: path.resolve(
-            __dirname,
-            './styleguide/styles/style-2/assets'
-          ),
-          to: './styleguide/styles/style-2/assets/',
-          info: { minimized: true }
-        },
         {
           from: 'node_modules/@webcomponents/webcomponentsjs/bundles/*.js',
           to: 'webcomponents-loader/bundles/[name][ext]'

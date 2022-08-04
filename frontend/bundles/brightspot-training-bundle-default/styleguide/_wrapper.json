@@ -1,6 +1,6 @@
 {
   "_template": "/PreviewPage.hbs",
-  "title": "Brighspot Theme Preview Page",
+  "title": "Brightspot Theme Preview Page",
   "extraScripts": null,
   "extraStyles": {
     "_template": "/page/ExternalStyle.hbs",

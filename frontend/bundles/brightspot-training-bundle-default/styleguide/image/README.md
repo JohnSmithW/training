@@ -91,7 +91,7 @@ This is not really a different method, but lets dive into how this works, and ho
 #### Understanding where the mediaquery and alt crops come from
 Image.hbs is the template that powers all this. In that file you will find the following
 ```
-{{#set imageSize=(fallback (get "imageSizeAlt") (concat (fallback (get "imageSize") "large") "Alt"))}}
+{{#set imageSize=(fallback (get "imageSizeAlt") (concat (fallback (get "imageSize") "large-16x9") "Alt"))}}
     {{#set mediaQuery=(fallback (get "mediaQueryAlt") "(min-width: 768px)")}}
         {{include "/image/Source.hbs" this}}
     {{/set}}
@@ -109,7 +109,7 @@ The above file looks for an Alt suffixed version of the image... *With that in m
 ###### EXAMPLE
 Lets add a tablet breakpoint, and this one will react to suffix `Alt2`
 ```
-{{#set imageSize=(fallback (get "imageSizeAlt") (concat (fallback (get "imageSize") "large") "Alt"))}}
+{{#set imageSize=(fallback (get "imageSizeAlt") (concat (fallback (get "imageSize") "large-16x9") "Alt"))}}
     {{#set mediaQuery=(fallback (get "mediaQueryAlt") "(min-width: 768px)")}}
         {{include "/image/Source.hbs" this}}
     {{/set}}
@@ -118,7 +118,7 @@ Lets add a tablet breakpoint, and this one will react to suffix `Alt2`
 {{!ABOVE IS THE EXISTING ALT IMAGE}}
 {{!BELOW IS THE NEW ALT2 IMAGE, for a new different media query}}
 
-{{#set imageSize=(fallback (get "imageSizeAlt2") (concat (fallback (get "imageSize") "large") "Alt2"))}}
+{{#set imageSize=(fallback (get "imageSizeAlt2") (concat (fallback (get "imageSize") "large-16x9") "Alt2"))}}
     {{#set mediaQuery=(fallback (get "mediaQueryAlt2") "(min-width: 1440px)")}}
         {{include "/image/Source.hbs" this}}
     {{/set}}

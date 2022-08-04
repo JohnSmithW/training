@@ -1,12 +1,6 @@
 {
   "styles": {
     "/page/promo/PagePromoModule.hbs": {
-      "fields": [
-        "hideAuthor",
-        "hideCategory",
-        "hideDate",
-        "hideDescription"
-      ],
       "templates": [
         {
           "displayName": "PagePromo Module A",
@@ -14,16 +8,28 @@
           "height": 800,
           "width": 1024,
           "fields": [
+            "hideCategory",
+            "showByline",
+            "imageAspectRatio",
             "imagePositionVertical",
+            "textAlign",
             "backgroundColor",
-            "inverseColors"
+            "inverseColors",
+            "animateOnScroll"
           ]
         },
         {
           "displayName": "PagePromo Module B",
           "example": "/page/promo/PagePromoModuleB.json",
           "height": 800,
-          "width": 1024
+          "width": 1024,
+          "fields": [
+            "hideCategory",
+            "showByline",
+            "imageAspectRatio",
+            "textAlign",
+            "animateOnScroll"
+          ]
         },
         {
           "displayName": "PagePromo Module C",
@@ -31,19 +37,14 @@
           "height": 800,
           "width": 1024,
           "fields": [
+            "hideCategory",
+            "showByline",
+            "imageAspectRatio",
             "imagePositionHorizontal",
+            "imageWidth",
             "backgroundColor",
-            "inverseColors"
-          ]
-        },
-        {
-          "displayName": "PagePromo Module D",
-          "example": "/page/promo/PagePromoModuleD.json",
-          "height": 800,
-          "width": 1024,
-          "fields": [
-            "textAlign",
-            "opacityOverlay"
+            "inverseColors",
+            "animateOnScroll"
           ]
         },
         {

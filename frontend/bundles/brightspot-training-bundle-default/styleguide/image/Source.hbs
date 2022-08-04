@@ -1,4 +1,4 @@
-{{#resize image (fallback (get "imageSize") "large")}}
+{{#resize image (fallback (get "imageSize") "large-16x9")}}
     {{#or webpSrcset webpSrc}}{{! WEBP filetype}}
         {{~#if webpSrcset}}
             {{include "/image/SourceTag.hbs" this src=webpSrcset type="image/webp"}}

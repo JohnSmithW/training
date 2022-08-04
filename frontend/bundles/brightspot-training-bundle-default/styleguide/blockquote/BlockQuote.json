@@ -1,6 +1,6 @@
 {
   "_template": "BlockQuote.hbs",
-  "quote": "Ham bresaola strip steak, jowl shoulder bacon tail fatback jerky ribeye chuck cupim.",
-  "attribution": "Bacon ipsum dolor amet",
+  "quote": "{{words([10,15])}}",
+  "attribution": "{{words([5,15])}}",
   "_hidden": true
 }

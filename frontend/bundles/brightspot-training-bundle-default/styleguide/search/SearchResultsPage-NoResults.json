@@ -4,11 +4,12 @@
   "above": {
     "_include": "/dfp/GoogleDfpAdModule.json"
   },
-  "query": "Bacon Ipsum",
+  "title": "Search Results",
+  "query": "{{words([2,5])}}",
   "filters": [
     {
       "_template": "/search/SearchFilter.hbs",
-      "heading": "Type",
+      "heading": "{{words([1,2])}}",
       "items": [
         {
           "_include": "/search/SearchFilterInput.json",
@@ -18,57 +19,57 @@
         {
           "_include": "/search/SearchFilterInput.json",
           "url": "#",
-          "label": "Articles",
+          "label": "{{words([1,2])}}",
           "count": 1234,
           "selected": true
         },
         {
           "_include": "/search/SearchFilterInput.json",
           "url": "#",
-          "label": "Photos",
+          "label": "{{words([1,2])}}",
           "count": 567
         },
         {
           "_include": "/search/SearchFilterInput.json",
           "url": "#",
-          "label": "Videos",
+          "label": "{{words([1,2])}}",
           "count": 89
         }
       ]
     },
     {
       "_template": "/search/SearchFilter.hbs",
-      "heading": "Countries",
+      "heading": "{{words([1,2])}}",
       "items": [
         {
           "_include": "/search/SearchFilterInput.json",
           "url": "#",
-          "label": "All"
+          "label": "{{words([1,2])}}"
         },
         {
           "_include": "/search/SearchFilterInput.json",
           "url": "#",
-          "label": "Ireland",
+          "label": "{{words([1,2])}}",
           "count": 1337,
           "selected": true
         },
         {
           "_include": "/search/SearchFilterInput.json",
           "url": "#",
-          "label": "The Democratic Republic of Sao Tome and Principe",
+          "label": "{{words([1,2])}}",
           "count": 567
         },
         {
           "_include": "/search/SearchFilterInput.json",
           "url": "#",
-          "label": "USA",
+          "label": "{{words([1,2])}}",
           "count": 89
         }
       ]
     },
     {
       "_template": "/search/SearchFilter.hbs",
-      "heading": "Brands",
+      "heading": "{{words([1,2])}}",
       "items": [
         {
           "_include": "/search/SearchFilterInput.json",
@@ -78,19 +79,19 @@
         {
           "_include": "/search/SearchFilterInput.json",
           "url": "#",
-          "label": "Coca Cola",
+          "label": "{{words([1,2])}}",
           "count": 1337
         },
         {
           "_include": "/search/SearchFilterInput.json",
           "url": "#",
-          "label": "BCG",
+          "label": "{{words([1,2])}}",
           "count": 567
         },
         {
           "_include": "/search/SearchFilterInput.json",
           "url": "#",
-          "label": "Walmart",
+          "label": "{{words([1,2])}}",
           "count": 89,
           "selected": true
         }
@@ -98,7 +99,7 @@
     },
     {
       "_template": "/search/SearchFilter.hbs",
-      "heading": "Topics",
+      "heading": "{{words([1,2])}}",
       "items": [
         {
           "_include": "/search/SearchFilterInput.json",
@@ -108,20 +109,20 @@
         {
           "_include": "/search/SearchFilterInput.json",
           "url": "#",
-          "label": "Topic 1",
+          "label": "{{words([1,2])}}",
           "count": 1337
         },
         {
           "_include": "/search/SearchFilterInput.json",
           "url": "#",
-          "label": "Topic 2",
+          "label": "{{words([1,2])}}",
           "count": 567
         }
       ]
     },
     {
       "_template": "/search/SearchFilter.hbs",
-      "heading": "Products",
+      "heading": "{{words([1,2])}}",
       "items": [
         {
           "_include": "/search/SearchFilterInput.json",
@@ -131,59 +132,13 @@
         {
           "_include": "/search/SearchFilterInput.json",
           "url": "#",
-          "label": "Product 1",
+          "label": "{{words([1,2])}}",
           "count": 1337
         },
         {
           "_include": "/search/SearchFilterInput.json",
           "url": "#",
-          "label": "Product 2",
-          "count": 567
-        }
-      ]
-    },
-    {
-      "_template": "/search/SearchFilter.hbs",
-      "heading": "Tags",
-      "items": [
-        {
-          "_include": "/search/SearchFilterInput.json",
-          "url": "#",
-          "label": "All"
-        },
-        {
-          "_include": "/search/SearchFilterInput.json",
-          "url": "#",
-          "label": "Tag 1",
-          "count": 1337
-        },
-        {
-          "_include": "/search/SearchFilterInput.json",
-          "url": "#",
-          "label": "Tag 2",
-          "count": 567
-        }
-      ]
-    },
-    {
-      "_template": "/search/SearchFilter.hbs",
-      "heading": "Sections",
-      "items": [
-        {
-          "_include": "/search/SearchFilterInput.json",
-          "url": "#",
-          "label": "All"
-        },
-        {
-          "_include": "/search/SearchFilterInput.json",
-          "url": "#",
-          "label": "Section 1",
-          "count": 1337
-        },
-        {
-          "_include": "/search/SearchFilterInput.json",
-          "url": "#",
-          "label": "Section 2",
+          "label": "{{words([1,2])}}",
           "count": 567
         }
       ]

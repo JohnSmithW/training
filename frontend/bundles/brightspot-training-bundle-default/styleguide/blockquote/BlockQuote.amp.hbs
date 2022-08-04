@@ -1,13 +1,8 @@
-<div class="Enhancement">
-    <div class="Enhancement-item">
-        <div class="Quote" {{extraAttributes}}>
-            <blockquote>
-                {{~quote~}}
-            </blockquote>
+<div class="BlockQuote" {{extraAttributes}}>
+            
+    {{~quote~}}
 
-            {{#with attribution}}
-                <div class="Quote-attribution">{{this}}</div>
-            {{/with}}
-        </div>
-    </div>
+    {{#with attribution}}
+        <div class="BlockQuote-attribution">{{this}}</div>
+    {{/with}}
 </div>

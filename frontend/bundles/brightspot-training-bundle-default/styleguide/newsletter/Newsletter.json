@@ -10,19 +10,25 @@
   "banner": [
     {
       "_template": "/newsletter/NewsletterPromoBanner.hbs",
-      "description": ["{{html('<p>Tom Test Newsletter Banner</p>')}}"],
+      "description": ["{{paragraphs(1)}}"],
       "isNotUTMCapable": "false",
-      "title": "Tom Test Newsletter Banner"
+      "title": "{{words([5,10])}}"
     }
   ],
   "footer": [
     {
       "_template": "/newsletter/NewsletterFooter.hbs",
-      "body": ["{{html('<p>Tom Test Newsletter Footer Disclaimer</p>')}}"],
-      "extraLinks": [],
+      "body": ["{{paragraphs(1)}}"],
       "isNotUTMCapable": "false",
-      "links": [],
-      "social": []
+      "links": [
+        {
+          "_include": "/link/Link.json",
+          "_repeat": 4
+        }
+      ],
+      "social": {
+        "_include": "/social/SocialBar.json"
+      }
     }
   ],
   "header": [
@@ -41,37 +47,27 @@
           "narrowImage": {
             "_image": true,
             "src": "https://free-trials-brightspot.s3.amazonaws.com/starter-kit/basic/ee/f6/705de4b1452c86ddab2a2f8b22c7/brightspot-logo.png"
-          },
-          "slimFooter": false
+          }
         }
       ],
       "publishDate": "May 06, 2021 11:44 AM",
-      "title": "Tom Test Newsletter Header"
+      "title": "{{words([5,10])}}"
     }
   ],
   "language": "en",
   "main": [
     {
-      "_template": "/newsletter/NewsletterPromo.hbs",
-      "description": ["{{html('Tom Test Newsletter <b>Promo</b> Description')}}"],
-      "category": ["{{html('Tom Test Newsletter <b>Promo</b> Category')}}"],
-      "isNotUTMCapable": "false",
-      "media": [
-        {
-          "_template": "/image/Image.hbs",
-          "alt": "Sample Image",
-          "image": {
-            "_image": true,
-            "src": "https://free-trials-brightspot.s3.amazonaws.com/starter-kit/basic/84/e6/c76f39114e98881a80bb90be9d86/blue.png"
-          },
-          "narrowImage": {
-            "_image": true,
-            "src": "https://free-trials-brightspot.s3.amazonaws.com/starter-kit/basic/84/e6/c76f39114e98881a80bb90be9d86/blue.png"
-          }
-        }
-      ],
-      "title": ["{{html('Tom Test Newsletter Promo Title')}}"],
-      "url": "https://www.brightspot.com"
+      "_include": "/newsletter/NewsletterPromo.json"
+    },
+    {
+      "_include": "/newsletter/NewsletterQuote.json"
+    },
+    {
+      "_include": "/newsletter/NewsletterRichTextModule.json"
+    },
+    {
+      "_include": "/newsletter/NewsletterList.json"
     }
-  ]
+  ],
+  "_env": "styleguide"
 }

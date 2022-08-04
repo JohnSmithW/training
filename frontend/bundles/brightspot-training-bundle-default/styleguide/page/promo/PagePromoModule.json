@@ -3,17 +3,18 @@
   "media": {
     "_include": "/image/Image.json"
   },
-  "authorName": "Corned beef shank ",
+  "authorName": "{{name}}",
   "authorUrl": "#",
   "authorImage": {
     "_include": "/image/Image.json"
   },
-  "publishDate": "2019-04-11T08:35:03-0700",
+  "publishDate": "{{date}}",
   "url": "#",
   "target": "_self",
-  "category": "Ipsum",
+  "category": "{{words([1,3])}}",
   "categoryUrl": "#",
-  "type": "Ipsum",
-  "title": "Bacon ipsum dolor amet rump pancetta jowl shoulder bacon tail fatback ground round sirloin",
-  "description": "Ham bresaola strip steak, jowl shoulder bacon tail fatback jerky ribeye chuck cupim. Corned beef shank ground round sirloin. Fatback jerky ribeye chuck jowl shoulder bacon"
+  "type": "{{words(1)}}",
+  "title": "{{words([5,10])}}",
+  "description": "{{words([15,25])}}",
+  "ctaButtonText": "{{words([1,3])}}"
 }

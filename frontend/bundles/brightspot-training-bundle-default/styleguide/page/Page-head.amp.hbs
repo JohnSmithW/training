@@ -7,12 +7,21 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{#with font1}}{{this}}{{else}}Roboto{{/with}}:300,400,700|{{#with font2}}{{this}}{{else}}Merriweather{{/with}}:300,400,700">
 
-    <style amp-custom>
-        {{include "/global/Colors.hbs" this}}
-        {{include "/global/Typography.amp.hbs" this}}
-        {{include "/styles/amp/Amp.min.css.amp.hbs"}}
-        {{ampCustom}}
-    </style>
+    {{#eq _env "styleguide"}}
+        <style amp-custom>
+            {{include "/global/Colors.amp.hbs" this}}
+            {{include "/global/Typography.amp.hbs" this}}
+            {{ampCustom}}
+        </style>
+        <script src="/styles/amp/Amp.min.js" async></script>
+    {{else}}
+         <style amp-custom>
+            {{include "/global/Colors.amp.hbs" this}}
+            {{include "/global/Typography.amp.hbs" this}}
+            {{include "/styles/amp/Amp.min.css.hbs"}}
+            {{ampCustom}}
+        </style>
+    {{/eq}}
 
     {{~#with jsonLinkedData}}<script type="application/ld+json">{{this}}</script>{{/with~}}
 
@@ -20,7 +29,6 @@
 
     {{~#with title}}<title>{{this}}</title>{{/with~}}
     {{~#with description}}<meta name="description" content="{{this}}">{{/with~}}
-    {{~#with keywords}}<meta name="keywords" content="{{this}}">{{/with~}}
     {{~#with canonicalLink}}<link rel="canonical" href="{{this}}">{{/with~}}
     <meta name="viewport" content="{{#with viewport}}{{this}}{{else}}width=device-width,minimum-scale=1,initial-scale=1{{/with}}">
 
@@ -33,15 +41,15 @@
 
     {{~#with feedLink}}{{this}}{{/with~}}
 
-    <!-- For local testing - BE generally serves these up -->
-    <!-- <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
-        <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
-        <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
-    -->
-
     <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
     <script async src="https://cdn.ampproject.org/v0.js"></script>
    	<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+
+    {{#eq _env "styleguide"}}
+        <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+        <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+        <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+    {{/eq}}
 
     {{~#with dssScripts}}{{this}}{{/with~}}
 </head>

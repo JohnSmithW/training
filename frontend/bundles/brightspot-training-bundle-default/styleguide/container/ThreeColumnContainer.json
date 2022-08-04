@@ -2,6 +2,7 @@
   "_template": "/container/ThreeColumnContainer.hbs",
   "title": "{{words([5,10])}}",
   "description": "{{words([15,30])}}",
+  "anchorId": "anchorTest",
   "columnOne": {
     "_template": "/text/RichTextModule.hbs",
 

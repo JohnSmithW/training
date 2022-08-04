@@ -1,14 +1,12 @@
-{{#resize image (fallback (get "imageSize") "large")}}
-    <img class="Image" alt="{{../alt}}"
+{{#resize image (fallback (get "imageSize") "large-16x9")}}
+    <img class="Image"
+        {{~#with ../alt}} alt="{{this}}"{{/with~}}
         {{~#with srcset}} srcset="{{this}}"{{/with~}}
         {{~#with width}} width="{{this}}"{{/with~}}
         {{~#with height}} height="{{this}}"{{/with~}}
-        {{~#if (get "tabIndex")}} tabindex="0"{{/if}}
-        {{~#if (get "rolePresentation")}} role="presentation"{{/if}}
-        {{~#eq (get "lazyLoad") false}}
-        src="{{src}}"
-        {{~else}}
-        data-src="{{src}}" data-lazy-load="true" src="{{svgPlaceholder width height}}"
-        {{/eq~}}
+        {{~#if (get "tabIndex")}} tabindex="0"{{/if~}}
+        {{~#if (get "rolePresentation")}} role="presentation"{{/if~}}
+        {{~#with src}} src="{{this}}"{{/with~}}
+        {{~#ne (get "lazyLoad") false}} loading="lazy"{{/ne~}}
     >
 {{/resize}}

@@ -2,6 +2,6 @@
     "_template": "Link.hbs",
     "href": "#",
     "target": "_self",
-    "body": "Link Text",
+    "body": "{{words([2,5])}}",
     "contentId": "a123"
 }

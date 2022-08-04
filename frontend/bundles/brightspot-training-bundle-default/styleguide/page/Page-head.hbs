@@ -4,6 +4,7 @@
     {{~#with meta}}{{this}}{{/with~}}
 
     <style type="text/css">{{include "/global/Colors.hbs" this}}</style>
+    <style type="text/css">{{include "/global/LinkButton.hbs" this}}</style>
     <style type="text/css">{{include "/global/Typography.hbs" this}}</style>
 
     {{#if stylePackage}}
@@ -18,7 +19,7 @@
             {{/with}}
         {{/each}}
     {{else}}
-        <link data-cssvarsponyfill="true" class="Webpack-css" rel="stylesheet" href="/styles/style-2/All.min.css">
+        <link data-cssvarsponyfill="true" class="Webpack-css" rel="stylesheet" href="{{cdn '/styles/default/All.min.css'}}">
     {{/if}}
 
     {{~#with extraStyles}}{{this}}{{/with~}}
@@ -27,7 +28,6 @@
 
     {{~#with title}}<title>{{this}}</title>{{/with~}}
     {{~#with description}}<meta name="description" content="{{this}}">{{/with~}}
-    {{~#with keywords}}<meta name="keywords" content="{{this}}">{{/with~}}
     {{~#with canonicalLink}}<link rel="canonical" href="{{this}}">{{/with~}}
     {{~#with contentId}}<meta name="brightspot.contentId" content="{{this}}">{{/with~}}
 
@@ -75,7 +75,7 @@
             {{/with}}
         {{/each}}
     {{else}}
-        <script src="/styles/style-2/All.min.js" async></script>
+        <script src="{{cdn '/styles/default/All.min.js'}}" async></script>
     {{/if}}
 
     {{~#with extraScripts}}{{this}}{{/with~}}

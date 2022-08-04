@@ -1,0 +1,42 @@
+.CarouselSlide {
+  &-count {
+    &:extend(.label-4);
+
+    margin-top: 10px;
+  }
+
+  &-divider {
+    margin: 0 5px;
+  }
+
+  &-info {
+    &:extend(.caption-1);
+    margin-top: 10px;
+
+    &-attribution {
+      &:extend(.caption-1 all);
+
+      // sometimes we get p tags here
+      p {
+        display: inline;
+      }
+    }
+
+    &-description {
+      &:extend(.description-3 all);
+
+      // sometimes we get p tags here
+      p {
+        display: inline;
+      }
+    }
+  }
+
+  &-infoAttribution {
+    margin-top: 10px;
+  }
+
+  &-slideCount {
+    font-weight: bold;
+  }
+}

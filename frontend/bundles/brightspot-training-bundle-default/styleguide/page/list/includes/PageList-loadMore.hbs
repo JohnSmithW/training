@@ -2,7 +2,7 @@
     {{#if @last}}
         <div class="PageList-nextPage" data-list-loadmore-pagination>
             <span class="PageList-nextPage-loading"></span>
-            <a class="Button" href="{{href}}" rel="nofollow">{{format "/page/list/PageList" "loadMoreText"}}</a>
+            <a class="Button" data-style="pill" href="{{href}}" rel="nofollow">{{format "/page/list/PageList" "loadMoreText"}}</a>
         </div>
     {{/if}}
 {{/each}}

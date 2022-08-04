@@ -33,7 +33,7 @@
                     <div class="Page-articleBody">
                         <div class="AuthorPage-biography">
                             <div class="AuthorPage-biography-content">
-                            {{#set imageSize="medium"}}
+                            {{#set imageSize="medium-4x3"}}
                                 <div class="RichTextBody">{{this}}</div>
                             {{/set}}
                             </div>
@@ -48,6 +48,8 @@
                         {{/each}}
                     </div>
                 {{/with}}
+
+                {{include "/page/Page-commenting.hbs" this}}
             </main>
 
             {{#if aside}}

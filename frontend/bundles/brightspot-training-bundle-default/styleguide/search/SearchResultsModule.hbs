@@ -1,12 +1,13 @@
 <bsp-search-results-module class="SearchResultsModule">
+    {{include "/link/AnchorLink.hbs" this}}
     <form class="SearchResultsModule-form">
             <div class="SearchResultsModule-topContainer">
-                <h1 class="SearchResultsPage-pageHeading">{{format "searchPageTitle"}}</h1>
+                <h1 class="SearchResultsModule-pageHeading">{{#if title}}{{title}}{{else}}{{format "searchPageTitle"}}{{/if}}</h1>
                 <div class="SearchResultsModule-query">
                     {{#if query}}
                         <input type="text" class="SearchResultsModule-formInput" name="q" value="{{query}}" aria-label="search" />
                     {{else}}
-                        <input type="text" class="SearchResultsModule-formInput" name="q" aria-label="search" placeholder="{{format 'noQueryText'}}" />
+                        <input type="text" class="SearchResultsModule-formInput" name="q" aria-label="search" placeholder={{#if searchInputPlaceholder}}"{{searchInputPlaceholder}}"{{else}}"{{format 'noQueryText'}}"{{/if}} />
                     {{/if}}
                     <button type="submit" class="SearchResultsModule-formButton">
                         <svg><use xlink:href="#icon-magnify"></use></svg><span class="sr-only">{{format "submitLabel"}}</span>
@@ -15,7 +16,7 @@
             </div>
 
             <div class="SearchResultsModule-ajax">
-                <div class="SearchResultsModule-ajaxContent" data-has-results="{{#if items}}true{{else}}false{{/if}}">
+                <div class="SearchResultsModule-ajaxContent" data-has-results="{{#or items spotlights}}true{{else}}false{{/or}}">
                     {{#unless items}}
                         {{#if query}}
                             <div class="SearchResultsModule-noResults">{{format "/search/SearchResultsModule" "noResultsText"
@@ -26,14 +27,13 @@
                     {{/unless}}
 
                     <bsp-search-filters class="SearchResultsModule-filters">
-                        <div class="SearchResultsModule-wrapper">
+                        <div class="SearchResultsModule-wrapper" {{#if filters}}data-has-filters{{/if}}>
+                            <span class="SearchResultsModule-count-mobile">
+                                {{{format "/search/SearchResultsModule" "foundCountMobileText" resultsCount=count searchQuery=query}}}
+                            </span>
                             <!-- ASIDE -->
-                            <aside class="SearchResultsModule-aside">
-                                    <div class="SearchResultsModule-count">
-                                        <span class="SearchResultsModule-count-mobile">
-                                        {{format "/search/SearchResultsModule" "foundCountMobileText" resultsCount=count}}
-                                        </span>
-                                    </div>
+                            {{#if filters}}
+                                <aside class="SearchResultsModule-aside">
                                     <button class="SearchResultsModule-filters-open"><span class="sr-only">{{format "/search/SearchResultsModule" "filtersOpen"}}</span>{{format "/search/SearchResultsModule" "filterTitle"}}<svg class="icon-filter"><use xlink:href="#chevron"></use></svg></button>
                                     <div class="SearchResultsModule-filters-overlay">
 
@@ -43,9 +43,9 @@
 
                                         <!-- List of currently selected filters -->
                                         <div class="SearchResultsModule-filters-selected">
-                                        <div class="SearchResultsModule-filters-selected-heading">
-                                            <div class="SearchResultsModule-filters-selected-title">{{format "selectedFiltersTitle"}}</div>
-                                            <a class="SearchResultsModule-filters-selected-reset" href="#" title="{{format "selectedFiltersReset"}}">{{format "selectedFiltersReset"}}</a>
+                                            <div class="SearchResultsModule-filters-selected-heading">
+                                                <div class="SearchResultsModule-filters-selected-title">{{format "selectedFiltersTitle"}}</div>
+                                                <a class="SearchResultsModule-filters-selected-reset" href="#" title="{{format "selectedFiltersReset"}}">{{format "selectedFiltersReset"}}</a>
                                             </div>
                                             <div class="SearchResultsModule-filters-selected-content"></div>
                                         </div>
@@ -66,17 +66,16 @@
                                     <div class="SearchResultsModule-pageAside">
                                         {{#with aside}} {{this}} {{/with}}
                                     </div>
-                            </aside>
+                                </aside>
+                            {{/if}}
 
                             <!-- MAIN -->
                             <main class="SearchResultsModule-main">
                                 <div class="SearchResultsModule-results-header">
                                     {{#if query}}
-                                        <div class="SearchResultsModule-count">
-                                            <span class="SearchResultsModule-count-desktop">
-                                                {{format "/search/SearchResultsModule" "foundCountText" resultsCount=count searchQuery=query}}
-                                            </span>
-                                        </div>
+                                        <span class="SearchResultsModule-count-desktop">
+                                            {{{format "/search/SearchResultsModule" "foundCountText" resultsCount=count searchQuery=query}}}
+                                        </span>
                                     {{/if}}
                                     <div class="SearchResultsModule-results-header-end">
                                         {{#if sorts}}
@@ -103,7 +102,7 @@
                                             {{#with spotlights}}
                                                 {{#each this}}
                                                     <li class="SearchResultsModule-spotlights-item">
-                                                        {{render this [/page/promo/PagePromoModule.hbs]="/page/promo/PagePromoModuleC.hbs"}}
+                                                        {{include "/page/promo/PagePromo.hbs" this ctaButtonText=null}}
                                                     </li>
                                                 {{/each}}
                                             {{/with}}
@@ -114,13 +113,17 @@
                                             {{#with items}}
                                                 {{#each this}}
                                                 <li class="SearchResultsModule-results-item">
-                                                    {{include "/page/promo/PagePromoB.hbs" this}}
+                                                    {{include "/page/promo/PagePromo.hbs" this}}
                                                 </li>
                                                 {{/each}}
                                             {{/with}}
                                         </ul>
 
-                                        {{include '/global/Pagination.hbs' this}}
+                                        {{#if paginate}}
+                                            {{include '/global/Pagination.hbs' this}}
+                                        {{else}}
+                                            {{include '/global/LoadMore.hbs' this}}
+                                        {{/if}}
                                     {{/if}}
                             </main>
                         </div>

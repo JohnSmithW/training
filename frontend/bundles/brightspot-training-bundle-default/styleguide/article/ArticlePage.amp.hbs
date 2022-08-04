@@ -13,7 +13,7 @@
             {{#eq (get "leadStyle") "overlay"}}
                 {{#if lead}}
                     {{#set imageSize="large-square"}}
-                        {{#set imageSizeAlt="xl-2x1"}}
+                        {{#set imageSizeAlt="xl-16x9"}}
                             <div class="Page-lead">
                                 {{#with lead}}
                                     {{this}}
@@ -52,7 +52,7 @@
 
                 {{#if aside}}
                     {{#eq (get "leadStyle") "large"}}
-                        {{#set imageSize="xl-2x1"}}
+                        {{#set imageSize="xl-16x9"}}
                             {{include "/page/Page-lead.amp.hbs" this}}
                         {{/set}}
                     {{/eq}}
@@ -85,17 +85,17 @@
                             </div>
                         </div>
                     </div>
-                    {{#set imageSize="large-2x1"}}
+                    {{#set imageSize="large-16x9"}}
                         {{include "/page/Page-lead.amp.hbs" this}}
                     {{/set}}
                 {{else}}
                     {{#unless (get "leadStyle")}}
-                        {{#set imageSize="large-2x1"}}
+                        {{#set imageSize="large-16x9"}}
                             {{include "/page/Page-lead.amp.hbs" this}}
                         {{/set}}
                     {{else}}
                         {{#eq (get "leadStyle") "standard"}}
-                            {{#set imageSize="large-2x1"}}
+                            {{#set imageSize="large-16x9"}}
                                 {{include "/page/Page-lead.amp.hbs" this}}
                             {{/set}}
                         {{/eq}}
@@ -104,7 +104,7 @@
 
                 {{#with articleBody}}
                     <div class="Page-articleBody">
-                        {{#set imageSize="large-2x1-notfixed"}}
+                        {{#set imageSize="large-16x9"}}
                             {{this}}
                         {{/set}}
                     </div>

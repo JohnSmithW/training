@@ -42,10 +42,8 @@ export class GalleryPageCarousel extends window.HTMLElement {
   }
 
   onSlideChange (index) {
-    if (this.querySelector('[class$="-aside-slide"][active]')) {
-      this.querySelector('[class$="-aside-slide"][active]').removeAttribute(
-        'active'
-      )
+    if (this.querySelector('[class$="-slide"][active]')) {
+      this.querySelector('[class$="-slide"][active]').removeAttribute('active')
     }
 
     this.querySelector('[data-slide-id="slide-' + index + '"]').setAttribute(

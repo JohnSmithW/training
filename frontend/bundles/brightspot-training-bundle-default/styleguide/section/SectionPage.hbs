@@ -11,15 +11,15 @@
             <div class="Page-pageLead" data-pagelead>{{this}}</div>
         {{/with}}
 
-        {{#unless sectionNavInsidePageHeading}}
+        {{#if sectionNavigation}}
             {{include "/section/SectionNavigation.hbs" this}}
-        {{/unless}}
+        {{/if}}
 
         {{#if aside}}
                 <div class="Page-twoColumn">
                     <main class="Page-main">
                     {{#each main}}
-                        {{render this [/page/list/PageList.hbs]="/page/list/PageListH.hbs"}}
+                        {{render this [/page/list/PageList.hbs]="/page/list/PageListStandardD.hbs"}}
                     {{/each}}
                     </main>
                     <aside class="Page-aside">
@@ -30,7 +30,7 @@
             {{#with main}}
                 <main class="Page-oneColumn" data-modulewell>
                     {{#each this}}
-                        {{render this [/page/list/PageList.hbs]="/page/list/PageListH.hbs"}}
+                        {{render this [/page/list/PageList.hbs]="/page/list/PageListStandardD.hbs"}}
                     {{/each}}
                 </main>
             {{/with}}

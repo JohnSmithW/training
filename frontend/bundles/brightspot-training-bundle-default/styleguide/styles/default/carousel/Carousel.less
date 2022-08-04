@@ -1,0 +1,30 @@
+.Carousel {
+  display: block;
+  height: auto;
+  position: relative;
+
+  .flickity-prev-next-button {
+    transform: none; // flickity overrides the top and makes the arrow janky, this fixes it
+  }
+
+  &-slide {
+    display: none;
+    width: 100%;
+
+    &:first-of-type {
+      display: block;
+    }
+
+    .flickity-enabled & {
+      display: block;
+    }
+  }
+
+  @media @mq-xl {
+    .flickity-prev-next-button {
+      svg {
+        top: -2px;
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 <div class="NavigationItem {{#if items}} has-menu{{/if}}" {{extraAttributes}}>
     <div class="NavigationItem-text">
         {{#if href}}
-            <a href="{{href}}"{{#with target}} target="{{this}}"{{/with}}{{extraAttributes}}>{{~text~}}</a>
+            <a {{#if showAsButton}}class="Button" data-style="pill"{{/if}} href="{{href}}"{{#with target}} target="{{this}}"{{/with}}{{extraAttributes}}>{{~text~}}</a>
         {{else}}
             <span>{{~text~}}</span>
         {{/if}}

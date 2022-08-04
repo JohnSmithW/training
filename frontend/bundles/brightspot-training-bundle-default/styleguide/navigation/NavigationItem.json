@@ -1,48 +1,28 @@
 {
   "_template": "/navigation/NavigationItem.hbs",
-  "text": "Nav Item",
+  "text": "{{words([1,2])}}",
   "href": "#",
   "target": "_self",
   "items": [
     {
       "_include": "/navigation/NavigationLink.json",
-      "text": "Nav Item 1"
+      "text": "{{words(1)}}"
     },
     {
       "_include": "/navigation/NavigationLink.json",
-      "text": "Nav Item 2"
+      "text": "{{words(1)}}"
     },
     {
       "_include": "/navigation/NavigationLink.json",
-      "text": "Nav Item 3"
+      "text": "{{words(1)}}"
     },
     {
       "_include": "/navigation/NavigationLink.json",
-      "text": "Nav Item 4"
+      "text": "{{words(1)}}"
     },
     {
       "_include": "/navigation/NavigationLink.json",
-      "text": "Nav Item 5"
-    },
-    {
-      "_include": "/navigation/NavigationLink.json",
-      "text": "Nav Item 6"
-    },
-    {
-      "_include": "/navigation/NavigationLink.json",
-      "text": "Nav Item 7"
-    },
-    {
-      "_include": "/navigation/NavigationLink.json",
-      "text": "Nav Item 8"
-    },
-    {
-      "_include": "/navigation/NavigationLink.json",
-      "text": "Nav Item 9"
-    },
-    {
-      "_include": "/navigation/NavigationLink.json",
-      "text": "Nav Item 10"
+      "text": "{{words(1)}}"
     }
   ]
 }

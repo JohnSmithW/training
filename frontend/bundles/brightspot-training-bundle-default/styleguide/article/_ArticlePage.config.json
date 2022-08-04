@@ -2,7 +2,8 @@
   "styles": {
     "/article/ArticlePage.hbs": {
         "fields": [
-            "articleLeadStyle"
+            "articleLeadStyle",
+            "suppressCommenting"
         ]
     }
   }

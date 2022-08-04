@@ -1,6 +1,6 @@
 {
   "_include": "/search/SearchResultsPage-NoResults.json",
-
+  "above": null,
   "spotlights": [
     {
       "_include": "/page/promo/PagePromoModule.json"

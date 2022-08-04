@@ -1,4 +1,5 @@
 /* global Handlebars:false */
+/* eslint-disable no-undef */
 
 Handlebars.registerHelper('concat', function (string1, string2) {
   return string1 + string2

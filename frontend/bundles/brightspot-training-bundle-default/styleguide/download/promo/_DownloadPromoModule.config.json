@@ -1,0 +1,13 @@
+{
+  "styles": {
+    "/download/promo/DownloadPromoModule.hbs": {
+        "fields": [
+          "imagePositionHorizontal",
+          "imageAspectRatio",
+          "imageWidth",
+          "backgroundColor",
+          "inverseColors"
+        ]
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "_template": "Image.hbs",
-  "alt": "alt text",
+  "alt": "{{words([5,10])}}",
   "image": {
     "_image": true
   }

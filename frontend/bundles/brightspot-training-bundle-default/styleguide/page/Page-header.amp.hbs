@@ -23,7 +23,7 @@
             <button class="Page-header-menu-trigger" on="tap:Page-header-hamburger-menu.toggle"  aria-expanded="false" tabindex="1"><svg class="burger-menu"><use xlink:href="#burger-menu"></use></svg><svg class="close-x"><use xlink:href="#close-x"></use></svg><span class="label">{{#with navigationToggle}}{{this}}{{else}}{{format "/page/Page" "menuLabel"}}{{/with}}</span></button>
 
             {{#with logo}}
-                {{#set imageSize="siteLogo"}}
+                {{#set imageSize="logo"}}
                     <div class="Page-header-bar-logo">{{this}}</div>
                 {{/set}}
             {{/with}}

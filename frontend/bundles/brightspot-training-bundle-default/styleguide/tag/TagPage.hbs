@@ -12,9 +12,9 @@
 
         {{#if aside}}
                 <div class="Page-twoColumn">
-                    <main class="Page-main">
+                    <main class="Page-main" data-modulewell>
                     {{#each main}}
-                        {{render this [/page/list/PageList.hbs]="/page/list/PageListH.hbs"}}
+                        {{render this [/page/list/PageList.hbs]="/page/list/PageListStandardD.hbs"}}
                     {{/each}}
                     </main>
                     <aside class="Page-aside">
@@ -25,7 +25,7 @@
             {{#with main}}
                 <main class="Page-oneColumn" data-modulewell>
                     {{#each this}}
-                        {{render this [/page/list/PageList.hbs]="/page/list/PageListH.hbs"}}
+                        {{render this [/page/list/PageList.hbs]="/page/list/PageListStandardD.hbs"}}
                     {{/each}}
                 </main>
             {{/with}}

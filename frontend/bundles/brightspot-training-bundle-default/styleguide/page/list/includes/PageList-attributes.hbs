@@ -6,4 +6,8 @@
 {{~#if pagination}} data-show-loadmore="true"{{/if~}}
 {{~#with listHeaderPosition}} data-list-header-position="{{this}}"{{/with~}}
 {{~#if inverseColors}} data-inverse-colors{{/if~}}
-{{~#with backgroundColor}} data-has-background style="--color-list-background:{{this}};"{{/with~}}
+{{~#with backgroundColor}} data-has-background style="--color-module-background:{{this}};"{{/with~}}
+{{~#with listColumns56}} data-column-count="{{this}}"{{/with~}}
+{{~#with listColumns234}} data-column-count="{{this}}"{{/with~}}
+{{~#with listColumns23456}} data-column-count="{{this}}"{{/with~}}
+{{~#if textAlign}} data-text-align="{{textAlign}}"{{/if~}}

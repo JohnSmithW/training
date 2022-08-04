@@ -1,18 +1,8 @@
 {
   "imageSizes": {
-    "small": {
+    "small-16x9": {
       "width": 100,
       "height": 57,
-      "srcsetDescriptors": [
-        "1x", "2x"
-      ],
-      "alternateFormats": [
-        "webp"
-      ]
-    },
-    "small-icon": {
-      "width": 36,
-      "height": 36,
       "srcsetDescriptors": [
         "1x", "2x"
       ],
@@ -30,31 +20,9 @@
         "webp"
       ]
     },
-    "headingLogo": {
-      "previewWidth": 1244,
-      "previewHeight": 120,
-      "maximumWidth": 300,
-      "maximumHeight": 80,
-      "srcsetDescriptors": [
-        "1x", "2x"
-      ],
-      "alternateFormats": [
-        "webp"
-      ]
-    },
-    "medium": {
-      "width": 490,
-      "height": 275,
-      "srcsetDescriptors": [
-        "1x", "2x"
-      ],
-      "alternateFormats": [
-        "webp"
-      ]
-    },
-    "medium-portrait": {
-      "width": 330,
-      "height": 440,
+    "medium-3x4": {
+      "width": 375,
+      "height": 500,
       "srcsetDescriptors": [
         "1x", "2x"
       ],
@@ -63,8 +31,8 @@
       ]
     },
     "medium-square": {
-      "width": 300,
-      "height": 300,
+      "width": 500,
+      "height": 500,
       "srcsetDescriptors": [
         "1x", "2x"
       ],
@@ -72,9 +40,9 @@
         "webp"
       ]
     },
-    "large": {
-      "width": 840,
-      "height": 418,
+    "medium-4x3": {
+      "width": 500,
+      "height": 375,
       "srcsetDescriptors": [
         "1x", "2x"
       ],
@@ -82,9 +50,9 @@
         "webp"
       ]
     },
-    "large-2x1": {
-      "width": 840,
-      "height": 438,
+    "medium-16x9": {
+      "width": 500,
+      "height": 281,
       "srcsetDescriptors": [
         "1x", "2x"
       ],
@@ -92,9 +60,9 @@
         "webp"
       ]
     },
-    "large-2x1-notfixed": {
-      "width": 840,
-      "previewHeight": 438,
+    "large-3x4": {
+      "width": 750,
+      "height": 1000,
       "srcsetDescriptors": [
         "1x", "2x"
       ],
@@ -103,8 +71,8 @@
       ]
     },
     "large-square": {
-      "width": 600,
-      "height": 600,
+      "width": 1000,
+      "height": 1000,
       "srcsetDescriptors": [
         "1x", "2x"
       ],
@@ -112,9 +80,9 @@
         "webp"
       ]
     },
-    "xl": {
-      "width": 1110,
-      "height": 620,
+    "large-4x3": {
+      "width": 1000,
+      "height": 750,
       "srcsetDescriptors": [
         "1x", "2x"
       ],
@@ -122,9 +90,29 @@
         "webp"
       ]
     },
-    "xl-2x1": {
+    "large-16x9": {
+      "width": 1000,
+      "height": 563,
+      "srcsetDescriptors": [
+        "1x", "2x"
+      ],
+      "alternateFormats": [
+        "webp"
+      ]
+    },
+    "xl-4x3": {
       "width": 1440,
-      "height": 700,
+      "height": 1080,
+      "srcsetDescriptors": [
+        "2x"
+      ],
+      "alternateFormats": [
+        "webp"
+      ]
+    },
+    "xl-16x9": {
+      "width": 1440,
+      "height": 810,
       "srcsetDescriptors": [
         "1x", "2x"
       ],
@@ -142,9 +130,9 @@
         "webp"
       ]
     },
-    "xl-6x1": {
+    "xl-4x1": {
       "width": 1440,
-      "height": 270,
+      "height": 360,
       "srcsetDescriptors": [
         "1x",
         "2x"
@@ -153,8 +141,18 @@
         "webp"
       ]
     },
-    "xl-notfixed": {
-      "height": 1066,
+    "xl-1440w-notfixed": {
+      "width": 1440,
+      "previewHeight": 600,
+      "srcsetDescriptors": [
+        "1x", "2x"
+      ],
+      "alternateFormats": [
+        "webp"
+      ]
+    },
+    "xl-1440h-notfixed": {
+      "height": 1440,
       "previewWidth": 1600,
       "srcsetDescriptors": [
         "1x", "2x"
@@ -163,21 +161,32 @@
         "webp"
       ]
     },
-    "xxl": {
-      "width": 1440,
-      "height": 805,
+
+    "logo": {
+      "width": 400,
+      "previewHeight": 100,
       "srcsetDescriptors": [
-        "2x"
+        "1x", "2x"
       ],
       "alternateFormats": [
         "webp"
       ]
     },
-    "siteLogo": {
-      "previewWidth": 1244,
-      "previewHeight": 120,
+    "logo-small": {
+      "width": 200,
+      "previewHeight": 100,
+      "srcsetDescriptors": [
+        "1x", "2x"
+      ],
+      "alternateFormats": [
+        "webp"
+      ]
+    },
+    "logo-freeform": {
+      "previewWidth": 300,
+      "previewHeight": 150,
       "maximumWidth": 300,
-      "maximumHeight": 80,
+      "maximumHeight": 150,
       "srcsetDescriptors": [
         "1x", "2x"
       ],

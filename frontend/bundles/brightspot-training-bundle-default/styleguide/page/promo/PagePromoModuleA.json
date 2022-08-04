@@ -7,12 +7,19 @@
       "_image": true
     }
   },
-  "publishDate": "12/12/1900",
-  "authorName": "Corned beef shank ",
   "url": "#",
+  "anchorId": "anchorTest1",
   "target": "_self",
-  "category": "Meatloaf ball tip",
+  "ctaButtonText": "{{words([1,3])}}",
+  "authorName": "{{name}}",
+  "authorUrl": "#",
+  "authorImage": {
+    "_include": "/image/Image.json"
+  },
+  "publishDate": "{{date}}",
+  "category": "{{words([1,3])}}",
   "categoryUrl": "#",
-  "title": "Bacon ipsum dolor amet",
-  "description": "Burgdoggen sausage boudin, chuck kielbasa picanha cow tenderloin. Picanha flank pastrami kielbasa prosciutto frankfurter. "
+  "title": "{{words([5,10])}}",
+  "description": "{{words([15,25])}}",
+  "type": "video"
 }

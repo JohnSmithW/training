@@ -1,4 +1,5 @@
 <div class="SearchModule" data-module>
+    {{include "/link/AnchorLink.hbs" this}}
     <form class="SearchModule-form" action={{searchAction}}>
         <input type="text" class="SearchModule-formInput" name="q" aria-label="search" placeholder="{{placeholder}}" />
         <button type="submit" class="SearchModule-formButton">

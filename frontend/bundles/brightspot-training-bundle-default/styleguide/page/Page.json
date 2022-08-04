@@ -11,8 +11,8 @@
   }],
   "title": "Brightspot Styleguide",
   "description": "Brightspot Styleguide",
-  "keywords": "Brightspot, Styleguide",
   "canonicalLink": "http://www.brightspot.com/",
+  "contentId": "{{number([1,10000])}}",
 
   "stylePackage": [{
     "_include": "StylePackage.json"
@@ -33,17 +33,11 @@
   },
 
   "logo": {
-    "_include": "/page/PageLogo.json",
-    "image": {
-      "_image": true
-    }
+    "_include": "/page/PageLogo.json"
   },
 
   "footerLogo": {
-    "_include": "/page/PageLogo.json",
-    "image": {
-      "_image": true
-    }
+    "_include": "/page/PageLogo.json"
   },
 
   "banner": null,
@@ -56,9 +50,7 @@
     "_include": "/social/SocialBar.json"
   },
 
-  "hat": {
-    "_include": "/page/PageHeaderTextHat.json"
-  },
+  "hat": null,
 
   "sectionNavigation": null,
 
@@ -68,6 +60,10 @@
 
   "pageLead": {
     "_include": "/page/PageHeading.json"
+  },
+
+  "languages": {
+    "_include": "/languages/LanguagesMenu.json"
   },
 
   "main": null,
@@ -82,16 +78,13 @@
 
   "footerContent": [
     {
-      "_include": "/page/promo/PagePromoFooter.json"
+      "_include": "/page/promo/PagePromoModule.json"
     }
   ],
 
   "disclaimer": "{{html('&copy; 2020. Site powered by the <a href=\"http://www.brightspot.com/\">Brightspot</a> publishing platform.')}}",
 
-  "contentId": null,
-
   "ampIntegrations": null,
 
   "ampAnalytics": null
-
 }

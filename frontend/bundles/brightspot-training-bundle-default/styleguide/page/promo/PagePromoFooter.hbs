@@ -5,7 +5,9 @@
 
         {{#if ctaButtonText}}
             {{#if url}}
-                <a class="Button" href="{{url}}"{{#with target}} target="{{this}}"{{/with}}>{{ctaButtonText}}</a>
+                <div class="PagePromo-cta">
+                    <a class="Button" data-style="pill" href="{{url}}"{{#with target}} target="{{this}}"{{/with}}>{{ctaButtonText}}</a>
+                </div>
             {{/if}}
         {{/if}}
     </div>

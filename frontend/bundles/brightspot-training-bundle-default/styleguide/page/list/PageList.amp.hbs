@@ -2,12 +2,12 @@
     <div class="PageList-Amp" {{extraAttributes}} data-module data-column-count={{#if listColumns234}}{{listColumns234}}{{else}}3{{/if}}>
         <div class="PageList-header" {{#unless title}}data-no-title{{/unless}}>
             {{#if title}}
-                  <div class="PageList-header-title">{{#if titleUrl}}<a href="{{titleUrl}}">{{title}}</a>{{else}}{{title}}{{/if}}</div>
+                  <div class="PageList-Amp-header-title">{{#if titleUrl}}<a href="{{titleUrl}}">{{title}}</a>{{else}}{{title}}{{/if}}</div>
             {{/if}}
        </div>
 
         {{#with description}}
-            <div class="PageList-description">{{this}}</div>
+            <div class="PageList-Amp-description">{{this}}</div>
         {{/with}}
 
         {{#with items}}
@@ -20,10 +20,10 @@
             </ul>
         {{/with}}
 
-        {{#if ctaUrl}}
+        {{#and ctaUrl ctaButtonText}}
             <div class="PageList-Amp-cta">
-                  <a class="Button-loadMore" href="{{ctaUrl}}">{{#if ctaButtonText}}{{ctaButtonText}}{{else}}{{format "/page/list/List" "ctaText"}}{{/if}}</a>
+                  <a class="Button-loadMore" href="{{ctaUrl}}">{{ctaButtonText}}</a>
             </div>
-        {{/if}}
+        {{/and}}
     </div>
 {{else}}{{~noResultsModule~}}{{/if}}

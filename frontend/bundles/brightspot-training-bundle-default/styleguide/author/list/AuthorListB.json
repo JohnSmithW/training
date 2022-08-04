@@ -1,22 +1,11 @@
 {
   "_template": "/author/list/AuthorList.hbs",
   "_styledTemplate": "/author/list/AuthorListB.hbs",
-  "title": "Author List B",
+  "title": "{{words([5,10])}}",
   "items": [
     {
-      "_include": "/author/promo/AuthorPromo.json"
-    },
-    {
-      "_include": "/author/promo/AuthorPromo.json"
-    },
-    {
-      "_include": "/author/promo/AuthorPromo.json"
-    },
-    {
-      "_include": "/author/promo/AuthorPromo.json"
-    },
-    {
-      "_include": "/author/promo/AuthorPromo.json"
+      "_include": "/author/promo/AuthorPromo.json",
+      "_repeat": 5
     }
   ]
 }

@@ -8,5 +8,9 @@
     "ampWidth": 728,
     "ampHeight": 90,
     "ampSizes": "728x90,300x250",
-    "ampMultiSizeValidation": false
+    "ampMultiSizeValidation": false,
+    "hideOnMobile": false,
+    "hideOnDesktop": false,
+    "targetingMap": "{ 'id': '1234', 'type': 'news-story' }",
+    "outOfPage": true
 }

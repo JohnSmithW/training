@@ -1,45 +1,41 @@
 :root {
-  --color-primary: {{#with primaryColor}}{{this}}{{else}}#22B8E1{{/with}};
-  --color-secondary: {{#with secondaryColor}}{{this}}{{else}}#FFFFFF{{/with}};
+    {{#with primaryColor}}--color-primary-theme: {{this}};{{/with}}
 
-  --color-primary-text: {{#with primaryTextColor}}{{this}}{{else}}#333333{{/with}};
-  --color-primary-text-inverse: {{#with primaryTextColorInverse}}{{this}}{{else}}#FFFFFF{{/with}};
-  --color-secondary-text: {{#with secondaryTextColor}}{{this}}{{else}}var(--color-primary-text){{/with}};
-  --color-secondary-text-inverse: {{#with secondaryTextColorInverse}}{{this}}{{else}}#FFFFFF{{/with}};
-  --color-tertiary-text: {{#with tertiaryTextColor}}{{this}}{{else}}#999999{{/with}};
-  --color-tertiary-inverse: {{#with tertiaryTextColorInverse}}{{this}}{{else}}#FFFFFF{{/with}};
-  --color-site-bg: {{#with siteBgColor}}{{this}}{{else}}#FFFFFF{{/with}};
-  --color-border: {{#with borderColor}}{{this}}{{else}}#E6E6E6{{/with}};
+    {{#with primaryTextColor}}--color-primary-text-theme: {{this}};{{/with}}
+    {{#with secondaryTextColor}}--color-secondary-text-theme: {{this}};{{/with}}
+    {{#with textColorInverse}}--color-text-inverse-theme: {{this}};{{/with}}
+    {{#with siteBgColor}}--color-site-bg-theme: {{this}};{{/with}}
+    {{#with borderColor}}--color-border-theme: {{this}};{{/with}}
 
-  --color-header-bg: {{#with headerBgColor}}{{this}}{{else}}#000000{{/with}};
-  --color-header-secondary-bg: {{#with headerSecondaryBgColor}}{{this}}{{else}}#333333{{/with}};
-  --color-header-text: {{#with headerTextColor}}{{this}}{{else}}var(--color-primary-text-inverse){{/with}};
-  --color-header-border: {{#with headerBorderColor}}{{this}}{{else}}#808080{{/with}};
+    {{#with headerBgColor}}--color-header-bg-theme: {{this}};{{/with}}
+    {{#with headerSecondaryBgColor}}--color-header-secondary-bg-theme: {{this}};{{/with}}
+    {{#with headerTextColor}}--color-header-text-theme: {{this}};{{/with}}
+    {{#with headerBorderColor}}--color-header-border-theme: {{this}};{{/with}}
 
-  --color-hat-bg: {{#with hatBgColor}}{{this}}{{else}}var(--color-primary){{/with}};
-  --color-hat-text: {{#with hatTextColor}}{{this}}{{else}}var(--color-primary-text-inverse){{/with}};
+    {{#with hatBgColor}}--color-hat-bg-theme: {{this}};{{/with}}
+    {{#with hatTextColor}}--color-hat-text-theme: {{this}};{{/with}}
 
-  --color-heading-bg: {{#with headingBgColor}}{{this}}{{else}}#808080{{/with}};
+    {{#with bannerBgColor}}--color-banner-bg-theme: {{this}};{{/with}}
+    {{#with bannerTextColor}}--color-banner-text-theme: {{this}};{{/with}}
 
-  --color-footer-bg: {{#with footerBgColor}}{{this}}{{else}}#000000{{/with}};
-  --color-footer-text: {{#with footerTextColor}}{{this}}{{else}}var(--color-primary-text-inverse){{/with}};
+    {{#with footerBgColor}}--color-footer-bg-theme: {{this}};{{/with}}
+    {{#with footerTextColor}}--color-footer-text-theme: {{this}};{{/with}}
 
-  --color-banner-bg: {{#with BannerBgColor}}{{this}}{{else}}#d31141{{/with}};
-  --color-banner-text: {{#with BannerTextColor}}{{this}}{{else}}var(--color-primary-text-inverse){{/with}};
+    {{#with linkTextColor}}--color-link-text-theme: {{this}};{{/with}}
+    {{#with linkHoverColor}}--color-link-text-hover-theme: {{this}};{{/with}}
 
-  --color-link-text: {{#with linkTextColor}}{{this}}{{else}}var(--color-primary-text){{/with}};
-  --color-link-text-hover: {{#with linkHoverColor}}{{this}}{{else}}var(--color-primary){{/with}};
+    {{#with buttonBgColor}}--color-button-bg-theme: {{this}};{{/with}}
+    {{#with buttonBorderColor}}--color-button-border-theme: {{this}};{{/with}}
+    {{#with buttonTextColor}}--color-button-text-theme: {{this}};{{/with}}
+    {{#with buttonHoverBgColor}}--color-button-hover-bg-theme: {{this}};{{/with}}
+    {{#with buttonHoverBorderColor}}--color-button-hover-border-theme: {{this}};{{/with}}
+    {{#with buttonHoverTextColor}}--color-button-hover-text-theme: {{this}};{{/with}}
+    {{#with buttonDisabledColor}}--color-button-disabled-theme: {{this}};{{/with}}
 
-  --color-button-bg: {{#with buttonBgColor}}{{this}}{{else}}var(--color-primary){{/with}};
-  --color-button-hover-bg: {{#with buttonHoverBgColor}}{{this}}{{else}}#FFFFFF{{/with}};
-  --color-button-hover-text: {{#with buttonHoverTextColor}}{{this}}{{else}}var(--color-primary){{/with}};
-  --color-button-border: {{#with buttonBorderColor}}{{this}}{{else}}var(--color-primary){{/with}};
-  --color-button-text: {{#with buttonTextColor}}{{this}}{{else}}var(--color-secondary){{/with}};
+    {{#with listTitleColor}}--color-list-title-theme: {{this}};{{/with}}
+    {{#with listBorderColor}}--color-list-border-theme: {{this}};{{/with}}
+    {{#with categoryTextColor}}--color-category-text-theme: {{this}};{{/with}}
 
-  --color-list-title:  {{#with listTitleColor}}{{this}}{{else}}var(--color-primary-text){{/with}};
-  --color-list-border: {{#with listBorderColor}}{{this}}{{else}}var(--color-border){{/with}};
-  --color-category-text: {{#with categoryTextColor}}{{this}}{{else}}var(--color-primary){{/with}};
-
-  --color-gray: #dddddd;
-  --color-dark-gray: #333333;
+    {{#with sponsoredBannerBgColor}}--color-sponsored-banner-bg-theme: {{this}};{{/with}}
+    {{#with sponsoredBannerTextColor}}--color-sponsored-banner-text-theme: {{this}};{{/with}}
 }

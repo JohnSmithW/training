@@ -1,7 +1,7 @@
 {
   "_template": "/attachment/AttachmentEnhancement.hbs",
   "target": "_self",
-  "title": "Attachment Enhancement",
+  "title": "{{words([5,10]}}",
   "src": "https://www.example.com/files/attachment.pdf",
   "type": "application/pdf",
   "fileName": "attachment.pdf",

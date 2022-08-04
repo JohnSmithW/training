@@ -4,5 +4,10 @@
     {{~#with subject}}subject={{this}}&{{~/with~}}
     {{~#with emailBody}}body={{this}}{{~/with~}}"
     data-social-service="mailto">
-    <svg><use xlink:href="#mono-icon-mailto"></use></svg><span>{{format "MailText"}}</span>
+    <svg>
+        <use xlink:href="#action-icon-mailto"></use>
+    </svg>
+    <span>
+        {{format "MailText"}}
+    </span>
 </a>

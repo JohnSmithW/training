@@ -7,8 +7,8 @@
     }
   },
   "publicationUrl": "#",
-  "publicationTitle": "Author Publication Title",
-  "name": "Author Name",
-  "jobTitle": "Job Title Here",
+  "publicationTitle": "{{words([2,5])}}",
+  "name": "{{name}}",
+  "jobTitle": "{{words([2,5])}}",
   "url": "#"
 }

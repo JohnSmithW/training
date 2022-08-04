@@ -21,6 +21,9 @@
     },
     {
       "_include": "/link/PrintLink.json"
+    },
+    {
+      "_include": "/link/CopyLink.json"
     }
   ]
 }

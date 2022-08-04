@@ -12,7 +12,6 @@
   "viewport": "width=device-width, initial-scale=1",
   "title": "Brightspot Styleguide",
   "description": "Brightspot Styleguide",
-  "keywords": "Brightspot, Styleguide",
   "canonicalLink": "http://www.brightspot.com/",
 
   "meta": null,
@@ -66,8 +65,7 @@
     "_include": "/page/PageLogo.json",
     "_template": "/page/PageLogo.amp.hbs",
     "image": {
-      "_image": true,
-      "src": "/assets/style-2-logo.svg"
+      "_image": true
     }
   },
 
@@ -75,8 +73,7 @@
     "_include": "/page/PageLogo.json",
     "_template": "/page/PageLogo.amp.hbs",
     "image": {
-      "_image": true,
-      "src": "/assets/style-2-logo.svg"
+      "_image": true
     }
   },
 
@@ -258,7 +255,8 @@
   "below": null,
 
   "footerNavigation": {
-    "_include": "/navigation/FooterNavigation.json"
+    "_include": "/navigation/FooterNavigation.json",
+    "_template": "/navigation/FooterNavigation.amp.hbs"
   },
 
   "disclaimer": "{{html('&copy; 2020. Site powered by the <a href=\"http://www.brightspot.com/\">Brightspot</a> publishing platform.')}}",
@@ -267,5 +265,7 @@
 
   "ampIntegrations": null,
 
-  "ampAnalytics": null
+  "ampAnalytics": null,
+
+  "_env": "styleguide"
 }

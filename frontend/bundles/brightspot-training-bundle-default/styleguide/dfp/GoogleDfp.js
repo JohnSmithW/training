@@ -101,17 +101,17 @@ export class GoogleDfp {
       return
     }
 
-    const isHideMobile = ad.getAttribute('data-hide-mobile') || false
-    const isHideDesktop = ad.getAttribute('data-hide-desktop') || false
+    const isHideMobile = ad.getAttribute('data-hide-on-mobile') || false
+    const isHideDesktop = ad.getAttribute('data-hide-on-desktop') || false
     let isLargeScreen = true
 
-    if (mediaQuery() === 'xs' || mediaQuery() === 'sm') {
+    if (mediaQuery() === 'mq-xs' || mediaQuery() === 'mq-xs') {
       isLargeScreen = false
     }
 
     // Remove mobile/desktop inline ads as appropriate
     if ((isLargeScreen && isHideDesktop) || (!isLargeScreen && isHideMobile)) {
-      ad.parentNode.remove()
+      ad.parentNode.removeChild(ad)
       return
     }
 

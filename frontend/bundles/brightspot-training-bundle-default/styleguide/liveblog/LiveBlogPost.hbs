@@ -31,7 +31,9 @@
                 </div>
             {{/with}}
 
-            {{#with actions}}{{this}}{{/with}}
+            {{#set deepLinkUrl=postUrl}}
+                {{#with actions}}{{this}}{{/with}}
+            {{/set}}
         </div>
     {{/or}}
 

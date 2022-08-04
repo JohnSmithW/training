@@ -6,13 +6,16 @@
         {{hat}}
     </div>
 {{/if}}
-<bsp-header class="Page-header" data-nav-alignment="{{~#if headerNavAlignment}}{{~headerNavAlignment~}}{{~else~}}right{{~/if}}">
+<bsp-header class="Page-header">
     <div class="Page-header-hamburger-menu">
         <div class="Page-header-hamburger-menu-wrapper">
             <div class="Page-header-hamburger-menu-content">
                 {{#each navigation}}
                     {{include "/navigation/Navigation.hbs" this}}
                 {{/each}}
+                {{#with languages}}
+                <div class="Page-header-languages">{{this}}</div>
+                {{/with}}
             </div>
         </div>
     </div>
@@ -21,7 +24,7 @@
         <button class="Page-header-menu-trigger" aria-expanded="false"><svg class="burger-menu"><use xlink:href="#burger-menu"></use></svg><svg class="close-x"><use xlink:href="#close-x"></use></svg><span class="label">{{#with navigationToggle}}{{this}}{{else}}{{format "/page/Page" "menuLabel"}}{{/with}}</span></button>
 
         {{#with logo}}
-            {{#set imageSize="siteLogo"}}
+            {{#set imageSize="logo"}}
                 <div class="Page-header-bar-logo">{{this}}</div>
             {{/set}}
         {{/with}}
@@ -33,6 +36,9 @@
         </div>
 
         <div class="Page-header-end">
+            {{#with languages}}
+                <div class="Page-header-languages">{{this}}</div>
+            {{/with}}
             {{#if searchAction}}
                 {{include "/page/Page-searchOverlay.hbs" this}}
             {{/if}}

@@ -2,7 +2,7 @@
 <html class="SearchResultsPage" {{~include "/page/Page-htmlAttributes.hbs" this}}>
     {{include "/page/Page-head.hbs" this}}
 
-    <body class="Page-body" style="--color-search-module-background: {{~#with searchFormBackgroundColor~}}{{this}}{{else}}#f0f0f0{{~/with~}};">
+    <body class="Page-body" style="--color-search-module-background: {{~#with searchFormBackgroundColor~}}{{this}}{{else}}#f7f7f7{{~/with~}};">
         {{include "/page/Page-header.hbs" this}}
         {{include "/page/Page-above.hbs" this}}
 
@@ -20,6 +20,8 @@
                 pageNumber=pageNumber
                 title=title
                 aside=aside
+                searchInputPlaceholder=searchInputPlaceholder
+                paginate=true
             }}
         </div>
 

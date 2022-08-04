@@ -16,12 +16,8 @@
           "page": "/_resource/TypographyPage.json"
         },
         {
-          "displayName": "Banner",
-          "page": "/banner/Banner.json"
-        },
-        {
-          "displayName": "Hat",
-          "page": "/page/PageHeaderTextHat.json"
+          "displayName": "Containers",
+          "page": "/container/Page-withAllContainers.json"
         }
       ]
     },
@@ -43,6 +39,24 @@
       ]
     },
     {
+      "displayName": "FAQ",
+      "pages": [
+        {
+          "displayName": "FAQ Module",
+          "page": "/faq/FaqModule.json"
+        }
+      ]
+    },
+    {
+      "displayName": "Lists - Accordion",
+      "pages": [
+        {
+          "displayName": "Accordion List A",
+          "page": "/page/list/PageListAccordionA.json"
+        }
+      ]
+    },
+    {
       "displayName": "Lists - Author",
       "pages": [
         {
@@ -60,155 +74,175 @@
       ]
     },
     {
-      "displayName": "Lists - Page",
+      "displayName": "Lists - Carousel",
       "pages": [
         {
-          "displayName": "Page with all Lists",
-          "page": "/page/list/Page-withAllPageLists.json"
+          "displayName": "Page with Carousel Lists",
+          "page": "/page/list/Page-withCarouselLists.json"
         },
         {
-          "displayName": "List A",
-          "page": "/page/list/PageListA.json"
+          "displayName": "Carousel List A",
+          "page": "/page/list/PageListCarouselA.json"
         },
         {
-          "displayName": "List B",
-          "page": "/page/list/PageListB.json"
+          "displayName": "Carousel List B",
+          "page": "/page/list/PageListCarouselB.json"
         },
         {
-          "displayName": "List C",
-          "page": "/page/list/PageListC.json"
+          "displayName": "Carousel List C",
+          "page": "/page/list/PageListCarouselC.json"
         },
         {
-          "displayName": "List C - with Numbers",
-          "page": "/page/list/PageListC-withNumbers.json"
+          "displayName": "Carousel List D",
+          "page": "/page/list/PageListCarouselD.json"
         },
         {
-          "displayName": "List D",
-          "page": "/page/list/PageListD.json"
+          "displayName": "Carousel List E",
+          "page": "/page/list/PageListCarouselE.json"
         },
         {
-          "displayName": "List D - 2 Column",
-          "page": "/page/list/PageListD-2column.json"
+          "displayName": "Carousel List E - Image Position Left",
+          "page": "/page/list/PageListCarouselE-imagePositionLeft.json"
         },
         {
-          "displayName": "List D - 4 Column",
-          "page": "/page/list/PageListD-4column.json"
+          "displayName": "Carousel List E - Image Position Right",
+          "page": "/page/list/PageListCarouselE-imagePositionRight.json"
+        }
+      ]
+    },
+    {
+      "displayName": "Lists - Download",
+      "pages": [
+        {
+          "displayName": "Download Promo List",
+          "page": "/download/list/DownloadList.json"
+        }
+      ]
+    },
+    {
+      "displayName": "Lists - Logo",
+      "pages": [
+        {
+          "displayName": "Logo List A",
+          "page": "/logo/list/LogoListA.json"
         },
         {
-          "displayName": "List E",
-          "page": "/page/list/PageListE.json"
+          "displayName": "Logo List B",
+          "page": "/logo/list/LogoListB.json"
         },
         {
-          "displayName": "List E - 2 Column",
-          "page": "/page/list/PageListE-2column.json"
+          "displayName": "Logo List B - Header on Side",
+          "page": "/logo/list/LogoListB-headerOnSide.json"
+        }
+      ]
+    },
+    {
+      "displayName": "Lists - Right Rail",
+      "pages": [
+        {
+          "displayName": "Page with Right Rail Lists",
+          "page": "/page/list/Page-withRRLists.json"
         },
         {
-          "displayName": "List E - 4 Column",
-          "page": "/page/list/PageListE-4column.json"
+          "displayName": "Right Rail List A",
+          "page": "/page/list/PageListRightRailA.json"
         },
         {
-          "displayName": "List F",
-          "page": "/page/list/PageListF.json"
+          "displayName": "Right Rail List B",
+          "page": "/page/list/PageListRightRailB.json"
         },
         {
-          "displayName": "List G",
-          "page": "/page/list/PageListG.json"
+          "displayName": "Right Rail List B - with numbers",
+          "page": "/page/list/PageListRightRailB-withNumbers.json"
         },
         {
-          "displayName": "List H",
-          "page": "/page/list/PageListH.json"
+          "displayName": "Right Rail List C",
+          "page": "/page/list/PageListRightRailC.json"
+        }
+      ]
+    },
+    {
+      "displayName": "Lists - Standard",
+      "pages": [
+        {
+          "displayName": "Page with Standard Lists",
+          "page": "/page/list/Page-withStandardLists.json"
         },
         {
-          "displayName": "List I",
-          "page": "/page/list/PageListI.json"
+          "displayName": "Standard List A",
+          "page": "/page/list/PageListStandardA.json"
         },
         {
-          "displayName": "List I - 2 Column",
-          "page": "/page/list/PageListI-2column.json"
+          "displayName": "Standard List B",
+          "page": "/page/list/PageListStandardB.json"
         },
         {
-          "displayName": "List I - 4 Column",
-          "page": "/page/list/PageListI-4column.json"
+          "displayName": "Standard List B - 2 Column",
+          "page": "/page/list/PageListStandardB-2column.json"
         },
         {
-          "displayName": "List J",
-          "page": "/page/list/PageListJ.json"
+          "displayName": "Standard List B - 4 Column",
+          "page": "/page/list/PageListStandardB-4column.json"
         },
         {
-          "displayName": "List J - 2 Column",
-          "page": "/page/list/PageListJ-2column.json"
+          "displayName": "Standard List B - Header on Side",
+          "page": "/page/list/PageListStandardB-headerOnSide.json"
         },
         {
-          "displayName": "List J - 4 Column",
-          "page": "/page/list/PageListJ-4column.json"
+          "displayName": "Standard List B - with No Images",
+          "page": "/page/list/PageListStandardB-withNoImages.json"
         },
         {
-          "displayName": "List K",
-          "page": "/page/list/PageListK.json"
+          "displayName": "Standard List C",
+          "page": "/page/list/PageListStandardC.json"
         },
         {
-          "displayName": "List L",
-          "page": "/page/list/PageListL.json"
+          "displayName": "Standard List D",
+          "page": "/page/list/PageListStandardD.json"
         },
         {
-          "displayName": "List L - Header on Side",
-          "page": "/page/list/PageListL-headerOnSide.json"
+          "displayName": "Standard List E",
+          "page": "/page/list/PageListStandardE.json"
         },
         {
-          "displayName": "List M",
-          "page": "/page/list/PageListM.json"
+          "displayName": "Standard List F",
+          "page": "/page/list/PageListStandardF.json"
         },
         {
-          "displayName": "List M - Image Position Left",
-          "page": "/page/list/PageListM-imagePositionLeft.json"
+          "displayName": "Standard List F - Header on Side",
+          "page": "/page/list/PageListStandardF-headerOnSide.json"
         },
         {
-          "displayName": "List M - Image Position Right",
-          "page": "/page/list/PageListM-imagePositionRight.json"
+          "displayName": "Standard List G",
+          "page": "/page/list/PageListStandardG.json"
         },
         {
-          "displayName": "List N",
-          "page": "/page/list/PageListN.json"
+          "displayName": "Standard List H",
+          "page": "/page/list/PageListStandardH.json"
         },
         {
-          "displayName": "List O ",
-          "page": "/page/list/PageListO.json"
+          "displayName": "Standard List I",
+          "page": "/page/list/PageListStandardI.json"
         },
         {
-          "displayName": "List P",
-          "page": "/page/list/PageListP.json"
+          "displayName": "Standard List I - 2 Column ",
+          "page": "/page/list/PageListStandardI-2column.json"
         },
         {
-          "displayName": "List Q ",
-          "page": "/page/list/PageListQ.json"
+          "displayName": "Standard List I - 4 Column",
+          "page": "/page/list/PageListStandardI-4column.json"
         },
         {
-          "displayName": "List R",
-          "page": "/page/list/PageListR.json"
+          "displayName": "Standard List J",
+          "page": "/page/list/PageListStandardJ.json"
         },
         {
-          "displayName": "List S",
-          "page": "/page/list/PageListS.json"
+          "displayName": "Standard List K",
+          "page": "/page/list/PageListStandardK.json"
         },
         {
-          "displayName": "List U",
-          "page": "/page/list/PageListU.json"
-        },
-        {
-          "displayName": "List V",
-          "page": "/page/list/PageListV.json"
-        },
-        {
-          "displayName": "List T",
-          "page": "/page/list/PageListT.json"
-        },
-        {
-          "displayName": "List W",
-          "page": "/page/list/PageListW.json"
-        },
-        {
-          "displayName": "List X",
-          "page": "/page/list/PageListX.json"
+          "displayName": "Standard List L",
+          "page": "/page/list/PageListStandardL.json"
         }
       ]
     },
@@ -229,13 +263,34 @@
       "displayName": "Lists - Stat",
       "pages": [
         {
-          "displayName": "Stat List",
-          "page": "/stat/StatList.json"
+          "displayName": "Stat List A",
+          "page": "/stat/StatListA.json"
+        },
+        {
+          "displayName": "Stat List A - 3 Column",
+          "page": "/stat/StatListA-3column.json"
+        },
+        {
+          "displayName": "Stat List B",
+          "page": "/stat/StatListB.json"
+        },
+        {
+          "displayName": "Stat List B - Header on Side",
+          "page": "/stat/StatListB-titleOnSide.json"
         }
       ]
     },
     {
-      "displayName": "Page Promos",
+      "displayName": "Promos - Download",
+      "pages": [
+        {
+          "displayName": "Download Promo Module",
+          "page": "/download/promo/DownloadPromoModule.json"
+        }
+      ]
+    },
+    {
+      "displayName": "Promos - Page",
       "pages": [
         {
           "displayName": "Page with all Promos",
@@ -246,20 +301,32 @@
           "page": "/page/promo/PagePromoModuleA.json"
         },
         {
-          "displayName": "Promo Module A - Media Top",
-          "page": "/page/promo/PagePromoModuleA-mediaTop.json"
+          "displayName": "Promo Module A - Media Bottom",
+          "page": "/page/promo/PagePromoModuleA-mediaBottom.json"
+        },
+        {
+          "displayName": "Promo Module A - Text Left",
+          "page": "/page/promo/PagePromoModuleA-textLeft.json"
         },
         {
           "displayName": "Promo Module B",
           "page": "/page/promo/PagePromoModuleB.json"
         },
         {
+          "displayName": "Promo Module B - Text Right",
+          "page": "/page/promo/PagePromoModuleB-textRight.json"
+        },
+        {
+          "displayName": "Promo Module B - Text Center",
+          "page": "/page/promo/PagePromoModuleB-textCenter.json"
+        },
+        {
           "displayName": "Promo Module C",
           "page": "/page/promo/PagePromoModuleC.json"
         },
         {
-          "displayName": "Promo Module D",
-          "page": "/page/promo/PagePromoModuleD.json"
+          "displayName": "Promo Module C - Media Right",
+          "page": "/page/promo/PagePromoModuleC-mediaRight.json"
         }
       ]
     },
@@ -271,8 +338,20 @@
           "page": "/article/ArticlePage.json"
         },
         {
+          "displayName": "Article - Sponsored",
+          "page": "/article/ArticlePage-Sponsored.json"
+        },
+        {
           "displayName": "Article - No Aside",
           "page": "/article/ArticlePage-NoAside.json"
+        },
+        {
+          "displayName": "Article - Full Width Lead",
+          "page": "/article/ArticlePage-FullWidthLead.json"
+        },
+        {
+          "displayName": "Article - Full Width - No Aside",
+          "page": "/article/ArticlePage-FullWidthLead-NoAside.json"
         },
         {
           "displayName": "Article - Large Lead",
@@ -303,6 +382,14 @@
           "page": "/article/ArticlePage-NoLead-NoAside.json"
         },
         {
+          "displayName": "Article - With Coral Comments",
+          "page": "/article/ArticlePage-WithCoral.json"
+        },
+        {
+          "displayName": "Article - With Disqus Comments",
+          "page": "/article/ArticlePage-WithDisqus.json"
+        },
+        {
           "displayName": "Author",
           "page": "/author/AuthorPage.json"
         },
@@ -317,6 +404,14 @@
         {
           "displayName": "Home Page",
           "page": "/page/HomePage.json"
+        },
+        {
+          "displayName": "Home Page - Animated",
+          "page": "/page/HomePage-Animated.json"
+        },
+        {
+          "displayName": "Home Page - With Hat",
+          "page": "/page/HomePage-WithHat.json"
         },
         {
           "displayName": "Gallery Page - Carousel",
@@ -335,8 +430,16 @@
           "page": "/liveblog/LiveBlogPage.json"
         },
         {
-          "displayName": "Person",
+          "displayName": "Person Page",
           "page": "/person/PersonPage.json"
+        },
+        {
+          "displayName": "Podcast Page",
+          "page": "/podcast/PodcastPage.json"
+        },
+        {
+          "displayName": "Podcast Episode Page",
+          "page": "/podcast/PodcastEpisodePage.json"
         },
         {
           "displayName": "Press Release",
@@ -361,6 +464,10 @@
         {
           "displayName": "Tag Page",
           "page": "/tag/TagPage.json"
+        },
+        {
+          "displayName": "Video Test Page",
+          "page": "/page/VideoTestPage.json"
         }
       ]
     },
@@ -374,11 +481,29 @@
       ]
     },
     {
+      "displayName": "Tabs",
+      "pages": [
+        {
+          "displayName": "Tab Module",
+          "page": "/tab/Tabs.json"
+        }
+      ]
+    },
+    {
       "displayName": "Newsletter",
       "pages": [
         {
           "displayName": "Newsletter",
           "page": "/newsletter/Newsletter.json"
+        }
+      ]
+    },
+    {
+      "displayName": "Video",
+      "pages": [
+        {
+          "displayName": "Video Playlist Module",
+          "page": "/video/VideoPlaylistModule.json"
         }
       ]
     }

@@ -2,6 +2,11 @@
   "_include": "/page/Page.json",
   "_template": "/tag/TagPage.hbs",
   "above": null,
+  "pageLead": {
+    "_include": "/page/PageHeading.json",
+    "ctaButtonText": "{{words(3)}}",
+    "ctaUrl": "#"
+  },
   "main": [
     {
       "_template": "/page/list/PageList.hbs",
@@ -42,7 +47,7 @@
   ],
   "aside": [
     {
-      "_include": "/page/list/PageListB.json"
+      "_include": "/page/list/PageListRightRailA.json"
     }
   ]
 }

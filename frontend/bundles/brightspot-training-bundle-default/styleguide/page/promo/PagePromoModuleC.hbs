@@ -1,7 +1,27 @@
-<div class="PagePromoModuleC" data-module {{include "includes/PagePromoAttributes.hbs" this}} imagePositionHorizontal="{{#if imagePositionHorizontal}}{{imagePositionHorizontal}}{{else}}left{{/if}}">
-    {{#set imageSize="large"}}
-        {{include "includes/PagePromoMediaWithIcon.hbs" this}}
-    {{/set}}
+<div class="PagePromoModuleC" data-module {{include "includes/PagePromoAttributes.hbs" this}}{{#if animateOnScroll}} {{#eq imagePositionHorizontal "right"}} data-animate="fromLeft"{{else}} data-animate="fromRight"{{/eq}}{{/if}}>
+    {{#if media}}
+        {{#if imageAspectRatio}}
+            {{#set imageSize=imageAspectRatio}}
+                <div class="PagePromo-media">
+                    {{~#if url~}}
+                        <a class="Link" {{#with title}}aria-label="{{this}}"{{/with}} href="{{url}}" {{#with target}} target="{{this}}" {{/with}}>{{media}}{{include "/page/promo/includes/PagePromoContentIcons.hbs" this}}</a>
+                        {{~else~}}
+                        <span class="Link">{{media}}{{include "/page/promo/includes/PagePromoContentIcons.hbs" this}}</span>
+                    {{~/if~}}
+                </div>
+            {{/set}}
+        {{else}}
+            {{#set imageSize="large-16x9"}}
+                <div class="PagePromo-media">
+                    {{~#if url~}}
+                        <a class="Link" {{#with title}}aria-label="{{this}}"{{/with}} href="{{url}}" {{#with target}} target="{{this}}" {{/with}}>{{media}}{{include "/page/promo/includes/PagePromoContentIcons.hbs" this}}</a>
+                        {{~else~}}
+                        <span class="Link">{{media}}{{include "/page/promo/includes/PagePromoContentIcons.hbs" this}}</span>
+                    {{~/if~}}
+                </div>
+            {{/set}}
+        {{/if}}
+    {{/if}}
 
     <div class="PagePromoModuleC-content">
         {{include "includes/PagePromoCategory.hbs" this}}
@@ -9,6 +29,8 @@
         {{include "includes/PagePromoTitle.hbs" this}}
 
         {{include "includes/PagePromoDescription.hbs" this}}
+
+        {{include "includes/PagePromoByline.hbs" this}}
 
         {{include "includes/PagePromoButton.hbs" this}}
     </div>

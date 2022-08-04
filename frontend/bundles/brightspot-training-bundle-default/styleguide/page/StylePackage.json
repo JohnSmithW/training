@@ -1,7 +1,7 @@
 {
   "_view": "page.StylePackage",
-  "cssUrl": "/styles/style-1/All.min.css",
-  "jsUrl": "/styles/style-1/All.min.js",
+  "cssUrl": "/styles/default/All.min.css",
+  "jsUrl": "/styles/default/All.min.js",
   "additionalCssUrls": [""],
   "additionalJsUrls": [""],
   "error": ""

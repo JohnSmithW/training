@@ -1,9 +1,4 @@
 <table class="NewsletterFooter">
-    <tr>
-        <td class="NewsletterFooter-disclaimer">
-            {{body}}
-        </td>
-    </tr>
     {{#with links}}
     <tr>
         <td class="NewsletterFooter-links">
@@ -11,11 +6,26 @@
         </td>
     </tr>
     {{/with}}
-    {{#with extraLinks}}
+    {{#with social}}
+        <tr>
+            <td class="NewsletterFooter-social">
+                {{#each this}}
+                    <div class="SocialBar">
+                        {{#with items}}
+                            <ul class="SocialBar-items">
+                                {{#each this}}
+                                    <li class="SocialBar-items-item">{{this}}</li>
+                                {{/each}}
+                            </ul>
+                        {{/with}}
+                    </div>
+                {{/each}}
+            </td>
+        </tr>
+    {{/with}}
     <tr>
-        <td class="NewsletterFooter-extraLinks">
-            {{this}}
+        <td class="NewsletterFooter-disclaimer">
+            {{body}}
         </td>
     </tr>
-    {{/with}}
 </table>

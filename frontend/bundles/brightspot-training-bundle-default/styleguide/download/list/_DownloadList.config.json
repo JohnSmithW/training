@@ -1,0 +1,10 @@
+{
+  "styles": {
+    "/download/list/DownloadList.hbs": {
+      "fields": [
+        "backgroundColor",
+        "inverseColors"
+      ]
+    }
+  }
+}

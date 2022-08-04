@@ -7,7 +7,7 @@
   },
   "main": [
     {
-      "_include": "/page/list/PageListA.json"
+      "_include": "/page/list/PageListStandardA.json"
     }
   ]
 }

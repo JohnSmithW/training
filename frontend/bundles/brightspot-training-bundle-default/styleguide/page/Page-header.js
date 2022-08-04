@@ -19,6 +19,7 @@ export class PageHeader extends window.HTMLElement {
     )
     this.headerBar = document.querySelector('.Page-header-bar')
     this.menuWrapper = this.querySelector('.Page-header-hamburger-menu-wrapper')
+    this.searchOverlay = document.querySelector('.SearchOverlay')
   }
 
   dealWithMenuHover () {
@@ -52,9 +53,6 @@ export class PageHeader extends window.HTMLElement {
     })
   }
 
-  // Using this here instead of the generic toggle plugin as we do not want these search buttons
-  // interacting with the generic plugin toggles, and we also want to have them toggle each other
-  // off when the other is toggled in
   handleEventListeners () {
     window.addEventListener(
       'scroll',
@@ -70,6 +68,9 @@ export class PageHeader extends window.HTMLElement {
       })
     )
 
+    // Using this here instead of the generic toggle plugin as we do not want these search buttons
+    // interacting with the generic plugin toggles, and we also want to have them toggle each other
+    // off when the other is toggled in
     document.addEventListener('keydown', e => {
       if (!e.target.closest('[class$="NavigationItem-items"]')) {
         this.closeOpenNavItem()
@@ -83,6 +84,7 @@ export class PageHeader extends window.HTMLElement {
         if (this.isMenuOpen()) {
           this.closeMenu()
         } else {
+          this.closeSearch()
           this.openMenu()
         }
       })
@@ -146,6 +148,11 @@ export class PageHeader extends window.HTMLElement {
       this.removeAttribute('data-toggle-header')
       this.menuButton.setAttribute('aria-expanded', 'false')
     }
+  }
+
+  closeSearch () {
+    document.body.removeAttribute('data-toggle-header')
+    this.searchOverlay.removeAttribute('data-toggle-header')
   }
 
   isMenuOpen () {

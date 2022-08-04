@@ -60,7 +60,7 @@ export class LiveBlogPost extends window.HTMLElement {
       return formatted
     }
 
-    return this.postedDate.toLocaleString(getLanguage(), {
+    return this.postedDate.toLocaleString(getLanguage, {
       hour: 'numeric',
       minute: 'numeric',
       hour12: true
@@ -68,7 +68,7 @@ export class LiveBlogPost extends window.HTMLElement {
   }
 
   getdPostedDateFormatted () {
-    return this.postedDate.toLocaleString(getLanguage(), {
+    return this.postedDate.toLocaleString(getLanguage, {
       year: 'numeric',
       month: 'long',
       day: 'numeric'

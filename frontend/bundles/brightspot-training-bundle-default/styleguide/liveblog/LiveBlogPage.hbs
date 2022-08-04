@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="Page-oneColumn">
-                    {{#set imageSize="large-2x1"}}
+                    {{#set imageSize="large-16x9"}}
                         {{include "/page/Page-lead.hbs" this lead=blogLead}}
                     {{/set}}
 
@@ -65,6 +65,8 @@
                     {{include './includes/LiveBlogPage-pinnedPosts.hbs' this}}
 
                     {{include './includes/LiveBlogPage-currentPosts.hbs' this}}
+
+                    {{include "/page/Page-commenting.hbs" this}}
                 </div>
             </div>
 

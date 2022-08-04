@@ -8,6 +8,8 @@ export class SearchOverlay extends window.HTMLElement {
     this.searchButton = this.querySelector('[class$="-search-button"]')
     this.searchInput = this.querySelector('[class$="-search-input"]')
     this.searchInputClear = this.querySelector('[class$="-search-form-clear"]')
+    this.menuButton = document.querySelector('.Page-header-menu-trigger')
+    this.pageHeader = document.querySelector('.Page-header')
   }
 
   init () {
@@ -18,6 +20,7 @@ export class SearchOverlay extends window.HTMLElement {
         if (this.isSearchOpen()) {
           this.closeSearch()
         } else {
+          this.closeMenu()
           this.openSearch()
         }
       })
@@ -42,6 +45,12 @@ export class SearchOverlay extends window.HTMLElement {
       document.body.removeAttribute('data-toggle-header')
       this.removeAttribute('data-toggle-header')
     }
+  }
+
+  closeMenu () {
+    document.body.removeAttribute('data-toggle-header')
+    this.pageHeader.removeAttribute('data-toggle-header')
+    this.menuButton.setAttribute('aria-expanded', 'false')
   }
 
   isSearchOpen () {

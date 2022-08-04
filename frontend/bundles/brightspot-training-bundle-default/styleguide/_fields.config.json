@@ -1,7 +1,7 @@
 {
   "fields": {
     "articleLeadStyle": {
-      "cms.ui.note": "Choose article lead style",
+      "displayName": "Choose article lead style",
       "type": "text",
       "cms.ui.dropDown": true,
       "values": [
@@ -20,31 +20,48 @@
         {
           "label": "Nested",
           "value": "nested"
+        },
+        {
+          "label": "Full Width",
+          "value": "full"
         }
       ]
     },
+    "animateOnScroll": {
+      "displayName": "Animate this module on scroll?",
+      "type": "boolean"
+    },
     "backgroundColor": {
-      "displayName": "Choose a background color for this module",
+      "displayName": "Choose a background color",
       "type": "color"
     },
     "backgroundImage": {
-      "displayName": "Choose a background image for this module",
+      "displayName": "Choose a background image",
       "type": "record",
-      "cms.ui.note": "Set the Heading Background Image.",
-      "groups": "brightspot.image.WebImageWrapper"
+      "groups": "brightspot.image.WebImage"
     },
-    "carouselAutoPlay": {
-      "type": "boolean",
-      "displayName": "Set the carousel to automatically transition"
+    "backgroundVideo": {
+      "displayName": "Choose a background video",
+      "type": "record",
+      "cms.ui.note": "Set the Background Video",
+      "groups": "brightspot.video.Video"
+    },
+    "carouselSuppressAutoPlay": {
+      "displayName": "Stop the carousel from automatically transitioning",
+      "type": "boolean"
     },
     "carouselSpeed": {
-      "type": "number",
-      "displayName": "Set the duration between carousel slides in seconds."
+      "displayName": "Set the duration between carousel slides in seconds.",
+      "type": "number"
+    },
+    "countUpAnimation": {
+      "type": "boolean",
+      "cms.ui.note": "Count up animation when Stat List comes into view? (must use integers in value field)"
     },
     "enhancementAlignment": {
+      "displayName": "Choose enhancement alignment",
       "type": "text",
       "cms.ui.dropDown": true,
-      "cms.ui.note": "Choose alignment",
       "values": [
         {
           "label": "Center Alignment",
@@ -60,14 +77,14 @@
         },
         {
           "label": "Full Width",
-          "value": "align-fullWidth"
+          "value": "align-full-width"
         }
       ]
     },
     "enhancementAlignmentImage": {
+      "displayName": "Choose enhancement alignment",
       "type": "text",
       "cms.ui.dropDown": true,
-      "cms.ui.note": "Choose alignment",
       "values": [
         {
           "label": "Landscape Image - Center Alignment",
@@ -99,7 +116,12 @@
         }
       ]
     },
+    "expandItem": {
+      "displayName": "Check to expand this item by default.",
+      "type": "boolean"
+    },
     "fieldsetColumns": {
+      "displayName": "Number of columns for this field set",
       "type": "text",
       "cms.ui.text": true,
       "cms.ui.dropDown": true,
@@ -129,10 +151,14 @@
         }
       ]
     },
+    "fullScreenVideo": {
+      "displayName": "Full screen video vs 16:9 ratio?",
+      "type": "boolean"
+    },
     "galleryPageStyle": {
+      "displayName": "Set the style of the Gallery page",
       "type": "text",
       "cms.ui.dropDown": true,
-      "cms.ui.note": "Set the style of the Gallery page.",
       "values": [
         {
           "label": "Default (Carousel)",
@@ -154,7 +180,6 @@
     },
     "headingTextAlign": {
       "displayName": "Heading Text Alignment",
-      "cms.ui.note": "Choose default Heading Alignment",
       "type": "text",
       "cms.ui.dropDown": true,
       "values": [
@@ -173,8 +198,10 @@
       ]
     },
     "hideImage": {
-      "type": "boolean",
-      "cms.ui.note": "Hide Image"
+      "type": "boolean"
+    },
+    "hideImages": {
+      "type": "boolean"
     },
     "hideAuthor": {
       "type": "boolean"
@@ -200,11 +227,59 @@
     "hideDescriptions": {
       "type": "boolean"
     },
+    "hideListNumbers": {
+      "type": "boolean"
+    },
     "hideTitles": {
       "type": "boolean"
     },
+    "statTitlePosition": {
+      "cms.ui.note": "Position the stat title to the left or right of the value field",
+      "type": "text",
+      "cms.ui.dropDown": true,
+      "values": [
+        {
+          "label": "Right",
+          "value": "right"
+        },
+        {
+          "label": "Left",
+          "value": "left"
+        }
+      ]
+    },
+    "imageAspectRatio": {
+      "type": "text",
+      "cms.ui.dropDown": true,
+      "values": [
+        {
+          "label": "16x9",
+          "value": "xl-16x9"
+        },
+        {
+          "label": "2.4x1",
+          "value": "xl-24x1"
+        },
+        {
+          "label": "4x1",
+          "value": "xl-4x1"
+        },
+        {
+          "label": "4x3",
+          "value": "xl-4x3"
+        },
+        {
+          "label": "3x4 (portrait)",
+          "value": "large-3x4"
+        },
+        {
+          "label": "1x1 (square)",
+          "value": "large-square"
+        }
+      ]
+
+    },
     "imagePositionVertical": {
-      "cms.ui.note": "Position Image",
       "type": "text",
       "cms.ui.dropDown": true,
       "values": [
@@ -219,7 +294,6 @@
       ]
     },
     "imagePositionHorizontal": {
-      "cms.ui.note": "Position Image",
       "type": "text",
       "cms.ui.dropDown": true,
       "values": [
@@ -233,12 +307,26 @@
         }
       ]
     },
+    "imageWidth": {
+      "type": "text",
+      "cms.ui.dropDown": true,
+      "values": [
+        {
+          "label": "66%",
+          "value": "66"
+        },
+        {
+          "label": "50%",
+          "value": "50"
+        }
+      ]
+    },
     "inverseColors": {
-      "type": "boolean",
-      "cms.ui.note": "Change Primary Text Color to Primary Inverse Text color (set in theme colors)"
+      "displayName": "Change Primary Text Color to Primary Inverse Text color (set in theme colors)",
+      "type": "boolean"
     },
     "listHeaderPosition": {
-      "cms.ui.note": "Choose the postiion of the list header",
+      "displayName": "Choose the position of the list header",
       "type": "text",
       "cms.ui.dropDown": true,
       "cms.ui.placeholder": "Default",
@@ -250,7 +338,7 @@
       ]
     },
     "navColumns": {
-      "cms.ui.note": "Choose how many navigation dropdown columns you would like",
+      "displayName": "Choose how many navigation dropdown columns you would like",
       "type": "text",
       "cms.ui.dropDown": true,
       "values": [
@@ -264,8 +352,27 @@
         }
       ]
     },
+    "navAlignment": {
+      "displayName": "Choose how to align the navigation within the header",
+      "type": "text",
+      "cms.ui.dropDown": true,
+      "values": [
+        {
+          "label": "Right",
+          "value": "right"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Left",
+          "value": "left"
+        }
+      ]
+    },
     "listColumns234": {
-      "cms.ui.note": "Choose how many columns would you like",
+      "displayName": "Choose how many columns would you like",
       "type": "text",
       "cms.ui.dropDown": true,
       "values": [
@@ -284,7 +391,7 @@
       ]
     },
     "listColumns45": {
-      "cms.ui.note": "Choose how many columns you would like",
+      "displayName": "Choose how many columns you would like",
       "type": "text",
       "cms.ui.dropDown": true,
       "values": [
@@ -298,26 +405,71 @@
         }
       ]
     },
+    "listColumns56": {
+      "displayName": "Choose how many columns you would like",
+      "type": "text",
+      "cms.ui.dropDown": true,
+      "values": [
+        {
+          "label": "5",
+          "value": "5"
+        },
+        {
+          "label": "6",
+          "value": "6"
+        }
+      ]
+    },
+    "listColumns23456": {
+      "displayName": "Choose how many columns would you like",
+      "type": "text",
+      "cms.ui.dropDown": true,
+      "values": [
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5",
+          "value": "5"
+        },
+        {
+          "label": "6",
+          "value": "6"
+        }
+      ]
+    },
     "mobileCarousel": {
       "type": "boolean",
       "displayName": "Should this list carousel on mobile screen sizes?"
     },
     "opacityOverlay": {
-      "cms.ui.note": "Set the opacity value for the overlay, number from 0 to 100",
+      "displayName": "Set the opacity value for the overlay, number from 0 to 100",
       "type": "text"
     },
+    "playlistBottom": {
+      "type": "boolean",
+      "displayName": "Position playlist below the player?"
+    },
     "promoButtonText": {
-      "cms.ui.note": "Text to be used for the call to action button on promos in this list",
+      "displayName": "Text to be used for the call to action button on promos in this list",
       "type": "text"
     },
     "searchFormBackgroundColor": {
-      "displayName": "Search Form Background Colour",
+      "displayName": "Search Form Background Color",
       "type": "color",
-      "cms.ui.note": "Configure the background colour behind main search field and search filters"
+      "cms.ui.note": "Configure the background color behind main search field and search filters"
     },
     "sectionNavAlign": {
-      "displayName": "Section Nav Alignment",
-      "cms.ui.note": "Choose default Section Nav Alignment",
+      "displayName": "Choose Section Nav Alignment",
       "type": "text",
       "cms.ui.dropDown": true,
       "values": [
@@ -351,6 +503,10 @@
       "displayName": "Section Nav Text Hover Color",
       "type": "color"
     },
+    "showAsButton": {
+      "type": "boolean",
+      "displayName": "Should this nav item show up as a button?"
+    },
     "showListNumbers": {
       "type": "boolean",
       "displayName": "Should this list show list numbers?"
@@ -359,16 +515,24 @@
       "type": "boolean",
       "displayName": "Check to have this container show the title"
     },
+    "showByline": {
+      "type": "boolean",
+      "displayName": "Should this module show the byline?"
+    },
     "subTitle": {
-      "cms.ui.note": "Set Subtitle text",
+      "displayName": "Set Subtitle text",
       "type": "text"
     },
     "suppressPagination": {
       "type": "boolean",
-      "cms.ui.note": "Prevent pagination controls from displaying on this list"
+      "displayName": "Prevent pagination controls from displaying on this list"
+    },
+    "suppressCommenting": {
+      "type": "boolean",
+      "displayName": "Suppress commenting on this one page"
     },
     "textAlign": {
-      "cms.ui.note": "Align text",
+      "displayName": "Text Alignment",
       "type": "text",
       "cms.ui.dropDown": true,
       "values": [

@@ -1,0 +1,23 @@
+{
+  "_template": "DownloadList.hbs",
+  "title": "Download List",
+  "description": "{{words(20)}}",
+  "items": [
+    {
+      "_include": "/download/promo/DownloadPromo.json",
+      "_key": 0
+    },
+    {
+      "_include": "/download/promo/DownloadPromo.json",
+      "_key": 1
+    },
+    {
+      "_include": "/download/promo/DownloadPromo.json",
+      "_key": 2
+    },
+    {
+      "_include": "/download/promo/DownloadPromo.json",
+      "_key": 3
+    }
+  ]
+}

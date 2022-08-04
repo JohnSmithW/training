@@ -1,4 +1,4 @@
-<nav class="Navigation"{{extraAttributes}}>
+<nav class="Navigation"{{#with navAlign}}data-nav-align="{{this}}"{{/with}}>
     {{#with items}}
         <ul class="Navigation-items">
             {{#each this}}

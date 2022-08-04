@@ -1,7 +1,12 @@
 
     <div class="Select">
 
-            <label class="Select-label"><span>{{label}}</span>
+            <label class="Select-label"><span>{{label}}{{#if required}}&nbsp;<span class="Select-label-required">{{format "/form/Form" "requiredLabel"}}</span>{{/if}}</span>
+                {{~#with description}}
+                    <div class="Select-description">
+                        {{~this~}}
+                    </div>
+                {{/with~}}
                 <div class="Select-wrapper">
                     <select class="Select-input" name="{{#if name}}{{name}}{{else}}Select-input{{/if}}"
                           {{~#with autofocus}} autofocus{{/with}}

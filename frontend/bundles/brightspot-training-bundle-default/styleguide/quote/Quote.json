@@ -1,8 +1,10 @@
 {
   "_template": "/quote/Quote.hbs",
-  "quote": "Ham bresaola strip steak, jowl shoulder bacon tail fatback jerky ribeye chuck cupim.",
-  "attribution": "Bacon ipsum dolor amet",
+  "anchorId": "anchorTest",
+  "quote": "{{words([15,25])}}",
+  "attribution": "{{words([5,15])}}",
   "image": {
       "_include": "/image/Image.json"
-  }
+  },
+  "backgroundColor": "#f0f0f0"
 }

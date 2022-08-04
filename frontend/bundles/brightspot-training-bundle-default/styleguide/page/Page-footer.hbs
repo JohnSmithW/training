@@ -13,7 +13,7 @@
             <div class="Page-footer-columns">
                 <div class="Page-footer-column">
                     {{#with footerLogo}}
-                        {{#set imageSize='siteLogo'}}
+                        {{#set imageSize="logo"}}
                             <div class="Page-footer-logo">{{this}}</div>
                         {{/set}}
                     {{/with}}
@@ -31,7 +31,7 @@
                     <div class="Page-footer-column">
                         <div class="Page-footer-content">
                             {{#each this}}
-                                {{render this [/page/promo/PagePromo.hbs]="/page/promo/PagePromoFooter.hbs"}}
+                                {{render this [/page/promo/PagePromoModule.hbs]="/page/promo/PagePromoFooter.hbs"}}
                             {{/each}}
                         </div>
                     </div>

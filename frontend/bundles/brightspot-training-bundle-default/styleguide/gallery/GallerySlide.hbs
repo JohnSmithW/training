@@ -1,21 +1,21 @@
-<div class="{{#with className}}{{this}}{{else}}GallerySlide{{/with}}" data-slide-index="{{slideNumber}}">
-    <div class="{{#with className}}{{this}}{{else}}GallerySlide{{/with}}-media">
+<div class="GallerySlide" data-slide-index="{{slideNumber}}">
+    <div class="GallerySlide-media">
         {{#with mediaContent}}
-            {{#set imageSize=(fallback (get "imageSize") "xl-notfixed") lazyLoad=false}}
+            {{#set imageSize=(fallback (get "imageSize") "xl-1440h-notfixed") lazyLoad=false}}
                 {{this}}
             {{/set}}
         {{/with}}
     </div>
-    <div class="{{#with className}}{{this}}{{else}}GallerySlide{{/with}}-content">
+    <div class="GallerySlide-content">
         {{#with infoTitle}}
-            <div class="{{#with ../className}}{{this}}{{else}}GallerySlide{{/with}}-title">{{this}}</div>
+            <div class="GallerySlide-title">{{this}}</div>
         {{/with}}
         {{#with infoDescription}}
-            <div class="{{#with ../className}}{{this}}{{else}}GallerySlide{{/with}}-description">{{this}}</div>
+            <div class="GallerySlide-description">{{this}}</div>
         {{/with}}
 
         {{#with infoAttribution}}
-            <div class="{{#with ../className}}{{this}}{{else}}GallerySlide{{/with}}-attribution">{{this}}</div>
+            <div class="GallerySlide-attribution">{{this}}</div>
         {{/with}}
     </div>
 </div>

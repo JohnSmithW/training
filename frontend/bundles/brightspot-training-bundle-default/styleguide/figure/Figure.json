@@ -1,9 +1,10 @@
 {
   "_template": "Figure.hbs",
+  "anchorId": "anchorTest",
   "image": {
     "_image": true
   },
-  "alt": "Bacon ipsum dolor amet",
-  "caption": "Bacon ipsum dolor amet",
-  "credit": "Bacon: Corned beef shank "
+  "alt": "{{words([5,15])}}",
+  "caption": "{{words([5,15])}}",
+  "credit": "{{words([5,15])}}"
 }

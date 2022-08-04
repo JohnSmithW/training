@@ -20,10 +20,7 @@ export class PageListCarousel extends window.HTMLElement {
         watchCSS: true // watch for this, we enable carousels with CSS by default
       }
 
-      if (
-        this.classList.contains('PageListE') ||
-        this.classList.contains('PageListJ')
-      ) {
+      if (this.classList.contains('PageListCarouselA')) {
         this.carouselOptions = {
           adaptiveHeight: true,
           cellAlign: 'left',
@@ -35,7 +32,10 @@ export class PageListCarousel extends window.HTMLElement {
         }
       }
 
-      if (this.classList.contains('PageListF')) {
+      if (
+        this.classList.contains('PageListCarouselB') ||
+        this.classList.contains('PageListCarouselD')
+      ) {
         this.carouselOptions = {
           adaptiveHeight: false,
           cellAlign: 'left',
@@ -57,14 +57,14 @@ export class PageListCarousel extends window.HTMLElement {
         }
       }
 
-      if (this.classList.contains('PageListS')) {
+      if (this.classList.contains('PageListCarouselC')) {
         this.carouselOptions = {
           adaptiveHeight: true,
           cellAlign: 'left',
           imagesLoaded: true,
           lazyLoad: 2,
           prevNextButtons: true,
-          pageDots: true
+          pageDots: false
         }
       }
 
@@ -76,6 +76,18 @@ export class PageListCarousel extends window.HTMLElement {
           lazyLoad: 2,
           prevNextButtons: true,
           pageDots: false
+        }
+      }
+
+      if (this.classList.contains('LogoListA')) {
+        this.carouselOptions = {
+          adaptiveHeight: true,
+          cellAlign: 'left',
+          imagesLoaded: true,
+          lazyLoad: 2,
+          prevNextButtons: true,
+          pageDots: false,
+          wrapAround: true
         }
       }
 

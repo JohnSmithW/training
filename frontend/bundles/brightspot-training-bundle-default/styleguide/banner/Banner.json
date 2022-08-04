@@ -1,5 +1,5 @@
 {
   "_template" : "Banner.hbs",
-  "linkBody" : "Bacon ipsum dolor amet",
+  "linkBody" : "{{words([5,15])}}",
   "linkHref" : "#"
 }

@@ -11,8 +11,11 @@ export class GalleryPage extends window.HTMLElement {
     return this.querySelectorAll('.GallerySlideWaterfall img')
   }
 
+  get fullScreenButtons () {
+    return this.querySelectorAll('[class$="-fullScreenButton"]')
+  }
+
   connectedCallback () {
-    this.backToTop = this.querySelector('[class$="-backToTop"]')
     this.handleEventListeners()
   }
 
@@ -20,21 +23,6 @@ export class GalleryPage extends window.HTMLElement {
     window.addEventListener('load', () => {
       if (this.galleryStyle === 'waterfall') {
         this.slideClickEvent()
-
-        window.addEventListener('scroll', () => {
-          window.pageYOffset > this.headerHeight
-            ? (this.backToTop.style.display = 'block')
-            : (this.backToTop.style.display = 'none')
-        })
-
-        this.backToTop.addEventListener('click', e => {
-          e.preventDefault()
-          window.scroll({
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
-          })
-        })
       }
     })
   }
@@ -53,6 +41,16 @@ export class GalleryPage extends window.HTMLElement {
           openSlide(slide)
           document.querySelector('[class$="-closeButton"]').focus()
         }
+      })
+    })
+
+    this.fullScreenButtons.forEach(button => {
+      button.addEventListener('click', e => {
+        const slide = button.nextElementSibling.querySelector(
+          '.GallerySlideWaterfall img'
+        )
+        e.preventDefault()
+        openSlide(slide)
       })
     })
 

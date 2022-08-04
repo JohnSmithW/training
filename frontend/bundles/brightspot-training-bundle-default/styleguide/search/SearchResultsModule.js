@@ -1,4 +1,5 @@
 /* global URLSearchParams FormData CustomEvent Event */
+import { LoadMore } from '../global/LoadMore'
 import { throttle } from '../util/Throttle'
 
 export class SearchResultsModule extends window.HTMLElement {
@@ -7,6 +8,32 @@ export class SearchResultsModule extends window.HTMLElement {
     this.handleFormSubmit()
     this.handleSearchInput()
     this.checkInputValue()
+
+    this.addEventListener(LoadMore.events.loadedContent, () =>
+      this.handleLoadMore(event)
+    )
+  }
+
+  handleLoadMore (event) {
+    const index = [
+      ...document.querySelectorAll(`[class="${this.className}"]`)
+    ].indexOf(this)
+    const newDocument = event.detail
+    const newContent = newDocument.querySelectorAll(
+      `[class="${this.className}"]`
+    )[index]
+    const newResults = newContent.querySelectorAll(
+      '.SearchResultsModule-results-item'
+    )
+    const resultsElement = this.querySelector('.SearchResultsModule-results')
+    newResults.forEach(element => resultsElement.append(element))
+    const newLoadMore = newContent.querySelector('bsp-load-more')
+
+    if (newLoadMore) {
+      event.target.parentNode.replaceChild(newLoadMore, event.target)
+    } else {
+      event.target.parentNode.removeChild(event.target)
+    }
   }
 
   handleFormSubmit () {
@@ -47,7 +74,7 @@ export class SearchResultsModule extends window.HTMLElement {
     let submitEvent
 
     if (typeof Event === 'function') {
-      submitEvent = new Event('submit')
+      submitEvent = new Event('submit', { cancelable: true })
     } else {
       submitEvent = document.createEvent('Event')
       submitEvent.initEvent('submit', true, true)

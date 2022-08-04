@@ -1,5 +1,5 @@
 <figure class="Figure">
-    {{#resize image (fallback (get "imageSize") "large")}}
+    {{#resize image (fallback (get "imageSize") "large-16x9")}}
     <amp-img layout="responsive" src="{{src}}" alt="{{../alt}}" {{~#with srcset}} srcset="{{this}}" {{/with~}} {{~#with width}} width="{{this}}" {{/with~}} {{~#with height}} height="{{this}}" {{/with~}}></amp-img>
     {{/resize}}
     {{!-- we do not have or yet, once we do, I'll convert this --}}

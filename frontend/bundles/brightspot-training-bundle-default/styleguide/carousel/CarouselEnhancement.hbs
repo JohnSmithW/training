@@ -3,17 +3,17 @@
         <div class="Enhancement-item">
             {{!-- little goofy syntax because of the way set works --}}
             {{#eq ../enhancementAlignment "align-fullWidth"}}
-                {{#set imageSize="xl-24x1"}}
+                {{#set imageSize="xl-1440w-notfixed"}}
                     {{this}}
                 {{/set}}
             {{else}}
                 {{#eq ../enhancementAlignment "align-portrait-left"}}
-                    {{#set imageSize="medium-portrait"}}
+                    {{#set imageSize="medium-3x4"}}
                         {{this}}
                     {{/set}}
                 {{else}}
                     {{#eq ../enhancementAlignment "align-portrait-right"}}
-                        {{#set imageSize="medium-portrait"}}
+                        {{#set imageSize="medium-3x4"}}
                             {{this}}
                         {{/set}}
                     {{else}}

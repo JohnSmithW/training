@@ -1,4 +1,5 @@
 <div class="Quote" data-module{{#if backgroundColor}} data-with-bg{{/if}}{{#if inverseColors}} data-inverse-colors{{/if}} style="--color-quote-background: {{#with backgroundColor}}{{this}}{{else}}#fff{{/with}};">
+    {{include "/link/AnchorLink.hbs" this}}
     <div class="Quote-content">
         <blockquote>
             {{~quote~}}

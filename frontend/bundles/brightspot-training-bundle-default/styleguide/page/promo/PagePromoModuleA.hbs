@@ -1,4 +1,18 @@
-<div class="PagePromoModuleA" data-module {{include "includes/PagePromoAttributes.hbs" this}}>
+<div class="PagePromoModuleA" data-module {{include "includes/PagePromoAttributes.hbs" this}}{{#if animateOnScroll}}  data-animate="fromBottom" {{/if}}>
+    {{include "/link/AnchorLink.hbs" this}}
+
+    {{#if media}}
+        {{#if imageAspectRatio}}
+            {{#set imageSize=imageAspectRatio}}
+                {{include "includes/PagePromoMediaWithIcon.hbs" this}}
+            {{/set}}
+        {{else}}
+            {{#set imageSize="xl-16x9"}}
+                {{include "includes/PagePromoMediaWithIcon.hbs" this}}
+            {{/set}}
+        {{/if}}
+    {{/if}}
+
     <div class="PagePromoModuleA-content">
         {{include "includes/PagePromoCategory.hbs" this}}
 
@@ -6,14 +20,8 @@
 
         {{include "includes/PagePromoDescription.hbs" this}}
 
-        {{include "includes/PagePromoButton.hbs" this}}
-
         {{include "includes/PagePromoByline.hbs" this}}
-    </div>
 
-    {{#if media}}
-        {{#set imageSize="xl-24x1"}}
-            {{include "includes/PagePromoMediaWithIcon.hbs" this}}
-        {{/set}}
-    {{/if}}
+        {{include "includes/PagePromoButton.hbs" this}}
+    </div>
 </div>

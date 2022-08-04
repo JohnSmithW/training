@@ -1,68 +1,67 @@
 {
   "_template": "/form/Form.hbs",
-  "title": "Bacon ipsum dolor amet",
-  "description": "Burgdoggen sausage boudin, chuck kielbasa picanha cow tenderloin. Picanha flank pastrami kielbasa prosciutto frankfurter. ",
-  "items": [{
+  "title": "{{words([5,15])}}",
+  "description": "{{words([15,25])}}",
+  "anchorId": "anchorTest",
+  "items": [
+    {
       "_template": "/form/fieldset/Fieldset.hbs",
       "fieldsetColumns": "50-50",
-      "items": [{
+      "items": [
+        {
           "_template": "/form/input/TextInput.hbs",
-
           "inputName": "test-text-field",
-          "label": "Test Text Field",
+          "label": "{{words([5,10])}}",
           "placeholder": "Placeholder text",
           "required": false
         },
         {
           "_template": "/form/input/TextInput.hbs",
-
           "inputName": "test-text-field",
-          "label": "Test Text Field",
+          "label": "{{words([5,10])}}",
           "placeholder": "Placeholder text",
           "required": false
         }
       ],
       "legend": "50 / 50"
     },
-
     {
       "_template": "/form/fieldset/Fieldset.hbs",
       "fieldsetColumns": "33-33-33",
-      "items": [{
+      "items": [
+        {
           "_template": "/form/input/TextInput.hbs",
-
           "inputName": "test-text-field",
-          "label": "Test Text Field",
+          "label": "{{words([5,10])}}",
           "placeholder": "Placeholder text",
           "required": false
         },
         {
           "_template": "/form/input/TextInput.hbs",
-
           "inputName": "test-text-field",
-          "label": "Test Text Field",
+          "label": "{{words([5,10])}}",
           "placeholder": "Placeholder text",
           "required": false
         },
         {
           "_template": "/form/input/TextInput.hbs",
-
           "inputName": "test-text-field",
-          "label": "Test Text Field",
+          "label": "{{words([5,10])}}",
           "placeholder": "Placeholder text",
           "required": false
         }
       ],
       "legend": "33 / 33 / 33"
     },
-
     {
       "_template": "/form/fieldset/Fieldset.hbs",
       "fieldsetColumns": "33-33-33",
-      "items": [{
+      "items": [
+        {
           "_template": "/form/fieldset/Fieldset.hbs",
           "fieldsetColumns": "1",
-          "items": [{
+          "items": [
+            {
               "_template": "/form/input/CheckboxInput.hbs",
               "inputName": "checkboxes",
               "inputValue": "checkbox-1",
@@ -86,7 +85,8 @@
         {
           "_template": "/form/fieldset/Fieldset.hbs",
           "fieldsetColumns": "1",
-          "items": [{
+          "items": [
+            {
               "_template": "/form/input/CheckboxInput.hbs",
               "inputName": "checkboxes",
               "inputValue": "checkbox-1",
@@ -110,7 +110,8 @@
         {
           "_template": "/form/fieldset/Fieldset.hbs",
           "fieldsetColumns": "1",
-          "items": [{
+          "items": [
+            {
               "_template": "/form/input/RadioInput.hbs",
               "inputName": "radio-buttons",
               "inputValue": "radio-1",
@@ -135,13 +136,12 @@
       ],
       "legend": "33 / 33 / 33"
     },
-
     {
       "_template": "/form/fieldset/Fieldset.hbs",
       "fieldsetColumns": "50-25-25",
-      "items": [{
+      "items": [
+        {
           "_template": "/form/input/TextInput.hbs",
-
           "inputName": "test-text-field",
           "label": "Test Text Field",
           "placeholder": "Placeholder text",
@@ -149,7 +149,6 @@
         },
         {
           "_template": "/form/input/TextInput.hbs",
-
           "inputName": "test-text-field",
           "label": "Test Text Field",
           "placeholder": "Placeholder text",
@@ -157,7 +156,6 @@
         },
         {
           "_template": "/form/input/TextInput.hbs",
-
           "inputName": "test-text-field",
           "label": "Test Text Field",
           "placeholder": "Placeholder text",
@@ -166,13 +164,12 @@
       ],
       "legend": "50 / 25 / 25"
     },
-
     {
       "_template": "/form/fieldset/Fieldset.hbs",
       "fieldsetColumns": "25-25-50",
-      "items": [{
+      "items": [
+        {
           "_template": "/form/input/TextInput.hbs",
-
           "inputName": "test-text-field",
           "label": "Test Text Field",
           "placeholder": "Placeholder text",
@@ -180,7 +177,6 @@
         },
         {
           "_template": "/form/input/TextInput.hbs",
-
           "inputName": "test-text-field",
           "label": "Test Text Field",
           "placeholder": "Placeholder text",
@@ -188,7 +184,6 @@
         },
         {
           "_template": "/form/input/TextInput.hbs",
-
           "inputName": "test-text-field",
           "label": "Test Text Field",
           "placeholder": "Placeholder text",
@@ -197,13 +192,12 @@
       ],
       "legend": "25 / 25 / 50"
     },
-
     {
       "_template": "/form/fieldset/Fieldset.hbs",
       "fieldsetColumns": "25-25-25-25",
-      "items": [{
+      "items": [
+        {
           "_template": "/form/input/TextInput.hbs",
-
           "inputName": "test-text-field",
           "label": "Test Text Field",
           "placeholder": "Placeholder text",
@@ -211,7 +205,6 @@
         },
         {
           "_template": "/form/input/TextInput.hbs",
-
           "inputName": "test-text-field",
           "label": "Test Text Field",
           "placeholder": "Placeholder text",
@@ -219,7 +212,6 @@
         },
         {
           "_template": "/form/input/TextInput.hbs",
-
           "inputName": "test-text-field",
           "label": "Test Text Field",
           "placeholder": "Placeholder text",
@@ -227,7 +219,6 @@
         },
         {
           "_template": "/form/input/TextInput.hbs",
-
           "inputName": "test-text-field",
           "label": "Test Text Field",
           "placeholder": "Placeholder text",
@@ -236,10 +227,8 @@
       ],
       "legend": "25 / 25 / 25 / 25"
     },
-
     {
       "_template": "/form/input/TextInput.hbs",
-
       "inputName": "test-text-field",
       "label": "Test Text Field",
       "placeholder": "Placeholder text",
@@ -253,6 +242,18 @@
       "required": true
     },
     {
+      "_template": "/form/input/PasswordInput.hbs",
+      "inputName": "test-password-field",
+      "label": "Test Password Field",
+      "required": true
+    },
+    {
+      "_template": "/form/input/PhoneNumberInput.hbs",
+      "inputName": "test-phone-field",
+      "label": "Test Phone Number Field",
+      "placeholder": "Phone Number"
+    },
+    {
       "_template": "/form/input/TextArea.hbs",
       "inputName": "text-long-field",
       "label": "Text Long Field",
@@ -261,7 +262,8 @@
     },
     {
       "_template": "/form/fieldset/Fieldset.hbs",
-      "items": [{
+      "items": [
+        {
           "_template": "/form/input/RadioInput.hbs",
           "inputName": "radio-buttons",
           "inputValue": "radio-1",
@@ -285,7 +287,8 @@
     },
     {
       "_template": "/form/fieldset/Fieldset.hbs",
-      "items": [{
+      "items": [
+        {
           "_template": "/form/input/CheckboxInput.hbs",
           "inputName": "checkboxes",
           "inputValue": "checkbox-1",
@@ -311,7 +314,8 @@
       "label": "Dropdown",
       "multiple": false,
       "name": "dropdown",
-      "options": [{
+      "options": [
+        {
           "_template": "/form/select/Option.hbs",
           "label": "Dropdown 1",
           "value": "dropdown-1"
@@ -327,18 +331,31 @@
     },
     {
       "_template": "/form/fieldset/Fieldset.hbs",
-      "items": [{
-        "_template": "/form/input/CheckboxInput.hbs",
-        "inputName": "terms",
-        "inputValue": "terms",
-        "label": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa."
-      }]
+      "items": [
+        {
+          "_template": "/form/input/CheckboxInput.hbs",
+          "inputName": "terms",
+          "inputValue": "terms",
+          "label": "{{words([5,15])}}"
+        }
+      ]
     },
-
+    {
+      "_template": "/form/input/FileInput.hbs",
+      "description": [
+        "{{html('Description Here')}}"
+      ],
+      "inputName": "upload-a-file",
+      "label": [
+        "{{html('Upload a file')}}"
+      ],
+      "labelPlainText": "Upload a file",
+      "multiple": false,
+      "required": false
+    },
     {
       "_include": "/form/input/CaptchaInput.json"
     },
-
     {
       "_template": "/form/input/HiddenInput.hbs",
       "inputName": "brightspot.form.id",

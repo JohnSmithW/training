@@ -1,7 +1,7 @@
-<div class="Promo-Amp" {{extraAttributes}} {{include "includes/PagePromoAttributes.amp.hbs" this}}>
+<div class="Promo-Amp">
     {{#with media}}
     <div class="Promo-Amp-media">
-        {{#set imageSize='small'}}
+        {{#set imageSize="small-16x9"}}
             {{include "/link/Link.amp.hbs" aria-label=../title href=../url target=../target body=this}}
         {{/set}}
     </div>
@@ -20,8 +20,8 @@
         </div>
         {{/with}}
 
-        {{#with date}}
-            <div class="Promo-date">{{this}}</div>
+        {{#with publishDate}}
+            <div class="Promo-Amp-date">{{this}}</div>
         {{/with}}
     </div>
 </div>

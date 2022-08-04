@@ -1,0 +1,22 @@
+.PageListRightRailC {
+  .PageList-header-title {
+    &:extend(.list-title-3 all);
+  }
+
+  .PageList-items {
+    display: grid;
+    grid-gap: 20px;
+
+    &-item {
+      border-bottom: 1px solid var(--color-list-border);
+      color: var(--color-primary-text);
+      --color-link-text: var(--color-primary-text);
+      --color-link-text-hover: var(--color-primary-text);
+      padding-bottom: 20px;
+
+      .Link {
+        &:extend(.promo-title-6);
+      }
+    }
+  }
+}
