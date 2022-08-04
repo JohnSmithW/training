@@ -34,6 +34,7 @@ allprojects {
                 substitute module('javax.activation:javax.activation-api') with module('com.sun.activation:jakarta.activation:1.2.1')
                 substitute module('jakarta.activation:jakarta.activation-api') with module('com.sun.activation:jakarta.activation:1.2.1')
                 substitute module('javax.annotation:javax.annotation-api') with module('jakarta.annotation:jakarta.annotation-api:1.3.5')
+                substitute module('javax.inject:javax.inject') with module('org.glassfish.hk2.external:javax.inject:2.3.0-b05')
             }
         }
     }
