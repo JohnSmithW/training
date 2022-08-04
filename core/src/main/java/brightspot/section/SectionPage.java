@@ -14,11 +14,13 @@ import brightspot.cascading.CascadingPageElements;
 import brightspot.image.WebImageAsset;
 import brightspot.landing.LandingCascadingData;
 import brightspot.landing.LandingPageElements;
+import brightspot.link.InternalLink;
+import brightspot.module.HasModularSearchIndexFields;
 import brightspot.module.ModulePlacement;
 import brightspot.module.list.page.DynamicPageItemStream;
-import brightspot.module.list.page.PageListModulePlacementInline;
 import brightspot.page.ModulePageLead;
 import brightspot.page.Page;
+import brightspot.page.PageHeading;
 import brightspot.page.TypeSpecificCascadingPageElements;
 import brightspot.permalink.AbstractPermalinkRule;
 import brightspot.permalink.Permalink;
@@ -26,6 +28,7 @@ import brightspot.promo.page.PagePromotableWithOverrides;
 import brightspot.rss.DynamicFeedSource;
 import brightspot.rte.SmallRichTextToolbar;
 import brightspot.rte.TinyRichTextToolbar;
+import brightspot.search.boost.HasSiteSearchBoostIndexes;
 import brightspot.search.modifier.exclusion.SearchExcludable;
 import brightspot.seo.SeoWithFields;
 import brightspot.share.Shareable;
@@ -60,6 +63,8 @@ public class SectionPage extends Content implements
     DynamicFeedSource,
     DefaultSiteMapItem,
     HasBreadcrumbs,
+    HasModularSearchIndexFields,
+    HasSiteSearchBoostIndexes,
     HasUrlSlug,
     LandingPageElements,
     Page,
@@ -70,8 +75,6 @@ public class SectionPage extends Content implements
     SeoWithFields,
     Shareable,
     TypeSpecificCascadingPageElements {
-
-    public static final String PROMOTABLE_TYPE = "section";
 
     @Required
     @Indexed
@@ -90,7 +93,7 @@ public class SectionPage extends Content implements
 
     // @ToolUi.EmbeddedContentCreatorClass(StyleEmbeddedContentCreator.class)
     @ToolUi.NoteHtml("<span data-dynamic-html='${content.leadNoteHtml}'></span>")
-    private ModulePageLead lead;
+    private ModulePageLead lead = new PageHeading().as(ModulePageLead.class);
 
     public String getLeadNoteHtml() {
         return ToolLocalization.text(
@@ -154,23 +157,7 @@ public class SectionPage extends Content implements
     public List<ModulePlacement> getContents() {
         return Optional.ofNullable(as(LandingCascadingData.class)
             .getContent(as(Site.ObjectModification.class).getOwner()))
-            .orElseGet(this::defaultContents);
-    }
-
-    public List<ModulePlacement> defaultContents() {
-        AllSectionMatch sectionMatch = new AllSectionMatch();
-        sectionMatch.setIncludeCurrentSection(true);
-
-        DynamicPageItemStream itemStream = new DynamicPageItemStream();
-        itemStream.asQueryBuilderDynamicQueryModifier().setQueryBuilder(sectionMatch);
-
-        PageListModulePlacementInline listModule = new PageListModulePlacementInline();
-        listModule.setItemStream(itemStream);
-
-        List<ModulePlacement> contents = new ArrayList<>();
-        contents.add(listModule);
-
-        return contents;
+            .orElseGet(ArrayList::new);
     }
 
     // --- HasBreadcrumbs support ---
@@ -180,6 +167,18 @@ public class SectionPage extends Content implements
         List<Section> ancestors = getSectionAncestors();
         Collections.reverse(ancestors);
         return ancestors;
+    }
+
+    // --- HasSiteSearchBoostIndexes support ---
+
+    @Override
+    public String getSiteSearchBoostTitle() {
+        return getDisplayName();
+    }
+
+    @Override
+    public String getSiteSearchBoostDescription() {
+        return getDescription();
     }
 
     // --- Linkable Support ---
@@ -211,6 +210,14 @@ public class SectionPage extends Content implements
         return anchors;
     }
 
+    // --- HasModularSearchIndexFields support ---
+
+    @Override
+    public Set<String> getModularSearchChildPaths() {
+        // ignore inherited contents
+        return Collections.singleton("landingCascading.content/items");
+    }
+
     // --- HasUrlSlug support ---
 
     @Override
@@ -235,8 +242,28 @@ public class SectionPage extends Content implements
     @Override
     public String getLabel() {
         return MoreStringUtils.firstNonBlank(
-                getInternalName(),
-                this::getSectionDisplayNamePlainText);
+            getInternalName(),
+            this::getSectionDisplayNamePlainText);
+    }
+
+    @Override
+    protected void onValidate() {
+
+        // TODO: remove validation check after BSP-13334 / BSPGO-609 is fixed [BLB 2022-05-18]
+        boolean pageHeadingCtaSelfReference = this.equals(Optional.ofNullable(getLead())
+                .filter(o -> PageHeading.class.isAssignableFrom(o.getClass()))
+                .map(PageHeading.class::cast)
+                .map(PageHeading::getCallToAction)
+                .filter(o -> InternalLink.class.isAssignableFrom(o.getClass()))
+                .map(InternalLink.class::cast)
+                .map(InternalLink::getItem)
+                .orElse(null));
+
+        if (pageHeadingCtaSelfReference) {
+            getState().addError(
+                    getState().getField("lead"),
+                    new IllegalStateException("Lead Call to Action Link must not reference same page."));
+        }
     }
 
     // --- Section support ---
@@ -283,11 +310,6 @@ public class SectionPage extends Content implements
     @Override
     public String getPagePromotableDescriptionFallback() {
         return getDescription();
-    }
-
-    @Override
-    public String getPagePromotableType() {
-        return PROMOTABLE_TYPE;
     }
 
     // --- FeedElement Support ---

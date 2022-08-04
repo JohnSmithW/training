@@ -12,9 +12,14 @@ import brightspot.anchor.Anchorage;
 import brightspot.breadcrumbs.HasBreadcrumbs;
 import brightspot.cascading.CascadingPageElements;
 import brightspot.image.WebImageAsset;
+import brightspot.link.InternalLink;
+import brightspot.mediatype.HasMediaTypeWithOverride;
+import brightspot.mediatype.MediaType;
+import brightspot.module.HasModularSearchIndexFields;
 import brightspot.module.ModulePlacement;
 import brightspot.page.ModulePageLead;
 import brightspot.page.Page;
+import brightspot.page.PageHeading;
 import brightspot.page.TypeSpecificCascadingPageElements;
 import brightspot.permalink.AbstractPermalinkRule;
 import brightspot.permalink.Permalink;
@@ -22,6 +27,7 @@ import brightspot.promo.page.PagePromotableWithOverrides;
 import brightspot.rss.DynamicFeedSource;
 import brightspot.rte.SmallRichTextToolbar;
 import brightspot.rte.TinyRichTextToolbar;
+import brightspot.search.boost.HasSiteSearchBoostIndexes;
 import brightspot.search.modifier.exclusion.SearchExcludable;
 import brightspot.section.HasSectionWithField;
 import brightspot.section.Section;
@@ -29,12 +35,12 @@ import brightspot.section.SectionPrefixPermalinkRule;
 import brightspot.seo.SeoWithFields;
 import brightspot.share.Shareable;
 import brightspot.site.DefaultSiteMapItem;
+import brightspot.util.MoreStringUtils;
 import brightspot.util.RichTextUtils;
 import com.psddev.cms.db.Content;
 import com.psddev.cms.db.Site;
 import com.psddev.cms.db.ToolUi;
 import com.psddev.dari.db.Recordable;
-import com.psddev.dari.util.ObjectUtils;
 import com.psddev.feed.FeedItem;
 import com.psddev.theme.StyleEmbeddedContentCreator;
 
@@ -54,15 +60,16 @@ public class GenericPage extends Content implements
     DynamicFeedSource,
     DefaultSiteMapItem,
     HasBreadcrumbs,
+    HasMediaTypeWithOverride,
+    HasModularSearchIndexFields,
+    HasSectionWithField,
+    HasSiteSearchBoostIndexes,
     Page,
     PagePromotableWithOverrides,
     SearchExcludable,
     SeoWithFields,
     Shareable,
-    HasSectionWithField,
     TypeSpecificCascadingPageElements {
-
-    public static final String PROMOTABLE_TYPE = "oneOffPage";
 
     @Required
     @ToolUi.CssClass("is-half")
@@ -76,7 +83,8 @@ public class GenericPage extends Content implements
     private String description;
 
     // @ToolUi.EmbeddedContentCreatorClass(StyleEmbeddedContentCreator.class)
-    private ModulePageLead lead;
+    @ToolUi.Note("If a Lead is added, it will appear before the content.")
+    private ModulePageLead lead = new PageHeading().as(ModulePageLead.class);
 
     @DisplayName("Contents")
     @ToolUi.EmbeddedContentCreatorClass(StyleEmbeddedContentCreator.class)
@@ -84,7 +92,7 @@ public class GenericPage extends Content implements
     private List<ModulePlacement> contents;
 
     public String getInternalName() {
-        return ObjectUtils.firstNonBlank(internalName, getDisplayNamePlainText());
+        return internalName;
     }
 
     public void setInternalName(String internalName) {
@@ -135,7 +143,9 @@ public class GenericPage extends Content implements
 
     @Override
     public String getLabel() {
-        return getInternalName();
+        return MoreStringUtils.firstNonBlank(
+            getInternalName(),
+            this::getDisplayNamePlainText);
     }
 
     @Override
@@ -170,6 +180,25 @@ public class GenericPage extends Content implements
         List<Section> ancestors = getSectionAncestors();
         Collections.reverse(ancestors);
         return ancestors;
+    }
+
+    // --- HasModularSearchIndexFields support ---
+
+    @Override
+    public Set<String> getModularSearchChildPaths() {
+        return Collections.singleton("contents");
+    }
+
+    // --- HasSiteSearchBoostIndexes support ---
+
+    @Override
+    public String getSiteSearchBoostTitle() {
+        return getDisplayName();
+    }
+
+    @Override
+    public String getSiteSearchBoostDescription() {
+        return getDescription();
     }
 
     // --- SeoWithFields support ---
@@ -214,21 +243,23 @@ public class GenericPage extends Content implements
 
     @Override
     public String getPagePromotableType() {
-        return PROMOTABLE_TYPE;
+        return Optional.ofNullable(getPrimaryMediaType())
+            .map(MediaType::getIconName)
+            .orElse(null);
     }
 
     @Override
     public String getPagePromotableCategoryFallback() {
         return Optional.ofNullable(asHasSectionData().getSectionParent())
-                .map(Section::getSectionDisplayNameRichText)
-                .orElse(null);
+            .map(Section::getSectionDisplayNameRichText)
+            .orElse(null);
     }
 
     @Override
     public String getPagePromotableCategoryUrlFallback(Site site) {
         return Optional.ofNullable(asHasSectionData().getSectionParent())
-                .map(section -> section.getLinkableUrl(site))
-                .orElse(null);
+            .map(section -> section.getLinkableUrl(site))
+            .orElse(null);
     }
 
     @Override
@@ -258,5 +289,27 @@ public class GenericPage extends Content implements
     @Override
     public String createPermalink(Site site) {
         return AbstractPermalinkRule.create(site, this, SectionPrefixPermalinkRule.class);
+    }
+
+    // --- Recordable support ---
+
+    @Override
+    protected void onValidate() {
+
+        // TODO: remove validation check after BSP-13334 / BSPGO-609 is fixed [BLB 2022-05-18]
+        boolean pageHeadingCtaSelfReference = this.equals(Optional.ofNullable(getLead())
+                .filter(o -> PageHeading.class.isAssignableFrom(o.getClass()))
+                .map(PageHeading.class::cast)
+                .map(PageHeading::getCallToAction)
+                .filter(o -> InternalLink.class.isAssignableFrom(o.getClass()))
+                .map(InternalLink.class::cast)
+                .map(InternalLink::getItem)
+                .orElse(null));
+
+        if (pageHeadingCtaSelfReference) {
+            getState().addError(
+                    getState().getField("lead"),
+                    new IllegalStateException("Lead Call to Action Link must not reference same page."));
+        }
     }
 }

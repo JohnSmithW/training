@@ -10,9 +10,14 @@ import java.util.stream.Collectors;
 
 import brightspot.article.ArticleLead;
 import brightspot.author.HasAuthorsWithField;
+import brightspot.commenting.HasCommenting;
+import brightspot.commenting.coral.HasCoralPageMetadata;
+import brightspot.commenting.disqus.HasDisqusPageMetadata;
 import brightspot.embargo.Embargoable;
 import brightspot.image.WebImageAsset;
 import brightspot.liveblog.wyntk.WhatYouNeedToKnowOption;
+import brightspot.mediatype.HasMediaTypeWithOverride;
+import brightspot.mediatype.MediaType;
 import brightspot.page.Page;
 import brightspot.permalink.AbstractPermalinkRule;
 import brightspot.promo.page.PagePromotableWithOverrides;
@@ -25,10 +30,11 @@ import brightspot.section.HasSectionWithField;
 import brightspot.seo.SeoWithFields;
 import brightspot.share.Shareable;
 import brightspot.site.DefaultSiteMapItem;
+import brightspot.sponsoredcontent.HasSponsorWithField;
 import brightspot.tag.HasTagsWithField;
 import brightspot.urlslug.HasUrlSlugWithField;
 import brightspot.util.RichTextUtils;
-import brightspot.util.Truncate;
+import brightspot.video.VideoLead;
 import com.psddev.cms.db.Content;
 import com.psddev.cms.db.Site;
 import com.psddev.cms.db.ToolUi;
@@ -36,7 +42,6 @@ import com.psddev.dari.db.Query;
 import com.psddev.dari.util.ObjectUtils;
 import com.psddev.dari.util.Utils;
 import com.psddev.feed.FeedItem;
-import org.apache.commons.lang3.StringUtils;
 
 @ToolUi.FieldDisplayOrder({
         "headline",
@@ -57,7 +62,12 @@ public class LiveBlog extends Content implements
         Embargoable,
         FeedItem,
         HasAuthorsWithField,
+        HasCommenting,
+        HasCoralPageMetadata,
+        HasDisqusPageMetadata,
+        HasMediaTypeWithOverride,
         HasSectionWithField,
+        HasSponsorWithField,
         HasTagsWithField,
         HasUrlSlugWithField,
         ILiveBlog<LiveBlogPost>,
@@ -66,8 +76,6 @@ public class LiveBlog extends Content implements
         SearchExcludable,
         SeoWithFields,
         Shareable {
-
-    private static final String TYPE = "live-blog";
 
     private static final int DEFAULT_CURRENT_POSTS_COUNT = 1000;
 
@@ -209,6 +217,10 @@ public class LiveBlog extends Content implements
         this.pinnedPosts = pinnedPosts;
     }
 
+    private String getHeadlinePlainText() {
+        return RichTextUtils.richTextToPlainText(getHeadline());
+    }
+
     public List<LiveBlogPost> getLivePosts(
         Date since,
         boolean useUpdateDate,
@@ -330,6 +342,17 @@ public class LiveBlog extends Content implements
         return getLinkableUrl(site);
     }
 
+    // --- HasMediaTypeOverride Support ---
+
+    @Override
+    public MediaType getPrimaryMediaTypeFallback() {
+        if (getLead() instanceof VideoLead) {
+            return MediaType.VIDEO;
+        }
+
+        return MediaType.TEXT;
+    }
+
     // --- Linkable support ---
 
     @Override
@@ -342,8 +365,9 @@ public class LiveBlog extends Content implements
 
     @Override
     public String getPagePromotableType() {
-
-        return TYPE;
+        return Optional.ofNullable(getPrimaryMediaType())
+            .map(MediaType::getIconName)
+            .orElse(null);
     }
 
     @Override
@@ -354,25 +378,7 @@ public class LiveBlog extends Content implements
 
     @Override
     public String getPagePromotableDescriptionFallback() {
-
-        String promotableDescriptionFallback = Optional.ofNullable(getSubheadline())
-            .map(RichTextUtils::richTextToPlainText)
-            .orElse(null);
-
-        if (!StringUtils.isBlank(promotableDescriptionFallback)) {
-            return promotableDescriptionFallback;
-        }
-
-        if (!StringUtils.isBlank(ObjectUtils.to(String.class, getState().get("migration.legacyId")))) {
-            // only fall back to body text for migrated content
-            return Optional.ofNullable(getBody())
-                .map(RichTextUtils::stripRichTextElements)
-                .map(RichTextUtils::richTextToPlainText)
-                .map(text -> Truncate.truncate(text, 155, true))
-                .orElse(null);
-        }
-
-        return null;
+        return getSubheadline();
     }
 
     @Override
@@ -383,11 +389,18 @@ public class LiveBlog extends Content implements
             .orElse(null);
     }
 
+    // --- Recordable support ---
+
+    @Override
+    public String getLabel() {
+        return RichTextUtils.richTextToPlainText(getHeadline());
+    }
+
     // --- SeoHooks support ---
 
     @Override
     public String getSeoTitleFallback() {
-        return getHeadline();
+        return getHeadlinePlainText();
     }
 
     @Override
@@ -412,7 +425,7 @@ public class LiveBlog extends Content implements
     @Override
     public String getShareableTitleFallback() {
 
-        return getPagePromotableTitleFallback();
+        return RichTextUtils.richTextToPlainText(getPagePromotableTitleFallback());
     }
 
     @Override
@@ -442,6 +455,6 @@ public class LiveBlog extends Content implements
     @Override
     public String getUrlSlugFallback() {
 
-        return Utils.toNormalized(getHeadline());
+        return Utils.toNormalized(getHeadlinePlainText());
     }
 }

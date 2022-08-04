@@ -17,11 +17,14 @@ import brightspot.imageitemstream.ExistingImageItemStreamProvider;
 import brightspot.imageitemstream.ImageItemStream;
 import brightspot.imageitemstream.SimpleImageItemStream;
 import brightspot.imageitemstream.WebImageItem;
+import brightspot.mediatype.HasMediaTypeWithOverride;
+import brightspot.mediatype.MediaType;
 import brightspot.page.Page;
 import brightspot.permalink.AbstractPermalinkRule;
 import brightspot.promo.page.PagePromotableWithOverrides;
 import brightspot.rte.LargeRichTextToolbar;
 import brightspot.rte.TinyRichTextToolbar;
+import brightspot.search.boost.HasSiteSearchBoostIndexes;
 import brightspot.search.modifier.exclusion.SearchExcludable;
 import brightspot.section.HasSectionWithField;
 import brightspot.section.Section;
@@ -29,6 +32,7 @@ import brightspot.section.SectionPrefixPermalinkRule;
 import brightspot.seo.SeoWithFields;
 import brightspot.share.Shareable;
 import brightspot.site.DefaultSiteMapItem;
+import brightspot.sponsoredcontent.HasSponsorWithField;
 import brightspot.tag.HasTagsWithField;
 import brightspot.util.RichTextUtils;
 import com.psddev.cms.db.Content;
@@ -36,7 +40,6 @@ import com.psddev.cms.db.Site;
 import com.psddev.cms.db.ToolUi;
 import com.psddev.cms.tool.SearchResultSelection;
 import com.psddev.cms.tool.SearchResultSelectionGeneratable;
-import com.psddev.crosslinker.db.Crosslinkable;
 import com.psddev.dari.db.Recordable;
 import com.psddev.dari.util.StorageItem;
 
@@ -59,7 +62,10 @@ public class Gallery extends Content implements
         DefaultSiteMapItem,
         HasAuthorsWithField,
         HasBreadcrumbs,
+        HasMediaTypeWithOverride,
         HasSectionWithField,
+        HasSiteSearchBoostIndexes,
+        HasSponsorWithField,
         HasTagsWithField,
         Page,
         PagePromotableWithOverrides,
@@ -69,7 +75,6 @@ public class Gallery extends Content implements
         Shareable {
 
     public static final String ICON_NAME = "photo_library";
-    public static final String PROMOTABLE_TYPE = "gallery";
 
     @Indexed
     @Required
@@ -80,13 +85,11 @@ public class Gallery extends Content implements
     @ToolUi.RichText(toolbar = TinyRichTextToolbar.class)
     private String description;
 
-    @Crosslinkable.Crosslinked
     @ToolUi.RichText(inline = false, toolbar = LargeRichTextToolbar.class)
     private String body;
 
     @Embedded
     @Required
-    @Crosslinkable.Crosslinked
     @TypesExclude({ ExistingImageItemStream.class, SimpleImageItemStream.class })
     private ImageItemStream items = new AdvancedImageItemStream();
 
@@ -152,6 +155,25 @@ public class Gallery extends Content implements
         return ancestors;
     }
 
+    // --- HasMediaTypeOverride Support ---
+
+    @Override
+    public MediaType getPrimaryMediaTypeFallback() {
+        return MediaType.GALLERY;
+    }
+
+    // --- HasSiteSearchBoostIndexes support ---
+
+    @Override
+    public String getSiteSearchBoostTitle() {
+        return getTitle();
+    }
+
+    @Override
+    public String getSiteSearchBoostDescription() {
+        return getDescription();
+    }
+
     // *** Promotable implementation ***
     @Override
     public String getPagePromotableTitleFallback() {
@@ -170,7 +192,9 @@ public class Gallery extends Content implements
 
     @Override
     public String getPagePromotableType() {
-        return PROMOTABLE_TYPE;
+        return Optional.ofNullable(getPrimaryMediaType())
+            .map(MediaType::getIconName)
+            .orElse(null);
     }
 
     @Override
@@ -269,6 +293,8 @@ public class Gallery extends Content implements
             .map(List::stream)
             .map(stream -> stream.filter(Objects::nonNull))
             .flatMap(Stream::findFirst)
+            .filter(WebImageItem.class::isInstance)
+            .map(WebImageItem.class::cast)
             .map(WebImageItem::getWebImage);
     }
 

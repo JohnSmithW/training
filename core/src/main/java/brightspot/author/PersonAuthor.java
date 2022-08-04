@@ -13,6 +13,7 @@ import brightspot.promo.page.PagePromotableWithOverrides;
 import brightspot.rte.MediumRichTextToolbar;
 import brightspot.rte.SmallRichTextToolbar;
 import brightspot.rte.TinyRichTextToolbar;
+import brightspot.search.boost.HasSiteSearchBoostIndexes;
 import brightspot.search.modifier.exclusion.SearchExcludable;
 import brightspot.seo.SeoWithFields;
 import brightspot.share.Shareable;
@@ -46,6 +47,7 @@ public class PersonAuthor extends Content implements
         AuthorPromotable,
         CascadingPageElements,
         DefaultSiteMapItem,
+        HasSiteSearchBoostIndexes,
         HasUrlSlugWithField,
         OpenGraphProfile,
         Page,
@@ -54,8 +56,6 @@ public class PersonAuthor extends Content implements
         SeoWithFields,
         Shareable,
         SocialEntity {
-
-    public static final String PAGE_PROMOTABLE_TYPE = "author";
 
     @Indexed
     @Required
@@ -132,9 +132,15 @@ public class PersonAuthor extends Content implements
      * @return rich text
      */
     public String getShortBiography() {
-        return StringUtils.isBlank(shortBiography)
-                ? getShortBiographyPlaceholder()
-                : shortBiography;
+        if (StringUtils.isBlank(shortBiography)) {
+            if (StringUtils.isBlank(fullBiography)) {
+                return "";
+            }
+
+            return RichTextUtils.getFirstBodyParagraph(fullBiography, false);
+        }
+
+        return shortBiography;
     }
 
     public String getEmail() {
@@ -190,16 +196,32 @@ public class PersonAuthor extends Content implements
         this.affiliation = affiliation;
     }
 
+    private String getNamePlainText() {
+        return RichTextUtils.richTextToPlainText(getName());
+    }
+
     @Override
     public String getLinkableText() {
         return getName();
+    }
+
+    // --- HasSiteSearchBoostIndexes support ---
+
+    @Override
+    public String getSiteSearchBoostTitle() {
+        return getName();
+    }
+
+    @Override
+    public String getSiteSearchBoostDescription() {
+        return getShortBiography();
     }
 
     // --- HasUrlSlug support ---
 
     @Override
     public String getUrlSlugFallback() {
-        return Utils.toNormalized(getName());
+        return Utils.toNormalized(getNamePlainText());
     }
 
     // --- SeoWithFields support ---
@@ -218,7 +240,7 @@ public class PersonAuthor extends Content implements
 
     @Override
     public String getShareableTitleFallback() {
-        return RichTextUtils.richTextToPlainText(getName());
+        return getNamePlainText();
     }
 
     @Override
@@ -235,7 +257,7 @@ public class PersonAuthor extends Content implements
 
     @Override
     public String getPagePromotableTitleFallback() {
-        return getName();
+        return getNamePlainText();
     }
 
     @Override
@@ -246,11 +268,6 @@ public class PersonAuthor extends Content implements
     @Override
     public String getPagePromotableDescriptionFallback() {
         return getShortBiography();
-    }
-
-    @Override
-    public String getPagePromotableType() {
-        return PAGE_PROMOTABLE_TYPE;
     }
 
     // --- AuthorPromotable support ---
@@ -283,7 +300,7 @@ public class PersonAuthor extends Content implements
 
     @Override
     public String getOpenGraphProfileUsername() {
-        return RichTextUtils.richTextToPlainText(getName());
+        return getNamePlainText();
     }
 
     @Override
@@ -312,6 +329,6 @@ public class PersonAuthor extends Content implements
 
     @Override
     public String getLabel() {
-        return RichTextUtils.richTextToPlainText(getName());
+        return getNamePlainText();
     }
 }

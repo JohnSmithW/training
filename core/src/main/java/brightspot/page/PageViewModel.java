@@ -20,6 +20,7 @@ import java.util.stream.Stream;
 
 import brightspot.banner.Banner;
 import brightspot.breadcrumbs.HasBreadcrumbs;
+import brightspot.commenting.CommentingSiteSettings;
 import brightspot.footer.Footer;
 import brightspot.footer.PageFooter;
 import brightspot.head.HeadScripts;
@@ -27,6 +28,7 @@ import brightspot.image.ImageSchemaData;
 import brightspot.image.WebImage;
 import brightspot.image.WebImageAsset;
 import brightspot.l10n.LocaleProvider;
+import brightspot.languagemenu.LanguageMenuSiteSettings;
 import brightspot.logo.ImageLogo;
 import brightspot.logo.Logo;
 import brightspot.permalink.Permalink;
@@ -134,16 +136,6 @@ public class PageViewModel extends ViewModel<Recordable> {
             }
         }
         return metaViews;
-    }
-
-    public CharSequence getKeywords() {
-        // Grab the first 10 keywords, per google recommendation
-        return Optional.ofNullable(model.as(Seo.class))
-                .map(Seo::getSeoKeywords)
-                .orElse(Collections.emptySet())
-                .stream()
-                .limit(10)
-                .collect(Collectors.joining(",", "", ""));
     }
 
     public CharSequence getDescription() {
@@ -287,6 +279,14 @@ public class PageViewModel extends ViewModel<Recordable> {
     public <T> Iterable<T> getHat(Class<T> viewClass) {
 
         return createViews(viewClass, model.as(CascadingPageData.class).getHat(currentSite));
+    }
+
+    public <T> Iterable<T> getLanguageMenu(Class<T> viewClass) {
+
+        return createViews(viewClass,
+                SiteSettings.get(
+                        currentSite,
+                        siteSettings -> siteSettings.as(LanguageMenuSiteSettings.class).getLanguageMenu()));
     }
 
     public CharSequence getSearchAction() {
@@ -562,5 +562,11 @@ public class PageViewModel extends ViewModel<Recordable> {
                 CROPPED_PROMO_IMAGE_SIZE
             )
         );
+    }
+
+    public <T> Iterable<T> getCommenting(Class<T> viewClass) {
+        return createViews(viewClass, SiteSettings.get(
+            currentSite,
+            siteSettings -> siteSettings.as(CommentingSiteSettings.class).getCommentingServices()));
     }
 }

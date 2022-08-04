@@ -1,6 +1,7 @@
 package brightspot.tag;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Optional;
@@ -12,11 +13,13 @@ import brightspot.cascading.CascadingPageElements;
 import brightspot.image.WebImageAsset;
 import brightspot.landing.LandingCascadingData;
 import brightspot.landing.LandingPageElements;
+import brightspot.link.InternalLink;
+import brightspot.module.HasModularSearchIndexFields;
 import brightspot.module.ModulePlacement;
 import brightspot.module.list.page.DynamicPageItemStream;
-import brightspot.module.list.page.PageListModulePlacementInline;
 import brightspot.page.ModulePageLead;
 import brightspot.page.Page;
+import brightspot.page.PageHeading;
 import brightspot.permalink.AbstractPermalinkRule;
 import brightspot.permalink.DefaultPermalinkRule;
 import brightspot.permalink.Permalink;
@@ -26,12 +29,12 @@ import brightspot.rte.TinyRichTextToolbar;
 import brightspot.seo.SeoWithFields;
 import brightspot.share.Shareable;
 import brightspot.site.DefaultSiteMapItem;
+import brightspot.util.MoreStringUtils;
 import brightspot.util.RichTextUtils;
 import com.psddev.cms.db.Content;
 import com.psddev.cms.db.Site;
 import com.psddev.cms.db.ToolUi;
 import com.psddev.dari.db.Recordable;
-import com.psddev.dari.util.ObjectUtils;
 import com.psddev.feed.FeedItem;
 import com.psddev.suggestions.SuggestionsInitField;
 
@@ -52,6 +55,7 @@ public class TagPage extends Content implements
     CascadingPageElements,
     DynamicFeedSource,
     DefaultSiteMapItem,
+    HasModularSearchIndexFields,
     LandingPageElements,
     Page,
     SeoWithFields,
@@ -77,12 +81,10 @@ public class TagPage extends Content implements
 
     // @ToolUi.EmbeddedContentCreatorClass(StyleEmbeddedContentCreator.class)
     @ToolUi.Note("If a Lead is added, it will appear before the content.")
-    private ModulePageLead lead;
+    private ModulePageLead lead = new PageHeading().as(ModulePageLead.class);
 
-    @ToolUi.Hidden
-    @Ignored(false)
     public String getInternalName() {
-        return ObjectUtils.firstNonNull(internalName, getDisplayNamePlainText());
+        return internalName;
     }
 
     public void setInternalName(String internalName) {
@@ -139,33 +141,47 @@ public class TagPage extends Content implements
     public List<ModulePlacement> getContents() {
         return Optional.ofNullable(as(LandingCascadingData.class)
             .getContent(as(Site.ObjectModification.class).getOwner()))
-            .orElseGet(this::defaultContents);
-    }
-
-    public List<ModulePlacement> defaultContents() {
-        TagMatch tagMatch = new TagMatch();
-        tagMatch.setIncludeCurrentTags(true);
-
-        DynamicPageItemStream itemStream = new DynamicPageItemStream();
-        itemStream.asQueryBuilderDynamicQueryModifier().setQueryBuilder(tagMatch);
-
-        PageListModulePlacementInline listModule = new PageListModulePlacementInline();
-        listModule.setItemStream(itemStream);
-
-        List<ModulePlacement> contents = new ArrayList<>();
-        contents.add(listModule);
-
-        return contents;
+            .orElseGet(ArrayList::new);
     }
 
     // --- Recordable Support ---
 
     @Override
     public String getLabel() {
-        return getInternalName();
+        return MoreStringUtils.firstNonBlank(
+            getInternalName(),
+            this::getDisplayNamePlainText);
     }
 
-    // --- Linkable Support
+    @Override
+    protected void onValidate() {
+
+        // TODO: remove validation check after BSP-13334 / BSPGO-609 is fixed [BLB 2022-05-18]
+        boolean pageHeadingCtaSelfReference = this.equals(Optional.ofNullable(getLead())
+                .filter(o -> PageHeading.class.isAssignableFrom(o.getClass()))
+                .map(PageHeading.class::cast)
+                .map(PageHeading::getCallToAction)
+                .filter(o -> InternalLink.class.isAssignableFrom(o.getClass()))
+                .map(InternalLink.class::cast)
+                .map(InternalLink::getItem)
+                .orElse(null));
+
+        if (pageHeadingCtaSelfReference) {
+            getState().addError(
+                    getState().getField("lead"),
+                    new IllegalStateException("Lead Call to Action Link must not reference same page."));
+        }
+    }
+
+    // --- HasModularSearchIndexFields support ---
+
+    @Override
+    public Set<String> getModularSearchChildPaths() {
+        // ignore inherited contents
+        return Collections.singleton("landingCascading.content/items");
+    }
+
+    // --- Linkable Support ---
 
     @Override
     public String getLinkableText() {
@@ -243,8 +259,8 @@ public class TagPage extends Content implements
     @Override
     public WebImageAsset getShareableImageFallback() {
         return Optional.ofNullable(getLead())
-                .map(ModulePageLead::getModulePageLeadImage)
-                .orElse(null);
+            .map(ModulePageLead::getModulePageLeadImage)
+            .orElse(null);
     }
 
     // --- FeedElement Support ---

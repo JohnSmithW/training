@@ -6,6 +6,7 @@ import brightspot.module.list.page.PagePromo;
 import brightspot.module.search.AbstractSearchResultsModule;
 import brightspot.promo.page.PagePromotable;
 import brightspot.query.QueryBuilderDynamicQueryModifiable;
+import brightspot.search.modifier.exclusion.SearchExclusionQueryModifiable;
 import brightspot.util.NoUrlsWidget;
 import com.psddev.dari.db.Recordable;
 
@@ -14,6 +15,7 @@ public class SearchResultsModule extends AbstractSearchResultsModule implements
         LocaleDynamicQueryModifiable,
         NoUrlsWidget,
         PathedOnlyQueryModifiableWithField,
+        SearchExclusionQueryModifiable,
         QueryBuilderDynamicQueryModifiable {
 
     @Override

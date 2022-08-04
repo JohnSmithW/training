@@ -11,6 +11,7 @@ import brightspot.permalink.Permalink;
 import brightspot.promo.page.PagePromotable;
 import brightspot.query.QueryBuilderDynamicQueryModifiable;
 import brightspot.search.boost.BoostDynamicQueryModifiable;
+import brightspot.search.modifier.exclusion.SearchExclusionQueryModifiable;
 import brightspot.search.stopwords.StopWordsDynamicQueryModifiable;
 import brightspot.seo.SeoWithFields;
 import brightspot.util.RichTextUtils;
@@ -27,6 +28,7 @@ public class SiteSearchPage extends AbstractSiteSearchPage implements
         Page,
         PathedOnlyQueryModifiableWithField,
         QueryBuilderDynamicQueryModifiable,
+        SearchExclusionQueryModifiable,
         SeoWithFields,
         SiteItemsQueryModifiable,
         StopWordsDynamicQueryModifiable {

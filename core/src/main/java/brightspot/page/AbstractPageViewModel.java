@@ -17,6 +17,7 @@ import com.psddev.styleguide.page.PageViewAmpIntegrationsField;
 import com.psddev.styleguide.page.PageViewAsideField;
 import com.psddev.styleguide.page.PageViewBannerField;
 import com.psddev.styleguide.page.PageViewBelowField;
+import com.psddev.styleguide.page.PageViewCommentingField;
 import com.psddev.styleguide.page.PageViewDisclaimerField;
 import com.psddev.styleguide.page.PageViewExtraBodyItemsField;
 import com.psddev.styleguide.page.PageViewExtraLinksField;
@@ -27,6 +28,7 @@ import com.psddev.styleguide.page.PageViewFooterContentField;
 import com.psddev.styleguide.page.PageViewFooterLogoField;
 import com.psddev.styleguide.page.PageViewFooterNavigationField;
 import com.psddev.styleguide.page.PageViewHatField;
+import com.psddev.styleguide.page.PageViewLanguagesField;
 import com.psddev.styleguide.page.PageViewLogoField;
 import com.psddev.styleguide.page.PageViewMetaField;
 import com.psddev.styleguide.page.PageViewNavigationField;
@@ -107,6 +109,11 @@ public abstract class AbstractPageViewModel<M extends Recordable> extends ViewMo
         return page.getContentId();
     }
 
+    @Override
+    public Iterable<? extends PageViewCommentingField> getCommenting() {
+        return page.getCommenting(PageViewCommentingField.class);
+    }
+
     @JsonLdNode("description")
     @Override
     public CharSequence getDescription() {
@@ -171,11 +178,6 @@ public abstract class AbstractPageViewModel<M extends Recordable> extends ViewMo
     }
 
     @Override
-    public CharSequence getKeywords() {
-        return page.getKeywords();
-    }
-
-    @Override
     public CharSequence getLanguage() {
         return page.getLanguage();
     }
@@ -229,5 +231,10 @@ public abstract class AbstractPageViewModel<M extends Recordable> extends ViewMo
     @JsonLdNode("publisher")
     public Map<String, Object> getPublisherData() {
         return page.getPublisherData();
+    }
+
+    @Override
+    public Iterable<? extends PageViewLanguagesField> getLanguages() {
+        return page.getLanguageMenu(PageViewLanguagesField.class);
     }
 }

@@ -58,11 +58,6 @@ public class ModuleTypePreviewViewModel extends ViewModel<SharedModule> implemen
     }
 
     @Override
-    public CharSequence getKeywords() {
-        return page.getKeywords();
-    }
-
-    @Override
     public CharSequence getTitle() {
         return page.getTitle();
     }

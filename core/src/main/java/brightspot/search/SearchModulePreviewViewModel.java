@@ -58,11 +58,6 @@ public class SearchModulePreviewViewModel extends ViewModel<SearchQueryModule> i
     }
 
     @Override
-    public CharSequence getKeywords() {
-        return page.getKeywords();
-    }
-
-    @Override
     public CharSequence getTitle() {
         return page.getTitle();
     }
