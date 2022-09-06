@@ -4,8 +4,32 @@
   "eyebrow": "Eyebrow",
   "eyebrowUrl": "#",
   "eyebrowTarget": "_blank",
-  "pageHeading": "This is the Page Heading",
-  "pageSubHeading": "Optional Description text.  ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+  "pageHeading": "2023 Jobs Outlook:",
+  "pageHeadingAlt": "Postdocs",
+  "pageSubHeading": "lorem ipsom dolsot At vero eos et lorem ipsom dolsot At vero eos etlorem ipsom dolsot At vero eos et",
+  "articles": [
+    {
+      "isAlt": false,
+      "crumbs": ["ARTICLE", "SRC"],
+      "title": "Employment Trends 2021-2025",
+      "date": null,
+      "button": null
+    },
+    {
+      "isAlt": false,
+      "crumbs": ["EVENT", "OPTICA + AMS"],
+      "title": "Careers in Optics and Meteorology",
+      "date": "THU 6.24.23 • 10AM",
+      "button": null
+    },
+    {
+      "isAlt": true,
+      "crumbs": ["DISCUSSION", "COMMUNITY"],
+      "title": "Making physics more diverse and welcoming",
+      "date": null,
+      "button": "Happening Now"
+    }
+  ],
   "logo": {
     "_include": "/image/Image.json"
   },

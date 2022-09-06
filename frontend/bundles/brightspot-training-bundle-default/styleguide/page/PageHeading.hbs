@@ -1,22 +1,48 @@
 <div class="PageHeading" style="{{#with headingBgColor}}background-color: {{this}};{{/with}} --color-heading-text:{{#with headingTextColor}}{{this}}{{else}}{{#or headingBgColor media}}var(--color-primary-text-inverse){{else}}var(--color-primary-text){{/or}}{{/with}};{{#each media}}{{#resize image "xl-6x1"}}background-image: url('{{src}}');{{/resize}}{{/each}}" data-text-align="{{#if headingTextAlign}}{{headingTextAlign}}{{else}}center{{/if}}" {{#or backgroundColor backgroundImage}}data-with-bg{{/or}} {{#if ../sectionNavigation}} data-with-nav{{/if}}>
     <div class="PageHeading-content-wrapper">
-        <div class="PageHeading-content">
-            {{#with logo}}
+        <div class="PageHeading-content PageHeading-content_position-relative">
+            {{!-- {{#with logo}}
                 {{#set imageSize="headingLogo"}}
                     <div class="PageHeading-logo">
                         {{this}}
                     </div>
                 {{/set}}
-            {{/with}}
+            {{/with}} --}}
             {{#if eyebrow}}
                 <div class="PageHeading-eyebrow">{{include "/link/Link.hbs" this body=eyebrow href=eyebrowUrl target=eyebrowTarget}}</div>
             {{/if}}
             {{#with pageHeading}}
                 <h1 class="PageHeading-title">{{this}}</h1>
             {{/with}}
+             {{#with pageHeadingAlt}}
+                <h1 class="PageHeading-title PageHeading-title_alt">{{this}}</h1>
+            {{/with}}
             {{#with pageSubHeading}}
                 <h2 class="PageHeading-subHeading">{{this}}</h2>
             {{/with}}
+
+            <div class="PageHeading-articles">
+            {{#with articles}}
+              {{#each this}}
+                 <div class="PageHeading-articles__item {{#if this.isAlt}}PageHeading-articles__item_alt{{/if}}">
+                   <div class="PageHeading-articles-crumbs">
+                      {{#each this.crumbs}}
+                      <span class="PageHeading-articles-crumbs__item {{#if @last}}PageHeading-articles-crumbs__item_alt{{/if}}">{{this}}  {{#if @first}}/{{/if}} </span>
+                      {{/each}}
+                   </div>
+                    {{#with this.title}}
+                       <h3 class="PageHeading-articles__item__title">{{this}}</h3>
+                    {{/with}}
+                    {{#with this.date}}
+                       <span class="PageHeading-articles__item__date">{{this}}</span>
+                    {{/with}}
+                    {{#with this.button}}
+                       <button type="button" class="PageHeading-articles__button">{{this}}</button>
+                    {{/with}}
+                 </div>
+              {{/each}}
+            {{/with}}
+            </div>
         </div>
     </div>
 </div>

@@ -3,51 +3,43 @@
   "items": [
     {
       "_include": "/navigation/NavigationItem.json",
-      "items": null
+      "items": null,
+      "text": "Federation"
     },
     {
       "_include": "/navigation/NavigationItem.json",
-      "items": [
-        {
-          "_include": "/navigation/NavigationLink.json",
-          "text": "Nav Item 1"
-        },
-        {
-          "_include": "/navigation/NavigationLink.json",
-          "text": "Nav Item 2"
-        },
-        {
-          "_include": "/navigation/NavigationLink.json",
-          "text": "Nav Item 3"
-        }
-      ]
-    },
-    {
-      "_include": "/navigation/NavigationItem.json"
+      "items": null,
+      "text": "News Analysis"
     },
     {
       "_include": "/navigation/NavigationItem.json",
-      "navColumns": "2"
+      "items": null,
+      "text": "Students"
     },
     {
       "_include": "/navigation/NavigationItem.json",
-      "navColumns": "3"
+      "items": null,
+      "text": "Careers"
     },
     {
       "_include": "/navigation/NavigationItem.json",
-      "items": null
+      "items": null,
+      "text": "Diversity"
     },
     {
-      "_template": "/social/SocialLink.hbs",
-      "body": "Facebook",
-      "href": "https://www.facebook.com/BrightspotCMS/",
-      "socialService": "facebook"
+      "_include": "/navigation/NavigationItem.json",
+      "items": null,
+      "text": "Library"
     },
     {
-      "_template": "/social/SocialLink.hbs",
-      "body": "Twitter",
-      "href": "https://twitter.com/TeamBrightspot",
-      "socialService": "twitter"
+      "_include": "/navigation/NavigationItem.json",
+      "items": null,
+      "text": "About"
+    },
+     {
+      "_include": "/navigation/NavigationItem.json",
+      "items": null,
+      "text": "Log in"
     }
   ]
 }

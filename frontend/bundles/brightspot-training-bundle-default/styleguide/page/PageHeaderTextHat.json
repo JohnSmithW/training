@@ -1,4 +1,9 @@
 {
   "_template": "PageHeaderTextHat.hbs",
-  "text": "Text Hat"
+  "links": [
+    "Events",
+    "Community",
+    "Newsletters",
+    "Giving"
+  ] 
 }
