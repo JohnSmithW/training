@@ -1,4 +1,4 @@
-{{#if items}}
+{{!-- {{#if items}}
 <bsp-list-loadmore data-module class="PageListD"{{include "includes/PageList-attributes.hbs" this}}>
     <bsp-listcarousel data-column-count={{#if listColumns234}}{{listColumns234}}{{else}}3{{/if}}
     data-mobile-carousel="{{#if mobileCarousel}}true{{else}}false{{/if}}">
@@ -36,4 +36,29 @@
     {{include "includes/PageList-footer.hbs" this canPaginate=true}}
     </bsp-listcarousel>
 </bsp-list-loadmore>
-{{/if}}
+{{/if}} --}}
+
+
+
+<div class="PageListD" data-module{{include "includes/PageList-attributes.hbs" this}}>
+    {{include "includes/PageList-header.hbs" this}}
+   
+        {{#if article}}
+          <div class="PageListD-article">
+            <div class="PageListD-article-header">
+              <img src={{article.poster}} alt="" class="PageListD-article__poster">
+            </div>
+            <div class="crumbs">
+              {{#each article.crumbs}}
+                <span class="crumbs__item {{#if @last}}crumbs__item_alt{{/if}}">{{this}}  {{#if @first}}/{{/if}} </span>
+              {{/each}}
+            </div>
+            <h2 class="PageListD-article__title">{{article.title}}</h2>
+            <span class="PageListD-article__date">{{article.date}}</span>
+            <p class="PageListD-article__description">{{article.description}}</p>
+          </div>
+        {{/if}}
+</div>
+
+
+ 

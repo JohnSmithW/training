@@ -1,6 +1,87 @@
 .PageListH {
   &:extend(.PageListAbstract all);
 
+  &__title {
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.2px;
+    color: #605f71;
+    font-weight: 500;
+
+    &_bold {
+      font-weight: bold;
+    }
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    background: #9694af;
+    margin-top: 5px;
+    margin-bottom: 13px;
+  }
+
+  &-articles {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-article {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &__title {
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.2px;
+      color: #605f71;
+    }
+
+    &__description {
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.2px;
+      color: #605f71;
+    }
+
+    &__date {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.2px;
+      color: #605f71;
+    }
+  }
+
+  &-promo {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 18px 17px;
+    box-sizing: border-box;
+    background: #e8e1eb;
+
+    &__description {
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.1px;
+      color: #605f71;
+    }
+
+    &__link {
+      font-size: 16px;
+      line-height: 18px;
+      color: #0029f4;
+    }
+  }
+
   .PagePromo {
     &-title {
       .title-4; // override to standard

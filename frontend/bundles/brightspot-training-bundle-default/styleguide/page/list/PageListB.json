@@ -1,39 +1,36 @@
 {
   "_template": "/page/list/PageList.hbs",
   "_styledTemplate": "/page/list/PageListB.hbs",
-  "title": "List B",
+  "title": null,
   "ctaUrl": "#",
   "ctaTarget": "_self",
-  "items": [
+  "articles": [
     {
-      "_include": "/page/promo/PagePromo.json"
+      "id": 1,
+      "poster": { "_include": "/image/Image.json" },
+      "crumbs": ["Panel Discussion", "APS + SPS"],
+      "title": "The future of Open Science",
+      "subtitle": "October 6 - 8, Washington D.C.",
+      "button": null,
+      "description": "Experts have a frank discussion about where we are and where we are going."
     },
     {
-      "_include": "/page/promo/PagePromo.json"
+      "id": 2,
+      "poster": { "_include": "/image/Image.json" },
+      "crumbs": ["Article", "Physics Today"],
+      "title": "W-boson mass hints at physics beyond the standard model",
+      "subtitle": "09.11.22",
+      "button": null,
+      "description": "Experts have a frank discussion about where we are and where we are going."
     },
     {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
+      "id": 1,
+      "poster": { "_include": "/image/Image.json" },
+      "crumbs": ["Discussion", "Community"],
+      "title": "Industries That are Magnets for Physics PHDs and Post Docs",
+      "subtitle": null,
+      "button": "Happening Now",
+      "description": "Experts have a frank discussion about where we are and where we are going."
     }
   ]
 }

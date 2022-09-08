@@ -4,38 +4,38 @@
   "title": "List G",
   "ctaUrl": "#",
   "ctaTarget": "_self",
-  "items": [
+  "cards": [
     {
-      "_include": "/page/promo/PagePromo.json",
-      "type": "video"
+      "id": 1,
+      "crumbs": ["Panel Discussion", "APS"],
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "description": "October 6 - 8, Washington D.C.",
+      "button": null,
+      "alt": false
     },
     {
-      "_include": "/page/promo/PagePromo.json"
+      "id": 2,
+      "crumbs": ["Article", "SPS"],
+      "title": "Lorem ipsum dolor sit amet, consec tetur cing elit adip iscing elit sed",
+      "description": null,
+      "button": null,
+      "alt": false
     },
     {
-      "_include": "/page/promo/PagePromo.json"
+      "id": 3,
+      "crumbs": ["Article", "SPS"],
+      "title": "Lorem ipsum dolor sit amet, consec tetur adip iscing elit sed lorem ipsum ",
+      "description": null,
+      "button": null,
+      "alt": false
     },
     {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json",
-      "type": "video"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
+      "id": 4,
+      "crumbs": ["Discussion", "Community"],
+      "title": "Lorem ipsum dolor sit amet, consec tetur adip iscing elit sed",
+      "description": null,
+      "button": "Happening Now",
+      "alt": true
     }
   ]
 }

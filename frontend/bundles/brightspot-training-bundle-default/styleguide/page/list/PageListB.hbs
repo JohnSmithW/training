@@ -1,32 +1,36 @@
-{{#if items}}
+{{#if articles}}
 <div class="PageListB" data-module{{include "includes/PageList-attributes.hbs" this}}>
     {{include "includes/PageList-header.hbs" this}}
+    <h3 class="subtitle">Lorem Ipsom Dolsot</h3>
 
-    {{#ne hideImage true}}
-        {{#with items.[0]}}
-            <div class="PageListB-items-first">
-                {{#eq this._template "/page/promo/PagePromo.hbs"}}
-                    {{include "/link/Link.hbs" this href=url body=media}}
-                {{else}}
-                    {{render this}}
-                {{/eq}}
+    <div class="PageListB-articles">
+        {{#each articles}}
+          <div class="PageListB-card">
+            <div class="PageListB-card__header">
+              <img src="https://picsum.photos/200" alt="" class="PageListB-card__poster">
             </div>
-        {{/with}}
-    {{/ne}}
+             <div class="PageListB-card__body">
+               <div class="crumbs">
+                 {{#each this.crumbs}}
+                   <span class="crumbs__item {{#if @last}}crumbs__item_alt{{/if}}">{{this}}  {{#if @first}}/{{/if}} </span>
+                 {{/each}}
+               </div>
 
-    {{#with items}}
-        <ol class="PageListB-items" data-with-borders data-with-numbers>
-            {{#each this}}
-                <li class="PageListB-items-item">
-                    {{#eq this._template "/page/promo/PagePromo.hbs"}}
-                        {{include "/link/Link.hbs" this href=url body=title}}
-                    {{else}}
-                        {{render this}}
-                    {{/eq}}
-                </li>
-            {{/each}}
-        </ol>
-    {{/with}}
-    {{include "includes/PageList-footer.hbs" this}}
+              {{#with this.title}}
+                <h2 class="PageListB-card__title">{{this}}</h2>
+              {{/with}}
+              {{#with this.subtitle}}
+                <h3 class="PageListB-card__subtitle">{{this}}</h3>
+              {{/with}}
+              {{#with this.button}}
+                <button type="button" class="PageListB-card__button">{{this}}</button>
+              {{/with}}
+              {{#with this.description}}
+                <p class="PageListB-card__description">{{this}}</p>
+              {{/with}}
+            </div>
+          </div>
+        {{/each}}
+    </div>
 </div>
 {{/if}}

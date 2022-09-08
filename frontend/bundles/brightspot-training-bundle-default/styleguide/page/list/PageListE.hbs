@@ -1,4 +1,4 @@
-{{#if items}}
+{{!-- {{#if items}}
 <bsp-listcarousel class="PageListE" data-module data-column-count={{#if listColumns234}}{{listColumns234}}{{else}}3{{/if}}{{include "includes/PageList-attributes.hbs" this}}>
     {{include "includes/PageList-header.hbs" this}}
 
@@ -27,4 +27,22 @@
     {{/with}}
     {{include "includes/PageList-footer.hbs" this}}
 </bsp-listcarousel>
+{{/if}} --}}
+{{#if articles}}
+<div class="PageListE" data-module{{include "includes/PageList-attributes.hbs" this}}>
+    <div class="PageListE-articles">
+        {{#each articles}}
+           <div class="PageListE-article">
+             <div class="crumbs">
+               {{#each this.crumbs}}
+                <span class="crumbs__item {{#if @last}}crumbs__item_alt{{/if}}">{{this}}  {{#if @first}}/{{/if}} </span>
+               {{/each}}
+            </div>
+            <h2 class="PageListE-article__title">{{this.title}}</h2>
+            <p class="PageListE-article__description">{{this.description}}</p>
+            <div class="PageListE-article__line"></div>
+           </div>
+        {{/each}}
+    </div>
+</div>
 {{/if}}

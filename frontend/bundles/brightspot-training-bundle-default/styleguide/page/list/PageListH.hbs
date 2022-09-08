@@ -1,21 +1,21 @@
-{{#if items}}
-<bsp-list-loadmore class="PageListH" data-module{{include "includes/PageList-attributes.hbs" this}}>
-    {{include "includes/PageList-header.hbs" this}}
-
-    {{#with items}}
-        <div class="PageListH-items" data-with-borders data-list-loadmore-items>
-            {{#each this}}
-            <div class="PageListH-items-item">
-                {{#eq this._template "/page/promo/PagePromo.hbs"}}
-                    {{include "/page/promo/PagePromoB.hbs" this}}
-                {{else}}
-                    {{render this}}
-                {{/eq}}
-            </div>
-            {{/each}}
+<div class="PageListH" data-module{{include "includes/PageList-attributes.hbs" this}}>
+   
+    <h2 class="PageListH__title">Recent Opportunities from the <span class="PageListH__title PageListH__title_bold">AIP Jobs Board</span></h2>
+    <div class="PageListH__line"></div>
+    <div class="PageListH-articles">
+      {{#if articles}}
+        {{#each articles}}
+        <div class="PageListH-article">
+          <h3 class="PageListH-artice__title">{{this.title}}</h3>
+          <p class="PageListH-artice__description">{{this.description}}</p>
+          <span class="PageListH-artice__date">{{this.date}}</span>
         </div>
-    {{/with}}
+        {{/each}}
+      {{/if}}
+    </div>
+    <div class="PageListH-promo">
+      <p class="PageListH-promo__description">{{promo.description}}</p>
+      <a href="#" class="PageListH-promo__link">{{promo.link}}</a>
+    </div>
+</div>
 
-    {{include "includes/PageList-footer.hbs" this canPaginate=true}}
-</bsp-list-loadmore>
-{{/if}}

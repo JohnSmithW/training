@@ -6,17 +6,21 @@
 
   "language": "",
 
-  "extraScripts": [{
-    "_include": "/dfp/GoogleDfpScript.json"
-  }],
+  "extraScripts": [
+    {
+      "_include": "/dfp/GoogleDfpScript.json"
+    }
+  ],
   "title": "Brightspot Styleguide",
   "description": "Brightspot Styleguide",
   "keywords": "Brightspot, Styleguide",
   "canonicalLink": "http://www.brightspot.com/",
 
-  "stylePackage": [{
-    "_include": "StylePackage.json"
-  }],
+  "stylePackage": [
+    {
+      "_include": "StylePackage.json"
+    }
+  ],
 
   "feedLink": "{{html('<link type=\"application/rss+xml\" rel=\"alternate\" title=\"Brightspot Express\" href=\"http://www.brightspot.com/feed.rss\">')}}",
 
@@ -93,5 +97,4 @@
   "ampIntegrations": null,
 
   "ampAnalytics": null
-
 }

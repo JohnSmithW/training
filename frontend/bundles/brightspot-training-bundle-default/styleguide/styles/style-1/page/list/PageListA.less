@@ -1,7 +1,32 @@
 .PageListA {
+  padding: 72px 72px !important;
+  box-sizing: border-box;
   &:extend(.PageListAbstract all);
 
   &-items {
+    &__subtitle {
+      font-size: 24px;
+      line-height: 32px;
+      letter-spacing: 0.5px;
+      color: #0029f4;
+    }
+
+    &__title {
+      font-size: 40px;
+      line-height: 54px;
+      color: #0b074e;
+    }
+
+    &__description {
+      font-size: 20px;
+      line-height: 26px;
+      letter-spacing: 0.2px;
+      color: #0b074e;
+
+      &_bold {
+        font-weight: bold;
+      }
+    }
     &-row {
       &:first-of-type {
         padding-bottom: 30px;
@@ -51,7 +76,7 @@
         &:first-of-type {
           display: grid;
           grid-gap: 20px;
-          grid-template-columns: .66fr .34fr;
+          grid-template-columns: 0.66fr 0.34fr;
         }
 
         &:last-of-type {

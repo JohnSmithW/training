@@ -1,11 +1,11 @@
 // lesshint selectorNaming: false
 // lesshint universalSelector: false
 
-@import (inline) '../../../node_modules/sanitize.css/sanitize.css';
-@import (inline) '../../../node_modules/flickity/css/flickity.css';
+@import (inline) "../../../node_modules/sanitize.css/sanitize.css";
+@import (inline) "../../../node_modules/flickity/css/flickity.css";
 
 // ----- Globals. These are items like variables, mixins, typography, etc -----
-@import 'global/All';
+@import "global/All";
 
 source {
   // FORCE Intersection Observer to see these for images
@@ -57,34 +57,58 @@ img {
   max-width: 100%;
 }
 
-@import 'carousel/All';
+.crumbs {
+  display: flex;
+  align-items: center;
 
-@import 'blog/All';
-@import 'action-bar/All';
-@import 'article/All';
-@import 'author/All';
-@import 'banner/All';
-@import 'container/All';
-@import 'dfp/All';
-@import 'enhancement/All';
-@import 'figure/All';
-@import 'form/All';
-@import 'gallery/All';
-@import 'link/All';
-@import 'listicle/All';
-@import 'liveblog/All';
-@import 'navigation/All';
-@import 'page/All';
-@import 'person/All';
-@import 'quote/All';
-@import 'search/All';
-@import 'social/All';
-@import 'stat/All';
-@import 'tag/All';
-@import 'text/All';
-@import 'video/All';
-@import 'vimeo/All';
-@import 'youtube/All';
+  &__item {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 1px;
+    color: #9694af;
+
+    &_alt {
+      color: blue;
+    }
+  }
+}
+
+.subtitle {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+  color: #0029f4;
+}
+
+@import "carousel/All";
+
+@import "blog/All";
+@import "action-bar/All";
+@import "article/All";
+@import "author/All";
+@import "banner/All";
+@import "container/All";
+@import "dfp/All";
+@import "enhancement/All";
+@import "figure/All";
+@import "form/All";
+@import "gallery/All";
+@import "link/All";
+@import "listicle/All";
+@import "liveblog/All";
+@import "navigation/All";
+@import "page/All";
+@import "person/All";
+@import "quote/All";
+@import "search/All";
+@import "social/All";
+@import "stat/All";
+@import "tag/All";
+@import "text/All";
+@import "video/All";
+@import "vimeo/All";
+@import "youtube/All";
 
 a {
   .LinkAbstract;

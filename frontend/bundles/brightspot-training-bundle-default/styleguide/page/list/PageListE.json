@@ -4,6 +4,32 @@
   "title": "List E",
   "ctaUrl": "#",
   "ctaTarget": "_self",
+  "articles": [
+    {
+      "id": 1,
+      "crumbs": ["ARTICLE", "FYI"],
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit tempor incididunt ut",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing consectetur adipiscing elit."
+    },
+    {
+      "id": 2,
+      "crumbs": ["ARTICLE", "PHYSICS TODAY"],
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing consectetur adipiscing elit. Lorem ipsum dolor sit amet."
+    },
+    {
+      "id": 3,
+      "crumbs": ["ARTICLE", "OPTIMA"],
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit tempor incididunt ut",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur."
+    },
+    {
+      "id": 4,
+      "crumbs": ["ARTICLE", "PHYSICS TODAY"],
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing consectetur adipiscing elit."
+    }
+  ],
   "items": [
     {
       "_include": "/page/promo/PagePromo.json"

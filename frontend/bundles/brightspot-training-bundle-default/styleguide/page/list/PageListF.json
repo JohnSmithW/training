@@ -1,27 +1,14 @@
 {
   "_template": "/page/list/PageList.hbs",
   "_styledTemplate": "/page/list/PageListF.hbs",
-  "title": "List F",
+  "title": "BROUGHT TO YOU BY",
   "ctaUrl": "#",
   "ctaTarget": "_self",
-  "items": [
-    {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
-    }
-  ]
+  "posterOne": "https://picsum.photos/200",
+  "posterTwo": "https://picsum.photos/200",
+  "promo": {
+    "title": "Diversity Grock",
+    "date": "THU 6.24.22    10AM",
+    "link": "Register"
+  }
 }

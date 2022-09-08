@@ -1,4 +1,13 @@
 .TwoColumnContainer7030 {
+  &_padding {
+    padding: 73px 72px !important;
+    box-sizing: border-box;
+  }
+
+  &_light {
+    background: #f3eff5;
+  }
+
   &-column {
     margin-bottom: 30px;
 
@@ -7,11 +16,21 @@
     }
   }
 
+  &__bar {
+    width: 2px;
+    height: 100%;
+    background: #dbdae4;
+  }
+
   @media @mq-lg {
     &-container {
       display: grid;
       grid-gap: 40px;
       grid-template-columns: 1fr 320px;
+
+      &_alt {
+        grid-template-columns: 1fr 2px 320px;
+      }
     }
 
     &-column {
@@ -22,6 +41,10 @@
   @media @mq-hk {
     &-container {
       grid-template-columns: 1fr 320px;
+
+      &_alt {
+        grid-template-columns: 1fr 2px 320px;
+      }
     }
   }
 }

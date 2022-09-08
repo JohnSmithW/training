@@ -1,7 +1,7 @@
 {
   "_template": "/page/list/PageListA.hbs",
-  "title": "List A",
-  "description": "{{words(20)}}",
+  "title": null,
+  "description": null,
   "ctaUrl": "#",
   "ctaTarget": "_self",
   "pagination": [

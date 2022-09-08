@@ -14,24 +14,28 @@
       "href": "#"
     }
   ],
-  "items": [
+  "articles": [
     {
-      "_include": "/page/promo/PagePromo.json"
+      "id": 1,
+      "title": "Nuclear Energy Justice Policy Fellow",
+      "description": "Lorem Ipsom Dolsot Amir, Washington D.C., D.C.",
+      "date": "Posted 6.27.22"
     },
     {
-      "_include": "/page/promo/PagePromo.json"
+      "id": 2,
+      "title": "Nuclear Energy Justice Policy Fellow",
+      "description": "Lorem Ipsom Dolsot Amir, Washington D.C., D.C.",
+      "date": "Posted 6.27.22"
     },
     {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
-    },
-    {
-      "_include": "/page/promo/PagePromo.json"
+      "id": 3,
+      "title": "Nuclear Energy Justice Policy Fellow",
+      "description": "Lorem Ipsom Dolsot Amir, Washington D.C., D.C.",
+      "date": "Posted 6.27.22"
     }
-  ]
+  ],
+  "promo": {
+    "description": "View listings from across our sixteen member societies and affiliates",
+    "link": "Search All 1,103 Listings "
+  }
 }

@@ -1,11 +1,14 @@
-<div class="TwoColumnContainer7030" data-module>
+<div class="TwoColumnContainer7030 {{#if mod}}TwoColumnContainer7030_{{mod}}{{/if}}" data-module>
     {{include "includes/Container-title.hbs" this}}
 
-    <div class="TwoColumnContainer7030-container">
+    <div class="TwoColumnContainer7030-container {{#if separator}}TwoColumnContainer7030-container_alt{{/if}}">
         {{#with columnOne}}
             <div class="TwoColumnContainer7030-column" data-modulewell>
                 {{this}}
             </div>
+        {{/with}}
+        {{#with separator}}
+          <div class="TwoColumnContainer7030__bar"></div>
         {{/with}}
         {{#with columnTwo}}
             <div class="TwoColumnContainer7030-column" data-modulewell>

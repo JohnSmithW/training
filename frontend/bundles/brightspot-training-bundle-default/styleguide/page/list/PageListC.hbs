@@ -1,4 +1,4 @@
-{{#if items}}
+{{!-- {{#if items}}
 <div class="PageListC"{{include "includes/PageList-attributes.hbs" this}}>
     {{include "includes/PageList-header.hbs" this}}
 
@@ -17,4 +17,11 @@
     {{/with}}
     {{include "includes/PageList-footer.hbs" this}}
 </div>
-{{/if}}
+{{/if}} --}}
+
+
+
+<div class="PageListC" data-module{{include "includes/PageList-attributes.hbs" this}}>
+    {{include "includes/PageList-header.hbs" this}}
+    <h3 class="subtitle">News and Analysis</h3>
+</div>

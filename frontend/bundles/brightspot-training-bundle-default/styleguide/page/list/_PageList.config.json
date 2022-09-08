@@ -14,32 +14,21 @@
           "example": "/page/list/PageListA.json",
           "height": 800,
           "width": 1024,
-          "fields": [
-            "backgroundColor",
-            "inverseColors"
-          ]
+          "fields": ["backgroundColor", "inverseColors"]
         },
         {
           "displayName": "List B",
           "example": "/page/list/PageListB.json",
           "height": 500,
           "width": 400,
-          "fields": [
-            "hideImage",
-            "backgroundColor",
-            "inverseColors"
-          ]
+          "fields": ["hideImage", "backgroundColor", "inverseColors"]
         },
         {
           "displayName": "List C",
           "example": "/page/list/PageListC.json",
           "height": 500,
           "width": 400,
-          "fields": [
-            "showListNumbers",
-            "backgroundColor",
-            "inverseColors"
-          ]
+          "fields": ["showListNumbers", "backgroundColor", "inverseColors"]
         },
         {
           "displayName": "List D",
@@ -59,42 +48,28 @@
           "example": "/page/list/PageListE.json",
           "height": 800,
           "width": 1024,
-          "fields": [
-            "listColumns234",
-            "backgroundColor",
-            "inverseColors"
-          ]
+          "fields": ["listColumns234", "backgroundColor", "inverseColors"]
         },
         {
           "displayName": "List F",
           "example": "/page/list/PageListF.json",
           "height": 800,
           "width": 1024,
-          "fields": [
-            "backgroundColor",
-            "inverseColors"
-          ]
+          "fields": ["backgroundColor", "inverseColors"]
         },
         {
           "displayName": "List G",
           "example": "/page/list/PageListG.json",
           "height": 800,
           "width": 1024,
-          "fields": [
-            "backgroundColor",
-            "inverseColors"
-          ]
+          "fields": ["backgroundColor", "inverseColors"]
         },
         {
           "displayName": "List H",
           "example": "/page/list/PageListH.json",
           "height": 800,
           "width": 1024,
-          "fields": [
-            "suppressPagination",
-            "backgroundColor",
-            "inverseColors"
-          ]
+          "fields": ["suppressPagination", "backgroundColor", "inverseColors"]
         },
         {
           "displayName": "List I",
@@ -114,22 +89,14 @@
           "example": "/page/list/PageListJ.json",
           "height": 800,
           "width": 1024,
-          "fields": [
-            "listColumns234",
-            "backgroundColor",
-            "inverseColors"
-          ]
+          "fields": ["listColumns234", "backgroundColor", "inverseColors"]
         },
         {
           "displayName": "List K",
           "example": "/page/list/PageListK.json",
           "height": 800,
           "width": 1024,
-          "fields": [
-            "subTitle",
-            "backgroundColor",
-            "inverseColors"
-          ]
+          "fields": ["subTitle", "backgroundColor", "inverseColors"]
         },
         {
           "displayName": "List L",
@@ -161,50 +128,35 @@
           "example": "/page/list/PageListN.json",
           "height": 800,
           "width": 1024,
-          "fields": [
-            "backgroundColor",
-            "inverseColors"
-          ]
+          "fields": ["backgroundColor", "inverseColors"]
         },
         {
           "displayName": "List O",
           "example": "/page/list/PageListO.json",
           "height": 500,
           "width": 400,
-          "fields": [
-            "backgroundColor",
-            "inverseColors"
-          ]
+          "fields": ["backgroundColor", "inverseColors"]
         },
         {
           "displayName": "List P",
           "example": "/page/list/PageListP.json",
           "height": 800,
           "width": 1024,
-          "fields": [
-            "backgroundColor",
-            "inverseColors"
-          ]
+          "fields": ["backgroundColor", "inverseColors"]
         },
         {
           "displayName": "List Q",
           "example": "/page/list/PageListQ.json",
           "height": 800,
           "width": 1024,
-          "fields": [
-            "backgroundColor",
-            "inverseColors"
-          ]
+          "fields": ["backgroundColor", "inverseColors"]
         },
         {
           "displayName": "List R",
           "example": "/page/list/PageListR.json",
           "height": 800,
           "width": 1024,
-          "fields": [
-            "backgroundColor",
-            "inverseColors"
-          ]
+          "fields": ["backgroundColor", "inverseColors"]
         },
         {
           "displayName": "List S",
@@ -217,40 +169,28 @@
           "example": "/page/list/PageListU.json",
           "height": 800,
           "width": 1024,
-          "fields": [
-            "backgroundColor",
-            "inverseColors"
-          ]
+          "fields": ["backgroundColor", "inverseColors"]
         },
         {
           "displayName": "List V",
           "example": "/page/list/PageListV.json",
           "height": 800,
           "width": 1024,
-          "fields": [
-            "backgroundColor",
-            "inverseColors"
-          ]
+          "fields": ["backgroundColor", "inverseColors"]
         },
         {
           "displayName": "List T",
           "example": "/page/list/PageListT.json",
           "height": 800,
           "width": 1024,
-          "fields": [
-            "backgroundColor",
-            "inverseColors"
-          ]
+          "fields": ["backgroundColor", "inverseColors"]
         },
         {
           "displayName": "List W",
           "example": "/page/list/PageListW.json",
           "height": 500,
           "width": 400,
-          "fields": [
-            "backgroundColor",
-            "inverseColors"
-          ]
+          "fields": ["backgroundColor", "inverseColors"]
         },
         {
           "displayName": "List X",

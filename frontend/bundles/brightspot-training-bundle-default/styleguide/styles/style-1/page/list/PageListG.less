@@ -1,6 +1,70 @@
 .PageListG {
   &:extend(.PageListAbstract all);
 
+  &-cards {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &-card {
+    max-width: 420px;
+    width: 100%;
+    height: 265px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 39px 29px;
+    box-sizing: border-box;
+    background: #fff;
+    margin-right: 10px;
+    margin-bottom: 22px;
+
+    @media @mq-lg {
+      max-width: 320px;
+    }
+
+    @media @mq-only-sm {
+      max-width: 100%;
+    }
+
+    @media @mq-only-sm {
+      max-width: 100%;
+    }
+
+    &_alt {
+      background: url("../../assets/card.png");
+    }
+
+    &__title {
+      font-size: 24px;
+      line-height: 32px;
+      color: #605f71;
+    }
+
+    &__description {
+      font-size: 16px;
+      line-height: 18px;
+      color: #605f71;
+    }
+
+    &__button {
+      max-width: 162px;
+      background: #f9d54b;
+      border: 1px solid #605f71;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        background: #fcde68;
+      }
+    }
+  }
+
   .PagePromo {
     &-title {
       .title-2; // override to standard
@@ -54,7 +118,7 @@
       &-row {
         display: grid;
         grid-gap: 20px;
-        grid-template-columns: .66fr .34fr;
+        grid-template-columns: 0.66fr 0.34fr;
       }
     }
   }

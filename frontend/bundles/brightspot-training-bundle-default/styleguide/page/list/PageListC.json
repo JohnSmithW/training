@@ -1,7 +1,7 @@
 {
   "_template": "/page/list/PageList.hbs",
   "_styledTemplate": "/page/list/PageListC.hbs",
-  "title": "List C",
+  "title": null,
   "ctaUrl": "#",
   "ctaTarget": "_self",
   "items": [

@@ -1,8 +1,95 @@
 .PageListB {
+  padding: 73px 72px !important;
+  box-sizing: border-box;
+  background: #f3eff5;
   &:extend(.PageListAbstract all);
 
   .Image {
     border-radius: 8px;
+  }
+
+  &-articles {
+    margin-top: 57px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @media @mq-md {
+      flex-wrap: unset;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &-card {
+    margin-bottom: 20px;
+    max-width: 420px;
+    width: 100%;
+    margin-right: 17px;
+
+    & :last-child {
+      margin-right: 0;
+    }
+
+    @media @mq-md {
+      max-width: 370px;
+    }
+
+    &__header {
+      width: 100%;
+      height: 236px;
+    }
+
+    &__poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &__body {
+      width: 100%;
+      height: 309px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 27px 36px;
+      box-sizing: border-box;
+    }
+
+    &__title {
+      font-size: 24px;
+      line-height: 36px;
+      color: #605f71;
+    }
+
+    &__subtitle {
+      font-size: 16px;
+      line-height: 18px;
+      color: #605f71;
+    }
+
+    &__description {
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.2px;
+      color: #666666;
+    }
+
+    &__button {
+      max-width: 162px;
+      background: #f9d54b;
+      border: 1px solid #605f71;
+      padding: 12px 15px;
+      box-sizing: border-box;
+      transition: 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        background: #f0d35e;
+      }
+    }
   }
 
   &-items {

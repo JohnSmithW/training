@@ -1,22 +1,21 @@
-{{#if items}}
-<bsp-listcarousel class="PageListF" data-module{{include "includes/PageList-attributes.hbs" this}}>
-    {{include "includes/PageList-header.hbs" this}}
-
-    {{#with items}}
-        <div class="PageListF-items">
-            {{#each this}}
-                <div class="PageListF-items-item">
-                    {{#set lazyLoad=false}}
-                        {{#eq this._template "/page/promo/PagePromo.hbs"}}
-                             {{include "/page/promo/PagePromoA.hbs" this category=null authorName=null date=null description=null}}
-                        {{else}}
-                            {{render this}}
-                        {{/eq}}
-                    {{/set}}
-                </div>
-            {{/each}}
+<div class="PageListF" data-module{{include "includes/PageList-attributes.hbs" this}}>
+   
+    <div class="PageListF-container">
+         <div class="PageListF-promo">
+        <div></div>
+        <div class="PageListF-promo__wrapper">
+        <h3 class="PageListF-promo__title">{{promo.title}}</h3>
+        <span class="PageListF-promo__date">{{promo.date}}</span>
         </div>
-    {{/with}}
-    {{include "includes/PageList-footer.hbs" this}}
-</bsp-listcarousel>
-{{/if}}
+        <a href="#" class="PageListF-promo__link">{{promo.link}}</a>
+      </div>
+      <div class="PageListF-column">
+        <img src="https://picsum.photos/id/149/200" alt="" class="PageListF-column__img">
+      </div>
+      <div class="PageListF-column">
+        <img src="https://picsum.photos/id/206/200" alt="" class="PageListF-column__img">
+      </div>
+      <h4 class="PageListF__title">{{title}}</h4>
+    </div>
+</div>
+

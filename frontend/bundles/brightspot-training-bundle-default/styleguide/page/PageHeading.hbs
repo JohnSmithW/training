@@ -8,9 +8,6 @@
                     </div>
                 {{/set}}
             {{/with}} --}}
-            {{#if eyebrow}}
-                <div class="PageHeading-eyebrow">{{include "/link/Link.hbs" this body=eyebrow href=eyebrowUrl target=eyebrowTarget}}</div>
-            {{/if}}
             {{#with pageHeading}}
                 <h1 class="PageHeading-title">{{this}}</h1>
             {{/with}}
@@ -25,9 +22,9 @@
             {{#with articles}}
               {{#each this}}
                  <div class="PageHeading-articles__item {{#if this.isAlt}}PageHeading-articles__item_alt{{/if}}">
-                   <div class="PageHeading-articles-crumbs">
+                   <div class="crumbs">
                       {{#each this.crumbs}}
-                      <span class="PageHeading-articles-crumbs__item {{#if @last}}PageHeading-articles-crumbs__item_alt{{/if}}">{{this}}  {{#if @first}}/{{/if}} </span>
+                      <span class="crumbs__item {{#if @last}}crumbs__item_alt{{/if}}">{{this}}  {{#if @first}}/{{/if}} </span>
                       {{/each}}
                    </div>
                     {{#with this.title}}
